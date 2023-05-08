@@ -1,7 +1,7 @@
-NAME	=	megaphone
+NAME	=	phonebook
 
 SRCS	=	$(MAIN)
-MAIN	=	megaphone.cpp
+MAIN	=	phonebook.cpp
 
 OBJ_DIR	=	obj
 OBJS	=	$(SRCS:%.c=$(OBJ_DIR)/%.o)
