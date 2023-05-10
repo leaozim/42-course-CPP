@@ -43,6 +43,10 @@
 		"numeric": "cpp",
 		"random": "cpp",
 		"tuple": "cpp",
-		"utility": "cpp"
+		"utility": "cpp",
+		"map": "cpp",
+		"ctime": "cpp",
+		"iomanip": "cpp",
+		"sstream": "cpp"
 	}
 }
