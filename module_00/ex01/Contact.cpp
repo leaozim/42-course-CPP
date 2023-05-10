@@ -19,52 +19,33 @@ std::string Contact::get_phone_number(void) const { return this->_phone_number; 
 
 std::string Contact::get_darkest_secret(void)const { return this->_darkest_secret; }
 
+
+std::string  Contact::create_input(std::string cmd, std::string msg_error,	bool (*is_valid)(std::string))
+{	
+	std::string input;
+
+	while (true)
+	{
+		if (std::cin.eof() || std::cin.fail())
+			exit (0);
+		std::cout << cmd;
+		std::getline(std::cin, input);
+		if (is_valid(input))
+			return (input);
+		else std::cout << msg_error << std::endl;
+	}
+	return (NULL);
+}
+
 Contact Contact::create_contatc(void)
 {
 	std::string first_name, last_name, nickname, phone_number, darkest_secret;
 
-	while (first_name.empty())
-	{
-		std::cout << "First name: ";
-   	 	std::getline(std::cin, first_name);
-    	// first_name = if (validator.name(first_name));
-   		 if (!first_name.empty() || std::cin.fail())
-      		break ;
-    }
-	while (last_name.empty())
-	{
-		std::cout << "Last name: ";
-   	 	std::getline(std::cin, last_name);
-    	// last_name = valid_name(last_name);
-   		 if (!last_name.empty() || std::cin.fail())  
-      		break ;
-    }
-	while (nickname.empty())
-	{
-		std::cout << "Nickname: ";
-   	 	std::getline(std::cin, nickname);
-    	// nickname = valid_name(nickname);
-   		 if (!nickname.empty() || std::cin.fail()) 
-      		break ;
-    }
-	while (phone_number.empty())
-	{
-		std::cout << "Phone Number: ";
-   	 	std::getline(std::cin, phone_number);
-    	// phone_number = valid_name(phone_number);
-   		 if (!phone_number.empty() || std::cin.fail()) 
-      		break ;
-    }
-	while (darkest_secret.empty() )
-	{
-		std::cout << "Darkest Secret: ";
-   	 	std::getline(std::cin, darkest_secret);
-    	// darkest_secret = valid_name(darkest_secret);
-   		 if (!darkest_secret.empty() || std::cin.fail()) 
-      		break ;
-    }
-	if (std::cin.fail()) {
-		exit(0);
-	}
+	first_name = create_input(NAME, ERROR_NAME, Validator::is_valid_name);
+	last_name = create_input(L_NAME, ERROR_NAME, Validator::is_valid_name);
+	nickname = create_input(NICK, ERROR_INPUT, Validator::is_valid_input);
+	phone_number = create_input(NUMBER, ERROR_NUMBER, Validator::is_valid_number);
+	darkest_secret = create_input(SECRET, ERROR_INPUT,Validator::is_valid_input);
+
 	return Contact(first_name, last_name, nickname, phone_number, darkest_secret);
 }

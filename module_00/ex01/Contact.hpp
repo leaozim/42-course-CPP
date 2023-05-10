@@ -1,8 +1,10 @@
 #ifndef CONTACT_H
 # define CONTACT_H
 
-#include <iostream>
+#include "Defines.hpp"
 #include <stdlib.h>
+#include "Validator.hpp"
+
 struct Contact
 {
 	public:
@@ -16,6 +18,8 @@ struct Contact
 		std::string			get_phone_number( void ) const;
 		std::string			get_darkest_secret( void ) const;
 		static Contact		create_contatc(void);
+		static std::string	create_input(std::string cmd, std::string msg_error, 
+							bool (*is_valid)(std::string));
 
 	private:
 		std::string			_first_name;

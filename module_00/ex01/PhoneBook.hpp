@@ -2,7 +2,6 @@
 # define PHONE_BOOK_H
 
 #include "Contact.hpp"
-#include "Validator.hpp"
 #include <iomanip>
 #include <map>
 
@@ -17,7 +16,8 @@ struct PhoneBook
 		void					exit(void);
 
 	private:
-		std::map<int, Contact>	_contacts;
+		Contact					_contacts[8];
+		int						_size;
 		int						_oldest;
 };
 
