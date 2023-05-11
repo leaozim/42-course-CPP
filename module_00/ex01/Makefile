@@ -1,7 +1,7 @@
 NAME	=	phonebook
 
 SRCS	=	$(MAIN)
-MAIN	=	main.cpp PhoneBook.cpp Contact.cpp Validator.cpp
+MAIN	=	main.cpp PhoneBook.cpp Contact.cpp Validator.cpp 
 
 OBJ_DIR	=	obj
 OBJS	=	$(SRCS:%.c=$(OBJ_DIR)/%.o)
@@ -12,7 +12,7 @@ CFLAGS	=	-Wall -Wextra -Werror -std=c++98
 
 VPATH	=	./
 
-HEADER	=	Contact.hpp PhoneBook.hpp Validator.hpp
+HEADER	=	Contact.hpp PhoneBook.hpp Validator.hpp 
 
 INCLUDE	=	-I ./ -I ./includes
 

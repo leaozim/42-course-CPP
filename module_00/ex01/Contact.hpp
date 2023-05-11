@@ -10,7 +10,7 @@ struct Contact
 	public:
 		Contact( void );
 		Contact(std::string name, std::string last_name, std::string nickname, 
-			std::string phone_number, std::string darkest_secret);
+				std::string phone_number, std::string darkest_secret);
 		~Contact ( void );
 		std::string			get_first_name( void ) const;
 		std::string			get_last_name( void ) const;
