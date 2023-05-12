@@ -11,11 +11,11 @@ struct PhoneBook
 		~PhoneBook ( void );
 		void					add_contact( Contact contact );
 		void					search_contact(void);
-		void					exit(void);
 		std::string				truncated_str(std::string str);
-		void					phonebook_header_print(void);
-		void					phonebook_list_print(void);
-		void					phonebook_index_print(void);
+		void					display_menu(int option);
+		void					display_header(void);
+		void					display_list(void);
+		void					display_index(void);
 
 	private:
 		Contact					_contacts[8];
