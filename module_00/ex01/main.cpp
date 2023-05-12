@@ -3,7 +3,6 @@
 int main(void)
 {
 	PhoneBook	phone_book;
-	Contact		contact;
 	std::string	input;
 
 	phone_book.display_menu(WELCOME);
@@ -20,7 +19,7 @@ int main(void)
 			input.clear();
 		}
 		if (input == ADD) {
-			phone_book.add_contact(contact.create_contatc());
+			phone_book.add_contact();
 		}
 		else if (input == SEARCH) {
 			phone_book.search_contact();
@@ -32,6 +31,5 @@ int main(void)
 		phone_book.display_menu(OPTIONS);
 	}
 	phone_book.~PhoneBook();
-	contact.~Contact();
 	return (0);
 }

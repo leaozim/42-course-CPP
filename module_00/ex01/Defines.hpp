@@ -5,7 +5,7 @@
 #define BLUE "\x1b[38;5;25m"
 #define RES "\x1b[0m"
 
-#define ERROR_INPUT "Invalid nickname! Must contain alphanumerics and must not be empty!"
+#define ERROR_INPUT "Invalid! Must contain alphanumerics and must not be empty!"
 #define ERROR_NAME "Invalid name! Cannot contain numbers and must not be empty!"
 #define ERROR_NUMBER "Invalid number! Can only contain numbers and must not be empty!" 
 #define ERROR_INDEX "Invalid index!"
