@@ -30,6 +30,5 @@ int main(void)
 		}
 		phone_book.display_menu(OPTIONS);
 	}
-	phone_book.~PhoneBook();
 	return (0);
 }
