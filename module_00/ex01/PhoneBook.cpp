@@ -70,26 +70,12 @@ void	PhoneBook::search_contact(void)
 	return ;
 }
 
-void	PhoneBook::display_menu(int option)
-{
-	if (option == WELCOME)
-	{
-		std::cout << PIPE << std::string(41, EQUALS) << PIPE << BR;
-		std::cout << std::setw(33) << std::setfill(SPACE) << WELCOME_MSG << BR;
-		std::cout << PIPE << std::string(41, EQUALS) << PIPE << BR;
-	}
-	else
-		std::cout << std::string(43, HYPHEN) << BR;
-	std::cout << std::setw(31) << std::setfill(SPACE) << OPTIONS_MSG << BR;
-	std::cout << std::string(43, HYPHEN) << BR;
-}
-
 void	PhoneBook::display_header(void)
 {
 	std::cout << PIPE << std::string(42, EQUALS) << PIPE << BR;
 	std::cout << std::setw(41) << std::setfill(SPACE) << TITLE << BR;
 	std::cout << PIPE << std::string(42, EQUALS) << PIPE << BR;
-	std::cout << RED
+	std::cout << YELLOW
 			  << std::setw(10) << ID			<< PIPE
 			  << std::setw(10) << FT_NAME		<< PIPE
 			  << std::setw(10) << LT_NAME		<< PIPE
@@ -150,4 +136,18 @@ void	PhoneBook::display_index(void)
 	index_str.clear();
 	std::cin.clear();
 	std::cout.clear();
+}
+
+void	PhoneBook::display_menu(int option)
+{
+	if (option == WELCOME)
+	{
+		std::cout << PIPE << std::string(41, EQUALS) << PIPE << BR;
+		std::cout << std::setw(47) << std::setfill(SPACE) << WELCOME_MSG << BR;
+		std::cout << PIPE << std::string(41, EQUALS) << PIPE << BR;
+	}
+	else
+		std::cout << std::string(43, HYPHEN) << BR;
+	std::cout << YELLOW << std::setw(31) << std::setfill(SPACE) << OPTIONS_MSG << RES << BR;
+	std::cout << std::string(43, HYPHEN) << BR;
 }

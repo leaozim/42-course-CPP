@@ -15,7 +15,7 @@ void voice_amplifier(char **the_scream, int num_arg) {
 	for (int i = 1; i < num_arg; i++)
 	{
 		its_time_to_scream(the_scream[i]);
-		if (i != num_arg -1)
+		if (i != num_arg - 1)
 			std::cout << " ";
 	}
 	std::cout << std::endl;

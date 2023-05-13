@@ -4,7 +4,7 @@ SRCS	=	$(MAIN)
 MAIN	=	main.cpp PhoneBook.cpp Contact.cpp Validator.cpp 
 
 OBJ_DIR	=	obj
-OBJS	=	$(SRCS:%.c=$(OBJ_DIR)/%.o)
+OBJS	=	$(SRCS:%.cpp=$(OBJ_DIR)/%.o)
 
 
 CC 		=	c++
@@ -21,7 +21,7 @@ all:		$(NAME)
 $(NAME): $(OBJ_DIR) $(OBJS)
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
-$(OBJ_DIR)/%.o: %.c $(HEADER)
+$(OBJ_DIR)/%.o: %.cpp $(HEADER)
 	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
 
 $(OBJ_DIR):

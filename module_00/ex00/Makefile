@@ -31,4 +31,9 @@ fclean:		clean
 
 re:			fclean all
 
+test:	all
+		./$(NAME) "shhhhh... I think the students are asleep..."
+		./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off."
+		./$(NAME)
+
 .PHONY: all clean fclean re 

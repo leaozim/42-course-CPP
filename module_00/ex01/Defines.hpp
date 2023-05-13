@@ -2,7 +2,9 @@
 #define DEFINES_HPP
 
 #define RED "\x1b[38;5;88m"
+#define GREEN "\x1b[38;5;40m"
 #define BLUE "\x1b[38;5;25m"
+#define YELLOW "\x1b[38;5;220m"
 #define RES "\x1b[0m"
 
 #define ERROR_INPUT "Invalid! Must contain alphanumerics and must not be empty!"
@@ -24,11 +26,11 @@
 #define PHO_NUMBER "Number"
 #define DARK_SECRET "Secret"
 #define LIST_IS_EMPTY "Sorry, your phone book is empty!"
-#define TITLE BLUE " CONTACTS LIST" RES
+#define TITLE GREEN " CONTACTS LIST" RES
 #define MAX_CONTACTS 8
 #define WELCOME 1
 #define OPTIONS 2
-#define WELCOME_MSG "WELCOME TO MY PHONE BOOK" 
+#define WELCOME_MSG GREEN "WELCOME TO MY PHONE BOOK" RES
 #define OPTIONS_MSG  "ADD | SEARCH | EXIT"
 #define BR "\n"
 #define PIPE "|"
