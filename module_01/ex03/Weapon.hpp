@@ -2,20 +2,19 @@
 #define WEAPON_HPP
 
 #include <string>
+#include <iostream>
 
 class Weapon 
 {
 	public:
 		Weapon();
-		Weapon( std::string name );
+		Weapon( std::string type );
 		~Weapon();
-		std::string		get_zombie_name( void );
-		void			set_zombie_name( std::string name);
-		void			announce( void );
+		std::string const &	getType( void ) const;
+		void				setType( std::string type);
 
 	private:
-		std::string		_name;
+		std::string			_type;
 };
-
 
 #endif

@@ -1,0 +1,37 @@
+NAME	=	Weapon
+
+SRCS	=	$(MAIN)
+MAIN	=	main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+
+OBJ_DIR	=	obj
+OBJS	=	$(SRCS:%.cpp=$(OBJ_DIR)/%.o)
+
+HEADER	=	Weapon.hpp HumanA.hpp HumanB.hpp
+
+CC 		=	c++
+CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g3
+
+VPATH	=	./
+
+INCLUDE	=	-I ./ -I ./includes
+
+all:		$(NAME)
+
+$(NAME): $(OBJ_DIR) $(OBJS)
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+$(OBJ_DIR)/%.o: %.cpp $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDE)
+
+$(OBJ_DIR):
+	mkdir -p $@
+
+clean:
+			rm -rf obj
+
+fclean:		clean
+			rm -f $(NAME)
+
+re:			fclean all
+
+.PHONY: all clean fclean re 
