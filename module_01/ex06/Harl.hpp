@@ -5,7 +5,6 @@
 #include <iostream>
 #include <iomanip>
 
-
 #define RED "\x1b[38;5;88m"
 #define GREEN "\x1b[38;5;40m"
 #define BLUE "\x1b[38;5;25m"

@@ -33,7 +33,7 @@ int	replace(std::string file, std::string s1, std::string s2)
 
 int	main(int argc, char **argv) 
 {
-	int status;
+	int	status;
 
 	if (argc != 4)
 		return (1);

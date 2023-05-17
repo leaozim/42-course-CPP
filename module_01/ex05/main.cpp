@@ -6,6 +6,7 @@ static	void print_format(std::string level)
 	std::cout << YELLOW << level << " :" << RES << std::endl;
 
 }
+
 int	main(void)
 {
 	Harl harl;
@@ -13,11 +14,11 @@ int	main(void)
 	print_format("DEBUG");
 	harl.complain("DEBUG");
 
-	print_format("WARNING");
-	harl.complain("WARNING");
-
 	print_format("INFO");
 	harl.complain("INFO");
+
+	print_format("WARNING");
+	harl.complain("WARNING");
 
 	print_format("ERROR");
 	harl.complain("ERROR");

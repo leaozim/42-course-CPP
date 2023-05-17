@@ -44,8 +44,5 @@ void Harl::complain(std::string level) {
 			return;
 		}
 	}
-	std::cout << "This level does not exist" << std::endl;
+	std::cout << "This level does not exist!" << std::endl;
 }
-
-
-

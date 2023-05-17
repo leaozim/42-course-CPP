@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string>
+
 #define RED "\x1b[38;5;88m"
 #define RES "\x1b[0m"
 
-int	main( void ) {
+int	main( void ) 
+{
 	std::string	string =  "HI THIS IS BRAIN";
 	std::string	*stringPTR = &string;
 	std::string	&stringREF = string;

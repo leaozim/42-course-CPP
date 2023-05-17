@@ -65,7 +65,7 @@ void Harl::complain(std::string level) {
 			(this->*funcions[3].funcao)();
 			break ;
 		default:
-			std::cout << "I am not sure how tired I am today..." << std::endl;
+			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
 }
 
