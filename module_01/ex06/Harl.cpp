@@ -13,7 +13,7 @@ Harl::Harl() {
 
 Harl::~Harl() {}
 
-void Harl::debug() {
+void Harl::debug( void ) {
 	std::cout << "[ DEBUG ] \n"
 		<< "I love having extra bacon for my 7XL-double-cheese-triple-pickle-specialketchup burger.\n" 
 		<< "I really do!"
@@ -22,7 +22,7 @@ void Harl::debug() {
 
 }
 
-void Harl::info() {
+void Harl::info( void ) {
 	std::cout << "[ INFO ] \n"
 		<< "I cannot believe adding extra bacon costs more money. \n"
 		<< "You didn't put enough bacon in my burger! If you did, I wouldn't be asking for more!"
@@ -30,7 +30,7 @@ void Harl::info() {
 		<< std::endl;
 }
 
-void Harl::warning() {
+void Harl::warning( void ) {
 	std::cout << "[ WARNING ] \n"
 		<< "I think I deserve to have some extra bacon for free. \n"
 		<< "I've been coming for years whereas you started working her1e since last month."
@@ -38,14 +38,14 @@ void Harl::warning() {
 		<< std::endl;
 }
 
-void Harl::error() {
+void Harl::error( void ) {
 	std::cout << "[ ERROR ] \n"
 		<< "This is unacceptable! I want to speak to the manager now."
 		<< std::endl
 		<< std::endl;
 }
 
-void Harl::complain(std::string level) {
+void Harl::complain( std::string level ) {
 	int numLevel= 0;
 
 	for (int i = 0; i < 4 && level != funcions[i].nivel; ++i)
@@ -68,6 +68,3 @@ void Harl::complain(std::string level) {
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
 }
-
-
-

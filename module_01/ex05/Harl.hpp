@@ -14,9 +14,9 @@
 class Harl 
 {
 	public:
-		Harl( );
+		Harl();
 		Harl( std::string name );
-		~Harl( );
+		~Harl();
 		void complain( std::string level );
 
 	private:

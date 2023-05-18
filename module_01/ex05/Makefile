@@ -1,4 +1,4 @@
-NAME	=	Harl
+NAME	=	harl
 
 SRCS	=	$(MAIN)
 MAIN	=	main.cpp Harl.cpp

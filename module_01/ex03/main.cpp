@@ -2,7 +2,7 @@
 #include  "HumanA.hpp"
 #include  "HumanB.hpp"
 
-int main(void)
+int main( void )
 {
 	std::cout << std::string(48, '=') << std::endl;
 	{

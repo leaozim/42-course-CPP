@@ -1,6 +1,6 @@
 #include "Zombie.hpp"
 
-int main()
+int	main( void )
 {
 	Zombie	*walkingDead;
 	int		size;

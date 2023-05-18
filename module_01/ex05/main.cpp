@@ -1,13 +1,13 @@
 #include "Harl.hpp"
 
-static	void print_format(std::string level)
+static	void print_format( std::string level )
 {
 	std::cout << std::string(150, '-') << std::endl;
 	std::cout << YELLOW << level << " :" << RES << std::endl;
 
 }
 
-int	main(void)
+int	main( void )
 {
 	Harl harl;
 

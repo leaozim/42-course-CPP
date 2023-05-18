@@ -1,6 +1,6 @@
 #include "defines.h"
 
-int	replace(std::string file, std::string s1, std::string s2)
+int	replace( std::string file, std::string s1, std::string s2 )
 {
 	std::ifstream	ifs;
 	std::ofstream	ofs;
@@ -31,12 +31,15 @@ int	replace(std::string file, std::string s1, std::string s2)
 	return (0);
 }
 
-int	main(int argc, char **argv) 
+int	main( int argc, char **argv ) 
 {
 	int	status;
 
 	if (argc != 4)
+	{
+		std::cout << USAGE << std::endl;
 		return (1);
+	}
 	status = replace(argv[1], argv[2], argv[3]);
 	if (status == ERROR_FILE)
 		std::cout << OPEN_FILE << std::endl;

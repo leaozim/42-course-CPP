@@ -10,13 +10,15 @@
 #define BLUE "\x1b[38;5;25m"
 #define YELLOW "\x1b[38;5;220m"
 #define RES "\x1b[0m"
+#define USAGE "Usage: ./harlFilter FILTER"
+
 
 class Harl 
 {
 	public:
-		Harl( );
+		Harl();
 		Harl( std::string name );
-		~Harl( );
+		~Harl();
 		void complain( std::string level );
 
 	private:

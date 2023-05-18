@@ -1,9 +1,10 @@
 #include  "Zombie.hpp"
 
-int main()
+int main( void )
 {
-	Zombie	*walkingDead = newZombie("Rick");
-
+	Zombie	*walkingDead;
+	
+	walkingDead = newZombie("Rick");
 	std::cout << DEAD_HEAP << std::endl;
 	walkingDead->announce();
 	std::cout << std::endl << DEAD_STACK <<std::endl;

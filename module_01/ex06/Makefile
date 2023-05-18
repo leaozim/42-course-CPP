@@ -1,4 +1,4 @@
-NAME	=	harlFilte
+NAME	=	harlFilter
 
 SRCS	=	$(MAIN)
 MAIN	=	main.cpp Harl.cpp

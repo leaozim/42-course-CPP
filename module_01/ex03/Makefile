@@ -1,4 +1,4 @@
-NAME	=	Weapon
+NAME	=	weapon
 
 SRCS	=	$(MAIN)
 MAIN	=	main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
