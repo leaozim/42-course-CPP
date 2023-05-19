@@ -11,7 +11,7 @@ int	main( void )
 
 	std::cout 
 			<< RED << "• The memory address of the string variable: " << RES << &string << std::endl
-			<< RED << "• The memory address held by stringPTR: " << RES << &stringPTR << std::endl
+			<< RED << "• The memory address held by stringPTR: " << RES << stringPTR << std::endl
 			<< RED << "• The memory address held by stringREF: " << RES << &stringREF << std::endl;
 	std::cout << std::endl
 			 << RED << "• The value of the string variable: " << RES  << string << std::endl
