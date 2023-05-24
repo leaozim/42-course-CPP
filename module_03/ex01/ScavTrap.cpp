@@ -1,0 +1,81 @@
+#include "ScavTrap.hpp"
+
+/*
+** ------------------------------- CONSTRUCTOR --------------------------------
+*/
+
+ScavTrap::ScavTrap() : ClapTrap() {
+	std::cout << RED << "ScavTrap = " << RES << "Default constructor called" << std::endl;
+	this->setHitPoints(100);
+	this->setEnergyPoints(50);
+	this->setAttackDamage(20);
+	this->setType("ScavTrap");
+}
+
+ScavTrap::ScavTrap(std::string const name) : ClapTrap(name) {
+	std::cout << RED << "ScavTrap = " << RES << "Default constructor called" << std::endl;
+	this->setHitPoints(100);
+	this->setEnergyPoints(50);
+	this->setAttackDamage(20);
+	this->setType("ScavTrap");
+
+}
+
+ScavTrap::ScavTrap( const ClapTrap & rhs ) : ClapTrap(rhs) {
+	this->_hitPoints = rhs.getHitPoints();
+	this->_energyPoints = rhs.getEnergyPoints();
+	this->_attackDamage = rhs.getAttackDamage();
+}
+
+ScavTrap::ScavTrap( const ScavTrap & rhs ) : ClapTrap(rhs) {
+	std::cout << RED << "ScavTrap = " << RES << "Copy constructor called" << std::endl;
+	*this = rhs;
+}
+
+/*
+** -------------------------------- DESTRUCTOR --------------------------------
+*/
+
+ScavTrap::~ScavTrap() {
+	std::cout << RED << "ScavTrap = " << RES << "Destructor called" << std::endl;
+
+}
+
+/*
+** --------------------------------- OVERLOAD ---------------------------------
+*/
+
+ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs )
+{
+	if (this != &rhs) {
+		std::cout << RED <<"ScavTrap = " << RES << "Copy assignment operator called" << std::endl;
+		this->_name = rhs.getName();
+		this->_hitPoints = rhs.getHitPoints();
+		this->_energyPoints = rhs.getEnergyPoints();
+		this->_attackDamage = rhs.getAttackDamage();
+		this->_type = "ScavTrap";
+	}
+	return (*this);
+}
+
+std::ostream &			operator<<( std::ostream & o, ScavTrap const & i )
+{
+	o << i.getName();
+	return o;
+}
+
+/*
+** --------------------------------- METHODS ----------------------------------
+*/
+	
+void					ScavTrap::guardGate( void ) {
+	std::cout << RED << "ScavTrap = " << RES 
+	<< "ScavTrap is now in Gate keeper mode." << std::endl;
+}
+
+/*
+** --------------------------------- ACCESSOR ---------------------------------
+*/
+
+
+/* ************************************************************************** */
