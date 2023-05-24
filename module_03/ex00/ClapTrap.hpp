@@ -4,6 +4,13 @@
 # include <iostream>
 # include <string>
 
+# define MAGENTA "\033[35m"
+# define RED "\x1b[38;5;88m"
+# define GREEN "\x1b[38;5;40m"
+# define BLUE "\x1b[38;5;25m"
+# define YELLOW "\x1b[38;5;220m"
+# define RES "\x1b[0m"
+
 class ClapTrap
 {
 
