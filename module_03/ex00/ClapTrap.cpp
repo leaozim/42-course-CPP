@@ -6,16 +6,19 @@
 
 ClapTrap::ClapTrap() 
 	: _name("C-3PO"), _hitPoints(10),  _energyPoints(10), _attackDamage(0) {
-	std::cout << " Default constructor called" << std::endl;
+	std::cout << YELLOW << "ClapTrap = " << RES
+			  << "Default constructor called" << std::endl;
 }
 
 ClapTrap::ClapTrap( std::string name ) 
-	: _name(name), _hitPoints(10),  _energyPoints(10), _attackDamage(0)  { 
-	std::cout << "Constructor with name passed as parameter" << std::endl;
+	: _name(name), _hitPoints(10),  _energyPoints(10), _attackDamage(0)  {
+	std::cout << YELLOW << "ClapTrap = " << RES
+			  << "Constructor with name passed as parameter" << std::endl;
 }
 
 ClapTrap::ClapTrap( const ClapTrap & src ) {
-	std::cout << "Copy constructor called" << std::endl;
+	std::cout << YELLOW << "ClapTrap = " << RES
+			  << "Copy constructor called" << std::endl;
 	*this = src;
 }
 
@@ -24,7 +27,8 @@ ClapTrap::ClapTrap( const ClapTrap & src ) {
 */
 
 ClapTrap::~ClapTrap() {
-	std::cout << "Destructor called" << std::endl;
+	std::cout << YELLOW << "ClapTrap = " << RES
+			  << "Destructor called" << std::endl;
 }
 
 /*
@@ -34,7 +38,7 @@ ClapTrap::~ClapTrap() {
 ClapTrap &		ClapTrap::operator=( ClapTrap const & rhs ) {
 	
 	if ( this != &rhs )
-	{
+	{	std::cout << YELLOW << "ClapTrap = " << RES;
 		std::cout << "Copy assignment operator called" << std::endl;
 		this->_name = rhs.getName();
 		this->_hitPoints = rhs.getHitPoints();

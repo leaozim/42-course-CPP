@@ -34,8 +34,8 @@ ClapTrap::~ClapTrap() {
 ClapTrap &		ClapTrap::operator=( ClapTrap const & rhs ) {
 	
 	if ( this != &rhs ) {
-		std::cout << YELLOW <<"ClapTrap = " << RES 
-				  << "Copy assignment operator called"
+		std::cout << YELLOW <<"ClapTrap = " << RES
+				  << "Copy assignment operator called" 
 				  << std::endl;
 		this->_name = rhs.getName();
 		this->_hitPoints = rhs.getHitPoints();
@@ -55,7 +55,7 @@ std::ostream &	operator<<( std::ostream & o, ClapTrap const & i ) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void			ClapTrap::attack( const std::string& target ) {
+void			ClapTrap::attack(const std::string& target) {
 	if (this->_energyPoints > 0) {
 		_energyPoints--;
 		std::cout << GREEN << this->_type <<" = " << RES
@@ -72,7 +72,7 @@ void			ClapTrap::attack( const std::string& target ) {
 				  << this->_energyPoints <<  "]"
 				  << std::endl;
 	}
-	else if (this->_hitPoints <= 0 || this->_energyPoints <= 0)	{
+	else if (this->_hitPoints <= 0 || this->_energyPoints <= 0) {
 		std::cout << GREEN << this->_type <<" = " << RES
 				  << this->_name
 				  << " can't attack!"
@@ -81,7 +81,7 @@ void			ClapTrap::attack( const std::string& target ) {
 }
 
 void			ClapTrap::takeDamage(unsigned int amount) {
-	if (_hitPoints > 0)	{
+	if (_hitPoints > 0) {
 		this->_hitPoints -= amount;
 		std::cout << GREEN << this->_type <<" = " << RES
 				  << this->_name 
@@ -108,7 +108,7 @@ void			ClapTrap::takeDamage(unsigned int amount) {
 	}
 }
 
-void			ClapTrap::beRepaired( unsigned int amount ) {
+void			ClapTrap::beRepaired(unsigned int amount) {
 
 	if (this->_energyPoints <=0) {
 		std::cout << GREEN << this->_type <<" = " << RES

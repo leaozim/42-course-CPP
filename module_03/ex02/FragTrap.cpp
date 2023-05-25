@@ -4,12 +4,31 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-FragTrap::FragTrap()
-{
+FragTrap::FragTrap() {
+	std::cout << YELLOW << "FragTrap = " << RES << "Default constructor called" << std::endl;
+	this->setHitPoints(100);
+	this->setEnergyPoints(100);
+	this->setAttackDamage(30);
+	this->setType("FragTrap");
 }
 
-FragTrap::FragTrap( const FragTrap & src )
-{
+FragTrap::FragTrap(std::string const name) : ClapTrap(name) {
+	std::cout << RED << "FragTrap = " << RES << "Default constructor called" << std::endl;
+	this->setHitPoints(100);
+	this->setEnergyPoints(100);
+	this->setAttackDamage(30);
+	this->setType("FragTrap");
+}
+
+FragTrap::FragTrap( const ClapTrap & rhs ) : ClapTrap(rhs) {
+	this->_hitPoints = rhs.getHitPoints();
+	this->_energyPoints = rhs.getEnergyPoints();
+	this->_attackDamage = rhs.getAttackDamage();
+}
+
+FragTrap::FragTrap( const FragTrap & rhs ) : ClapTrap(rhs) {
+	std::cout << RED << "ScavTrap = " << RES << "Copy constructor called" << std::endl;
+	*this = rhs;
 }
 
 
@@ -17,8 +36,8 @@ FragTrap::FragTrap( const FragTrap & src )
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-FragTrap::~FragTrap()
-{
+FragTrap::~FragTrap() {
+	std::cout << RED << "FragTrap = " << RES << "Destructor called" << std::endl;
 }
 
 
@@ -26,30 +45,40 @@ FragTrap::~FragTrap()
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-FragTrap &				FragTrap::operator=( FragTrap const & rhs )
-{
-	//if ( this != &rhs )
-	//{
-		//this->_value = rhs.getValue();
-	//}
-	return *this;
+FragTrap &				FragTrap::operator=( FragTrap const & rhs ) {
+	if (this != &rhs) {
+		std::cout << RED <<"FragTrap = " << RES 
+				  << "Copy assignment operator called"
+				  << std::endl;
+		this->_name = rhs.getName();
+		this->_hitPoints = rhs.getHitPoints();
+		this->_energyPoints = rhs.getEnergyPoints();
+		this->_attackDamage = rhs.getAttackDamage();
+		this->_type = "FragTrap";
+	}
+	return (*this);
 }
 
-std::ostream &			operator<<( std::ostream & o, FragTrap const & i )
-{
-	// o << "Value = " << i.getName();
-	return o;
+std::ostream &			operator<<( std::ostream & o, FragTrap const & i ) {
+	o << i.getName();
+	return (o);
 }
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
+void					FragTrap::highFivesGuys( void ) {
+	if (this->_hitPoints <= 0) {
+		std::cout << CYAN << "FragTrap = " << RES 
+				  << "It is offensive to greet a dead roboot! :x" 
+				  << std::endl;
+	}
+	else {
+		std::cout << CYAN << "FragTrap = " << RES 
+				  << "High fives! o/\\o" 
+				  << std::endl;
+	}
+}
 
 /* ************************************************************************** */

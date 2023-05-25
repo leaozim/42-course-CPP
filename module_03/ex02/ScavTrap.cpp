@@ -12,7 +12,7 @@ ScavTrap::ScavTrap() : ClapTrap() {
 	this->setType("ScavTrap");
 }
 
-ScavTrap::ScavTrap( std::string const name ) : ClapTrap(name) {
+ScavTrap::ScavTrap(std::string const name) : ClapTrap(name) {
 	std::cout << RED << "ScavTrap = " << RES << "Default constructor called" << std::endl;
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
@@ -38,7 +38,6 @@ ScavTrap::ScavTrap( const ScavTrap & rhs ) : ClapTrap(rhs) {
 
 ScavTrap::~ScavTrap() {
 	std::cout << RED << "ScavTrap = " << RES << "Destructor called" << std::endl;
-
 }
 
 /*
@@ -47,8 +46,8 @@ ScavTrap::~ScavTrap() {
 
 ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs ) {
 	if (this != &rhs) {
-		std::cout << RED <<"ScavTrap = " << RES
-				  << "Copy assignment operator called" 
+		std::cout << RED <<"ScavTrap = " << RES 
+				  << "Copy assignment operator called"
 				  << std::endl;
 		this->_name = rhs.getName();
 		this->_hitPoints = rhs.getHitPoints();
@@ -81,6 +80,5 @@ void					ScavTrap::guardGate( void ) {
 				  << std::endl;
 	}
 }
-
 
 /* ************************************************************************** */
