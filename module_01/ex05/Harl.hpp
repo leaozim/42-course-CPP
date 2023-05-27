@@ -17,15 +17,15 @@ class Harl
 		Harl();
 		Harl( std::string name );
 		~Harl();
-		void complain( std::string level );
+		void 				complain( std::string level );
 
 	private:
-		void debug( void );
-		void info( void );
-		void warning( void );
-		void error( void );
+		void 				debug( void );
+		void 				info( void );
+		void 				warning( void );
+		void 				error( void );
 
-		struct mappedFunction
+		struct	mappedFunction
 		{
 			std::string		nivel;
  			void			(Harl::*funcao)();

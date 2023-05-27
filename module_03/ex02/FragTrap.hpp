@@ -8,15 +8,15 @@ class FragTrap : public ClapTrap
 	public:
 		FragTrap();
 		FragTrap( std::string const name );
-		FragTrap( const ClapTrap & rhs );
-		FragTrap( FragTrap const & src );
+		FragTrap( const ClapTrap &rhs );
+		FragTrap( FragTrap const &rhs );
 		~FragTrap();
 
-		FragTrap &		operator=( FragTrap const & rhs );
+		FragTrap	&operator=( FragTrap const &rhs );
 
-		void			highFivesGuys( void );
+		void		highFivesGuys( void );
 };
 
-std::ostream &			operator<<( std::ostream & o, FragTrap const & i );
+std::ostream		&operator<<( std::ostream &output, FragTrap const &i );
 
 #endif /* ******************************************************** FRAGTRAP_H */

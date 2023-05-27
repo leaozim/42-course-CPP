@@ -9,10 +9,10 @@ class Fixed
 		Fixed();
 		Fixed( const int n );
 		Fixed( const float n );
-		Fixed( Fixed const & src );
+		Fixed( Fixed const &rhs );
 		~Fixed();
 
-		Fixed & operator=( Fixed const & fixed );
+		Fixed	&operator=( Fixed const &fixed );
 		int		getRawBits( void ) const;
 		void	setRawBits( int const raw );
 		float	toFloat( void ) const;
@@ -23,6 +23,6 @@ class Fixed
 		static const int	_fracBits;
 };
 
-std::ostream & operator<<(std::ostream &o, Fixed const &fixed);
+std::ostream & operator<<( std::ostream &output, Fixed const &i );
 
 #endif

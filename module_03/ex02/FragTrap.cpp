@@ -5,7 +5,7 @@
 */
 
 FragTrap::FragTrap() {
-	std::cout << YELLOW << "FragTrap = " << RES << "Default constructor called" << std::endl;
+	std::cout << ORANGE << "FragTrap = " << RES << "Default constructor called" << std::endl;
 	this->setHitPoints(100);
 	this->setEnergyPoints(100);
 	this->setAttackDamage(30);
@@ -13,21 +13,21 @@ FragTrap::FragTrap() {
 }
 
 FragTrap::FragTrap(std::string const name) : ClapTrap(name) {
-	std::cout << RED << "FragTrap = " << RES << "Default constructor called" << std::endl;
+	std::cout << ORANGE << "FragTrap = " << RES << "Default constructor called" << std::endl;
 	this->setHitPoints(100);
 	this->setEnergyPoints(100);
 	this->setAttackDamage(30);
 	this->setType("FragTrap");
 }
 
-FragTrap::FragTrap( const ClapTrap & rhs ) : ClapTrap(rhs) {
+FragTrap::FragTrap( const ClapTrap &rhs ) : ClapTrap(rhs) {
 	this->_hitPoints = rhs.getHitPoints();
 	this->_energyPoints = rhs.getEnergyPoints();
 	this->_attackDamage = rhs.getAttackDamage();
 }
 
-FragTrap::FragTrap( const FragTrap & rhs ) : ClapTrap(rhs) {
-	std::cout << RED << "ScavTrap = " << RES << "Copy constructor called" << std::endl;
+FragTrap::FragTrap( const FragTrap &rhs ) : ClapTrap(rhs) {
+	std::cout << ORANGE << "FragTrap = " << RES << "Copy constructor called" << std::endl;
 	*this = rhs;
 }
 
@@ -37,7 +37,7 @@ FragTrap::FragTrap( const FragTrap & rhs ) : ClapTrap(rhs) {
 */
 
 FragTrap::~FragTrap() {
-	std::cout << RED << "FragTrap = " << RES << "Destructor called" << std::endl;
+	std::cout << ORANGE << "FragTrap = " << RES << "Destructor called" << std::endl;
 }
 
 
@@ -45,9 +45,9 @@ FragTrap::~FragTrap() {
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-FragTrap &				FragTrap::operator=( FragTrap const & rhs ) {
+FragTrap		&FragTrap::operator=( FragTrap const &rhs ) {
 	if (this != &rhs) {
-		std::cout << RED <<"FragTrap = " << RES 
+		std::cout << ORANGE <<"FragTrap = " << RES 
 				  << "Copy assignment operator called"
 				  << std::endl;
 		this->_name = rhs.getName();
@@ -59,16 +59,16 @@ FragTrap &				FragTrap::operator=( FragTrap const & rhs ) {
 	return (*this);
 }
 
-std::ostream &			operator<<( std::ostream & o, FragTrap const & i ) {
-	o << i.getName();
-	return (o);
+std::ostream	&operator<<( std::ostream &output, FragTrap const &i ) {
+	output << i.getName();
+	return (output);
 }
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void					FragTrap::highFivesGuys( void ) {
+void			FragTrap::highFivesGuys( void ) {
 	if (this->_hitPoints <= 0) {
 		std::cout << CYAN << "FragTrap = " << RES 
 				  << "It is offensive to greet a dead roboot! :x" 

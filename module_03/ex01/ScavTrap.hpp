@@ -9,15 +9,15 @@ class ScavTrap : public ClapTrap
 
 		ScavTrap();
 		ScavTrap( std::string const name );
-		ScavTrap( const ClapTrap & rhs );
-		ScavTrap( ScavTrap const & src );
+		ScavTrap( const ClapTrap &rhs );
+		ScavTrap( ScavTrap const &rhs );
 		~ScavTrap();
 
-		ScavTrap &		operator=( ScavTrap const & rhs );
+		ScavTrap	&operator=( ScavTrap const & rhs );
 
-		void			guardGate( void );
+		void		guardGate( void );
 };
 
-std::ostream &			operator<<( std::ostream & o, ScavTrap const & i );
+std::ostream		&operator<<( std::ostream &output, ScavTrap const &i );
 
 #endif /* ******************************************************** SCAVTRAP_H */

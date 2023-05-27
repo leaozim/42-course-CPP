@@ -17,7 +17,6 @@ int main( void )
 	ClapTrap	robot3("R2-D2");
 	ClapTrap	robot4;
 
-
 	print_header("FIGHT");
 	robot1.attack(robot2.getName());
 	robot2.takeDamage(robot1.getAttackDamage());

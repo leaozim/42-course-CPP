@@ -1,16 +1,16 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed(void) : _rawBits(0){
+Fixed::Fixed( void ) : _rawBits(0){
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(const int n) : _rawBits(n){
+Fixed::Fixed( const int n ) : _rawBits(n){
 	std::cout << "Parametric constructor called" << std::endl;
 }
 
-Fixed::Fixed(const Fixed &src) {
+Fixed::Fixed( const Fixed &rhs ) {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
+	*this = rhs;
 }
 
 Fixed::~Fixed() {

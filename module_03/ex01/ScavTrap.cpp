@@ -5,7 +5,7 @@
 */
 
 ScavTrap::ScavTrap() : ClapTrap() {
-	std::cout << RED << "ScavTrap = " << RES << "Default constructor called" << std::endl;
+	std::cout << LIGHT_PURPLE << "ScavTrap = " << RES << "Default constructor called" << std::endl;
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
 	this->setAttackDamage(20);
@@ -13,7 +13,7 @@ ScavTrap::ScavTrap() : ClapTrap() {
 }
 
 ScavTrap::ScavTrap( std::string const name ) : ClapTrap(name) {
-	std::cout << RED << "ScavTrap = " << RES << "Default constructor called" << std::endl;
+	std::cout << LIGHT_PURPLE << "ScavTrap = " << RES << "Default constructor called" << std::endl;
 	this->setHitPoints(100);
 	this->setEnergyPoints(50);
 	this->setAttackDamage(20);
@@ -21,14 +21,14 @@ ScavTrap::ScavTrap( std::string const name ) : ClapTrap(name) {
 
 }
 
-ScavTrap::ScavTrap( const ClapTrap & rhs ) : ClapTrap(rhs) {
+ScavTrap::ScavTrap( const ClapTrap &rhs ) : ClapTrap(rhs) {
 	this->_hitPoints = rhs.getHitPoints();
 	this->_energyPoints = rhs.getEnergyPoints();
 	this->_attackDamage = rhs.getAttackDamage();
 }
 
-ScavTrap::ScavTrap( const ScavTrap & rhs ) : ClapTrap(rhs) {
-	std::cout << RED << "ScavTrap = " << RES << "Copy constructor called" << std::endl;
+ScavTrap::ScavTrap( const ScavTrap &rhs ) : ClapTrap(rhs) {
+	std::cout << LIGHT_PURPLE << "ScavTrap = " << RES << "Copy constructor called" << std::endl;
 	*this = rhs;
 }
 
@@ -37,7 +37,7 @@ ScavTrap::ScavTrap( const ScavTrap & rhs ) : ClapTrap(rhs) {
 */
 
 ScavTrap::~ScavTrap() {
-	std::cout << RED << "ScavTrap = " << RES << "Destructor called" << std::endl;
+	std::cout << LIGHT_PURPLE << "ScavTrap = " << RES << "Destructor called" << std::endl;
 
 }
 
@@ -45,9 +45,9 @@ ScavTrap::~ScavTrap() {
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs ) {
+ScavTrap		&ScavTrap::operator=( ScavTrap const &rhs ) {
 	if (this != &rhs) {
-		std::cout << RED <<"ScavTrap = " << RES
+		std::cout << LIGHT_PURPLE <<"ScavTrap = " << RES
 				  << "Copy assignment operator called" 
 				  << std::endl;
 		this->_name = rhs.getName();
@@ -59,16 +59,16 @@ ScavTrap &				ScavTrap::operator=( ScavTrap const & rhs ) {
 	return (*this);
 }
 
-std::ostream &			operator<<( std::ostream & o, ScavTrap const & i ) {
-	o << i.getName();
-	return o;
+std::ostream	&operator<<( std::ostream &output, ScavTrap const &i ) {
+	output << i.getName();
+	return (output);
 }
 
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
 	
-void					ScavTrap::guardGate( void ) {
+void			ScavTrap::guardGate( void ) {
 	if (this->_hitPoints <= 0) {
 		std::cout << CYAN << "ScavTrap = " << RES 
 				  << "Can't guard Gate, he is death! :c" 

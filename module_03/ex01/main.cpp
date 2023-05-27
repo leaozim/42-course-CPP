@@ -32,7 +32,6 @@ int main( void )
 
 	std::cout << std::endl << std::string(93, '-') << std::endl;
 
-
 	for (int i = 0; i < 50; i++) 
 		robot3.attack(robot4.getName());
 	robot3.attack(robot4.getName());

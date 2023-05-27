@@ -14,7 +14,7 @@ int main( void )
 	Fixed fixed1(3.5f);
 	Fixed fixed2(2);
 	Fixed fixed3(3);
-	Fixed const fixed4(2);
+	Fixed const fixed4(1);
 	Fixed const fixed5(3);
 	Fixed f(5);
 	Fixed fcopy(5);
@@ -63,11 +63,10 @@ int main( void )
 	std::cout << f << std::endl;
 	std::cout << fcopy << std::endl;
 	print_header("Max");
-	std::cout << Fixed::max( fixed1, fixed2 ) << std::endl;
-	std::cout << Fixed::max( fixed1, fixed2 ) << std::endl;
+	std::cout << Fixed::max(fixed1, fixed2) << std::endl;
+	std::cout << Fixed::max(fixed4, fixed5) << std::endl;
 	print_header("Min");
-	std::cout << Fixed::min( fixed1, fixed2 ) << std::endl;
-	std::cout << Fixed::min( fixed1, fixed2) << std::endl;
-
-return 0;
+	std::cout << Fixed::min(fixed1, fixed2) << std::endl;
+	std::cout << Fixed::min(fixed5, fixed4) << std::endl;
+	return 0;
 }

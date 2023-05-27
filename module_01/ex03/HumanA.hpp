@@ -10,11 +10,11 @@ class HumanA
 	public:
 		HumanA( std::string name, Weapon const& weapon );
 		~HumanA();
-		void	attack( void );
+		void			attack( void );
 
 	private:
 		std::string		_name;
-		Weapon const&	_weapon;
+		Weapon const	&_weapon;
 };
 
 #endif

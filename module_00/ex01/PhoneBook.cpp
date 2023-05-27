@@ -1,10 +1,10 @@
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook(void) :  _size(0), _oldest(0) {}
+PhoneBook::PhoneBook( void ) :  _size(0), _oldest(0) {}
 
-PhoneBook::~PhoneBook(void) { return ; }
+PhoneBook::~PhoneBook( void ) { return ; }
 
-bool	PhoneBook::create_input(std::string cmd, std::string &input, bool (*is_valid)(std::string))
+bool	PhoneBook::create_input( std::string cmd, std::string &input, bool (*is_valid)(std::string) )
 {	
 	std::string user_input;
 
@@ -23,7 +23,7 @@ bool	PhoneBook::create_input(std::string cmd, std::string &input, bool (*is_vali
 	return (false);
 }
 
-void PhoneBook::fill_contacts(std::string input[], int id)
+void PhoneBook::fill_contacts( std::string input[], int id )
 {
 		this->_contacts[id].set_first_name(input[0]);
 		this->_contacts[id].set_last_name(input[1]);
@@ -32,7 +32,7 @@ void PhoneBook::fill_contacts(std::string input[], int id)
 		this->_contacts[id].set_darkest_secret(input[4]);
 }
 
-void	PhoneBook::add_contact(void)
+void	PhoneBook::add_contact( void )
 {	
 	std::string input[5];
 
@@ -57,7 +57,7 @@ void	PhoneBook::add_contact(void)
 	}
 }
 
-void	PhoneBook::search_contact(void)
+void	PhoneBook::search_contact( void )
 {
 	if (this->_size == 0)
 	{
@@ -70,7 +70,7 @@ void	PhoneBook::search_contact(void)
 	return ;
 }
 
-void	PhoneBook::display_header(void)
+void	PhoneBook::display_header( void )
 {
 	std::cout << PIPE << std::string(42, EQUALS) << PIPE << BR;
 	std::cout << std::setw(41) << std::setfill(SPACE) << TITLE << BR;
@@ -86,7 +86,7 @@ void	PhoneBook::display_header(void)
 	std::cout.clear();
 }
 
-std::string	PhoneBook::truncated_str(std::string str)
+std::string	PhoneBook::truncated_str( std::string str )
 {
 	if (str.length() > 10)
 	{
@@ -110,7 +110,7 @@ void	PhoneBook::display_list(void)
 	std::cout.clear();
 }
 
-void	PhoneBook::display_index(void)
+void	PhoneBook::display_index( void )
 {
 	std::string	index_str;
 	int			index;
@@ -138,7 +138,7 @@ void	PhoneBook::display_index(void)
 	std::cout.clear();
 }
 
-void	PhoneBook::display_menu(int option)
+void	PhoneBook::display_menu( int option )
 {
 	if (option == WELCOME)
 	{

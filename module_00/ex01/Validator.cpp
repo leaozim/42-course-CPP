@@ -1,6 +1,6 @@
 #include "Validator.hpp"
 
-bool Validator::is_valid_name(std::string str) {
+bool Validator::is_valid_name( std::string str ) {
 	if (str.empty())
 	{
 		std::cout << ERROR_NAME << std::endl;
@@ -15,7 +15,7 @@ bool Validator::is_valid_name(std::string str) {
 	return (true);
 }
 
-bool Validator::is_valid_input(std::string str) {
+bool Validator::is_valid_input( std::string str ) {
 	if (str.empty())
 	{
 		std::cout << ERROR_INPUT << std::endl;
@@ -24,7 +24,7 @@ bool Validator::is_valid_input(std::string str) {
 	return (true);
 }
 
-bool Validator::is_valid_number(std::string str) {
+bool Validator::is_valid_number( std::string str ) {
 	if (str.empty())
 	{
 		std::cout << ERROR_NUMBER << std::endl;
