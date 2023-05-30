@@ -6,18 +6,18 @@
 
 static void print_header( std::string str )
 {
-	std::cout << GREY << std::string(70, '=') << RES << std::endl;
-	std::cout << BLUE << str;
+	std::cout << std::string(70, '=') << std::endl;
+	std::cout << BLUE << str  << RES;
 	if(str.size() == 64)
-		std::cout << " \u266B \u266C \u266B" << RES;
+		std::cout << BLUE << " \u266B \u266C \u266B" << RES;
 	std::cout << std::endl;
-	std::cout << GREY << std::string(70, '=') << RES << std::endl;
+	std::cout << std::string(70, '=') << std::endl;
 }
 
 static void print_song( std::string str, int id)
 {
 	if (id == 1)
-		std::cout << ORANGE << "This sound is the sound of the : "<< str << RES << std::endl;
+		std::cout << ORANGE << "This sound is the sound of the: "<< str << RES << std::endl;
 	else
 		std::cout << ORANGE << "This sound is the sound of the unknown: " << str << RES << std::endl;
 	std::cout << GREY << std::string(70, '-') << RES << std::endl;
