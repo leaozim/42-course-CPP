@@ -1,27 +1,29 @@
-#include "Dog.hpp"
+#include "Cat.hpp"
 
 /*
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Dog::Dog() {
-	this->setType("Dog");
+Cat::Cat() {
+	this->setType("Cat");
 	std::cout << ORANGE << this->_type << RES << " = Default constructor called" << std::endl;
+	this->_brain = new Brain();
 }
 
-Dog::Dog( const Dog &src ):  Animal(src) {
-	*this = src;
-	this->setType("Dog");
+Cat::Cat( const Cat & src ) : AAnimal(src) {
+	this->setType("Cat");
 	std::cout << ORANGE << this->_type << RES << " = Copy constructor called" << std::endl;
+	*this = src;
+	this->_brain = new Brain(*src._brain);
 }
-
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-Dog::~Dog() {
-	std::cout << ORANGE <<  this->_type << RES << " = Destructor called" << std::endl;
+Cat::~Cat() {
+	std::cout << ORANGE << this->_type << RES << " = Destructor called" << std::endl;
+	delete this->_brain;
 }
 
 
@@ -29,9 +31,10 @@ Dog::~Dog() {
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Dog					&Dog::operator=( Dog const &rhs ) {
+Cat					&Cat::operator=( Cat const &rhs ) {
 	if ( this != &rhs ) {
-		this->_type = "Dog";
+		this->_type = "Cat";
+		this->_brain = rhs._brain;
 		std::cout << ORANGE << this->_type << RES 
 				  << " = Copy assignment operator called"
 				  << std::endl;
@@ -39,8 +42,7 @@ Dog					&Dog::operator=( Dog const &rhs ) {
 	return (*this);
 }
 
-std::ostream		&operator<<( std::ostream &o, Dog const &i )
-{
+std::ostream		&operator<<( std::ostream &o, Cat const &i ) {
 	o << "Value = " << i.getType();
 	return (o);
 }
@@ -49,9 +51,16 @@ std::ostream		&operator<<( std::ostream &o, Dog const &i )
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-void				Dog::makeSound( void ) const {
-	std::cout << GREEN << "Woof woof" << RES << std::endl;
+
+void				Cat::makeSound( void ) const {
+	std::cout << GREEN << "Meow meow" << RES << std::endl;
 }
+
+/*
+** --------------------------------- ACCESSOR ---------------------------------
+*/
+
+Brain				*Cat::getBrain(void) const { return this->_brain; }
 
 
 /* ************************************************************************** */

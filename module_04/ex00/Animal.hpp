@@ -23,7 +23,7 @@ class Animal
 		Animal( Animal const &src );
 		virtual ~Animal();
 
-		Animal &		operator=( Animal const &rhs );
+		Animal			&operator=( Animal const &rhs );
 
 		virtual void	makeSound( void ) const;
 		std::string		getType( void ) const ;
@@ -35,6 +35,6 @@ class Animal
 
 };
 
-std::ostream &			operator<<( std::ostream &o, Animal const &i );
+std::ostream			&operator<<( std::ostream &o, Animal const &i );
 
 #endif /* ********************************************************** ANIMAL_H */

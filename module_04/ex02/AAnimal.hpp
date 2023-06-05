@@ -1,5 +1,5 @@
-#ifndef WRONGANIMAL_HPP
-# define WRONGANIMAL_HPP
+#ifndef AANIMAL_HPP
+# define AANIMAL_HPP
 
 # include <iostream>
 # include <string>
@@ -13,30 +13,28 @@
 # define LIGHT_PURPLE "\033[1;35m"
 # define CYAN "\001\e[0;36m\002"
 # define RES "\x1b[0m"
-# define GREY	"\033[38;5;244m"
 
-
-class WrongAnimal
+class AAnimal
 {
 
 	public:
 
-		WrongAnimal();
-		WrongAnimal( WrongAnimal const &src );
-		virtual ~WrongAnimal();
+		AAnimal();
+		AAnimal( AAnimal const &src );
+		virtual ~AAnimal();
 
-		WrongAnimal		&operator=( WrongAnimal const &rhs );\
+		AAnimal			&operator=( AAnimal const &rhs );
 
-		void			makeSound( void ) const;
+		virtual void	makeSound( void ) const = 0;
 		std::string		getType( void ) const ;
 		void			setType( std::string value );
 
-
 	protected:
+
 		std::string		_type;
 
 };
 
-std::ostream			&operator<<( std::ostream &o, WrongAnimal const &i );
+std::ostream			&operator<<( std::ostream &o, AAnimal const &i );
 
-#endif /* ***************************************************** WRONGANIMAL_H */
+#endif /* ********************************************************** ANIMAL_H */

@@ -1,4 +1,4 @@
-#include   "Animal.hpp"
+#include   "AAnimal.hpp"
 #include  "Dog.hpp"
 #include  "Cat.hpp"
 #include  "WrongAnimal.hpp"
@@ -28,63 +28,64 @@ const T* instantiate_class() {
 }
 
 template <class T, class U> 
-void	print_ideas(T &animal, U &animalCopy, std::string idea1, std::string idea2)
+void	print_ideas(T &animal, U &animal2, std::string idea1, std::string idea2)
 {
 	std::cout << CYAN << std::string(70, '-') << RES << std::endl;
 	std::cout << animal->getType() << "      = "
 			  << animal 
 			  << std::endl
-			  << "Copy " << animalCopy->getType() << " = "
-			  << animalCopy << std::endl
+			  << "Copy " << animal2->getType() << " = "
+			  << animal2 << std::endl
 			  << animal->getType() << "      = "
 			  << animal->getBrain()->getIdeas(1) 
 			  << std::endl 
-			  << "Copy " << animalCopy->getType() << " = "
-			  << animalCopy->getBrain()->getIdeas(1) 
+			  << "Copy " << animal2->getType() << " = "
+			  << animal2->getBrain()->getIdeas(1) 
 			  << std::endl;
 	animal->getBrain()->setIdeas(1, idea1);
-	animalCopy->getBrain()->setIdeas(1, idea2);
+	animal2->getBrain()->setIdeas(1, idea2);
 	std::cout << animal->getType() << "      = "
 			  << animal->getBrain()->getIdeas(1)
 			  << std::endl
-			  << "Copy " << animalCopy->getType() << " = "
-			  << animalCopy->getBrain()->getIdeas(1) 
+			  << "Copy " << animal2->getType() << " = "
+			  << animal2->getBrain()->getIdeas(1) 
 			  << std::endl;
 }
 
 int main()
 {
 	print_header("CONSTRUCTORS");
-	const Animal	*meta = instantiate_class<Animal>();
-	const Animal	*j = instantiate_class<Dog>();
-	const Animal	*i = instantiate_class<Cat>();
+	// const AAnimal	*meta = instantiate_class<AAnimal>();
+	const AAnimal	*j = instantiate_class<Dog>();
+	const AAnimal	*i = instantiate_class<Cat>();
 	const Cat		*cat;
 	const Cat		*catCopy;
 	const Dog		*dog;
 	const Dog		*dogCopy;
-	Animal			*animals[5];
+	const AAnimal	*animals[5];
 
 	cat = instantiate_class<Cat>();
 	catCopy = new Cat(*cat);
 	dog = instantiate_class<Dog>();
-	dogCopy = new Dog(*dog);					
+	dogCopy = new Dog(*dog);
 	print_header("ARRAY OF ANIMALS");
 	{
 		for (int i = 0; i < 5; i++)
-			animals[i] = static_cast<Animal*>(const_cast<Dog*>(instantiate_class<Dog>()));
+			animals[i] = instantiate_class<Dog>();
+
 	}
 	print_header("COPY CAT AND DOG");
 	{
 		print_ideas(
-			cat,
-			catCopy,
+			cat, 
+			catCopy, 
 			"We cats will purr as we watch the downfall of human foolishness.", 
 			"Humans are insolent worms."
 		);
 		print_ideas(
-			dog,
-			dogCopy,
-			"Squirrel!",
+			dog, 
+			dogCopy, 
+			"Squirrel!", 
 			"My name is Dug. I just met you but I adore you now."
 		);
 	}
@@ -97,6 +98,5 @@ int main()
 	delete_class(dogCopy);
 	delete_class(j);
 	delete_class(i);
-	delete_class(meta);
 	return (0);
 }

@@ -8,7 +8,7 @@ Animal::Animal() : _type("Animal") {
 	std::cout << YELLOW << "Animal = " << RES << "Default constructor called" << std::endl;
 }
 
-Animal::Animal( const Animal & rhs ): _type("Animal") {
+Animal::Animal( const Animal &rhs ): _type("Animal") {
 	std::cout << YELLOW << "Animal = " << RES << "Copy constructor called" << std::endl;
 	*this = rhs;
 }
@@ -27,14 +27,17 @@ Animal::~Animal() {
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Animal &				Animal::operator=( Animal const &rhs ) {
+Animal 				&Animal::operator=( Animal const &rhs ) {
 	if ( this != &rhs ) {
 		this->_type = rhs.getType();
+		std::cout << YELLOW << "Animal = " << RES 
+				  << " = Copy assignment operator called"
+				  << std::endl;
 	}
 	return (*this);
 }
 
-std::ostream &			operator<<( std::ostream &o, Animal const &i )
+std::ostream 		&operator<<( std::ostream &o, Animal const &i )
 {	
 	o << "Value = " << i.getType();
 	return (o);
@@ -44,7 +47,7 @@ std::ostream &			operator<<( std::ostream &o, Animal const &i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Animal::makeSound( void ) const {
+void				Animal::makeSound( void ) const {
 	std::cout << GREEN 
 			  << "This sound is not the sound of a recognized animal."
 			  << RES 
@@ -55,8 +58,8 @@ void	Animal::makeSound( void ) const {
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-void		Animal::setType( std::string value ) { this->_type = value; }
+void				Animal::setType( std::string value ) { this->_type = value; }
 
-std::string	Animal::getType( void ) const { return this->_type; }
+std::string			Animal::getType( void ) const { return this->_type; }
 
 /* ************************************************************************** */

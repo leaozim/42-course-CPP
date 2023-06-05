@@ -10,9 +10,9 @@ Cat::Cat() {
 }
 
 Cat::Cat( const Cat & src ) : Animal(src) {
-	*this = src;
 	this->setType("Cat");
 	std::cout << ORANGE << this->_type << RES << " = Copy constructor called" << std::endl;
+	*this = src;
 }
 
 
@@ -21,7 +21,7 @@ Cat::Cat( const Cat & src ) : Animal(src) {
 */
 
 Cat::~Cat() {
-	std::cout << ORANGE <<  this->_type << RES << " = Destructor called" << std::endl;
+	std::cout << ORANGE << this->_type << RES << " = Destructor called" << std::endl;
 }
 
 
@@ -29,7 +29,7 @@ Cat::~Cat() {
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-Cat &				Cat::operator=( Cat const & rhs ) {
+Cat					&Cat::operator=( Cat const &rhs ) {
 	if ( this != &rhs ) {
 		this->_type = "Cat";
 		std::cout << ORANGE << this->_type << RES 
@@ -39,7 +39,7 @@ Cat &				Cat::operator=( Cat const & rhs ) {
 	return (*this);
 }
 
-std::ostream &			operator<<( std::ostream & o, Cat const & i ) {
+std::ostream		&operator<<( std::ostream &o, Cat const &i ) {
 	o << "Value = " << i.getType();
 	return (o);
 }
@@ -49,7 +49,7 @@ std::ostream &			operator<<( std::ostream & o, Cat const & i ) {
 ** --------------------------------- METHODS ----------------------------------
 */
 
-void	Cat::makeSound( void ) const {
+void				Cat::makeSound( void ) const {
 	std::cout << GREEN << "Meow meow" << RES << std::endl;
 }
 

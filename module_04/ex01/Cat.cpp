@@ -34,7 +34,7 @@ Cat::~Cat() {
 Cat					&Cat::operator=( Cat const &rhs ) {
 	if ( this != &rhs ) {
 		this->_type = "Cat";
-		this->_brain = new Brain(*rhs._brain);
+		this->_brain = rhs._brain;
 		std::cout << ORANGE << this->_type << RES 
 				  << " = Copy assignment operator called"
 				  << std::endl;

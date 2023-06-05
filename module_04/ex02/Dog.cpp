@@ -7,11 +7,13 @@
 Dog::Dog() {
 	this->setType("Dog");
 	std::cout << ORANGE << this->_type << RES << " = Default constructor called" << std::endl;
+	this->_brain = new Brain();
 }
 
-Dog::Dog( const Dog &src ):  Animal(src) {
-	*this = src;
+Dog::Dog( const Dog &src ): AAnimal(src) {
 	this->setType("Dog");
+	*this = src;
+	_brain = new Brain(*src._brain);
 	std::cout << ORANGE << this->_type << RES << " = Copy constructor called" << std::endl;
 }
 
@@ -22,6 +24,7 @@ Dog::Dog( const Dog &src ):  Animal(src) {
 
 Dog::~Dog() {
 	std::cout << ORANGE <<  this->_type << RES << " = Destructor called" << std::endl;
+	delete this->_brain;
 }
 
 
@@ -32,6 +35,7 @@ Dog::~Dog() {
 Dog					&Dog::operator=( Dog const &rhs ) {
 	if ( this != &rhs ) {
 		this->_type = "Dog";
+		this->_brain = rhs._brain;
 		std::cout << ORANGE << this->_type << RES 
 				  << " = Copy assignment operator called"
 				  << std::endl;
@@ -52,6 +56,13 @@ std::ostream		&operator<<( std::ostream &o, Dog const &i )
 void				Dog::makeSound( void ) const {
 	std::cout << GREEN << "Woof woof" << RES << std::endl;
 }
+
+
+/*
+** --------------------------------- ACCESSOR ---------------------------------
+*/
+
+Brain				*Dog::getBrain(void) const { return this->_brain; }
 
 
 /* ************************************************************************** */
