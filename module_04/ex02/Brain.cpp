@@ -32,6 +32,9 @@ Brain::~Brain() {
 
 Brain					&Brain::operator=( Brain const &rhs ) {
 	if ( this != &rhs ) {
+		std::cout << YELLOW <<  "Brain" << RES 
+			<< " = Copy assignment operator called"
+			<< std::endl;
 		for (int i = 0; i < 100; i++)
 		this->_ideas[i] = rhs._ideas[i];
 	}
