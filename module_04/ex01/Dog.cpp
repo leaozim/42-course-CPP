@@ -12,9 +12,9 @@ Dog::Dog() {
 
 Dog::Dog( const Dog &src ): Animal(src) {
 	this->setType("Dog");
+	std::cout << ORANGE << this->_type << RES << " = Copy constructor called" << std::endl;
 	*this = src;
 	_brain = new Brain(*src._brain);
-	std::cout << ORANGE << this->_type << RES << " = Copy constructor called" << std::endl;
 }
 
 

@@ -31,7 +31,7 @@ AAnimal 				&AAnimal::operator=( AAnimal const &rhs ) {
 	if ( this != &rhs ) {
 		this->_type = rhs.getType();
 		std::cout << YELLOW << "AAnimal = " << RES 
-				  << " = Copy assignment operator called"
+				  << "Copy assignment operator called"
 				  << std::endl;
 	}
 	return (*this);

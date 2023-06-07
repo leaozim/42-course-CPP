@@ -14,6 +14,15 @@ static void print_header( std::string str )
 	std::cout << std::string(70, '=') << std::endl;
 }
 
+void print_song( std::string str, int id)
+{
+	if (id == 1)
+		std::cout << GREY << "This sound is the sound of the: "<< str << RES << std::endl;
+	else
+		std::cout << GREY << "This sound is the sound of the unknown: " << str << RES << std::endl;
+	std::cout << CYAN << std::string(70, '-') << RES << std::endl;
+}
+
 template <class T> 
 void	delete_class(T class_to_delete){
 	delete class_to_delete;
@@ -55,24 +64,23 @@ void	print_ideas(T &animal, U &animalCopy, std::string idea1, std::string idea2)
 int main()
 {
 	print_header("CONSTRUCTORS");
-	const Animal	*meta = instantiate_class<Animal>();
-	const Animal	*j = instantiate_class<Dog>();
-	const Animal	*i = instantiate_class<Cat>();
-	const Cat		*cat;
-	const Cat		*catCopy;
-	const Dog		*dog;
-	const Dog		*dogCopy;
-	Animal			*animals[5];
+	const Animal		*meta = instantiate_class<Animal>();
+	const Animal		*j = instantiate_class<Dog>();
+	const Animal		*i = instantiate_class<Cat>();
+	const WrongAnimal	*wrongAnimal = instantiate_class<WrongAnimal>();
+	const WrongAnimal	*wrongCat = instantiate_class<WrongCat>();
 
+	const Cat			*cat;
+	const Cat			*catCopy;
 	cat = instantiate_class<Cat>();
 	catCopy = new Cat(*cat);
+	
+	const Dog			*dog;
+	const Dog			*dogCopy;
+	std::cout << CYAN << std::string(70, '-') << RES << std::endl;
 	dog = instantiate_class<Dog>();
-	dogCopy = new Dog(*dog);					
-	print_header("ARRAY OF ANIMALS");
-	{
-		for (int i = 0; i < 5; i++)
-			animals[i] = static_cast<Animal*>(const_cast<Dog*>(instantiate_class<Dog>()));
-	}
+	dogCopy = new Dog(*dog);
+
 	print_header("COPY CAT AND DOG");
 	{
 		print_ideas(
@@ -88,9 +96,22 @@ int main()
 			"My name is Dug. I just met you but I adore you now."
 		);
 	}
+	print_header("LITTLE BIRD, WHAT SOUND, WHAT SOUND IS THIS? WHO KNOWS ITS NAME?");
+	{
+		i->makeSound();
+		print_song(i->getType(), 1);
+		j->makeSound();
+		print_song(j->getType(), 1);
+		meta->makeSound();
+		print_song(meta->getType(), 1);
+	}
+	{
+		wrongAnimal->makeSound();
+		print_song(wrongAnimal->getType(), 2);
+		wrongCat->makeSound();
+		print_song(wrongCat->getType(), 2);
+	}
 	print_header("DESTRUCTORS");
-	for (int i = 0; i < 5; i++)
-		delete_class(animals[i]);
 	delete_class(cat);
 	delete_class(catCopy);
 	delete_class(dog);
@@ -98,5 +119,7 @@ int main()
 	delete_class(j);
 	delete_class(i);
 	delete_class(meta);
+	delete_class (wrongCat);
+	delete_class(wrongAnimal);
 	return (0);
 }
