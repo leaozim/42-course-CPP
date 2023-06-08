@@ -14,7 +14,7 @@ static void print_header( std::string str )
 	std::cout << std::string(70, '=') << std::endl;
 }
 
-void print_song( std::string str, int id)
+void print_song( std::string str, int id )
 {
 	if (id == 1)
 		std::cout << GREY << "This sound is the sound of the: "<< str << RES << std::endl;
@@ -24,20 +24,20 @@ void print_song( std::string str, int id)
 }
 
 template <class T> 
-void	delete_class(T class_to_delete){
+void	delete_class( T class_to_delete ){
 	delete class_to_delete;
 	std::cout << CYAN << std::string(70, '-') << RES << std::endl;
 }
 
 template <class T>
-const T* instantiate_class() {
+const T* instantiate_class( void ) {
 	const T* new_class = new T();
 	std::cout << CYAN << std::string(70, '-') << RES << std::endl;
 	return new_class;
 }
 
 template <class T, class U> 
-void	print_ideas(T &animal, U &animalCopy, std::string idea1, std::string idea2)
+void	print_ideas( T &animal, U &animalCopy, std::string idea1, std::string idea2 )
 {
 	std::cout << CYAN << std::string(70, '-') << RES << std::endl;
 	std::cout << animal->getType() << "      = "
@@ -64,7 +64,7 @@ void	print_ideas(T &animal, U &animalCopy, std::string idea1, std::string idea2)
 int main()
 {
 	print_header("CONSTRUCTORS");
-	// const AAnimal		*meta = instantiate_class<Animal>();
+	// const AAnimal		*meta = new AAnimal(); commented to not give error :x
 	const AAnimal		*j = instantiate_class<Dog>();
 	const AAnimal		*i = instantiate_class<Cat>();
 	const WrongAnimal	*wrongAnimal = instantiate_class<WrongAnimal>();
@@ -110,6 +110,7 @@ int main()
 		print_song(wrongCat->getType(), 2);
 	}
 	print_header("DESTRUCTORS");
+
 	delete_class(cat);
 	delete_class(catCopy);
 	delete_class(dog);
@@ -118,5 +119,6 @@ int main()
 	delete_class(i);
 	delete_class (wrongCat);
 	delete_class(wrongAnimal);
+	// delete_class(meta);
 	return (0);
 }

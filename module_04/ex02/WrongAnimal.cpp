@@ -21,7 +21,6 @@ WrongAnimal::WrongAnimal( const WrongAnimal & src ) {
 
 WrongAnimal::~WrongAnimal() {
 	std::cout << YELLOW << "WrongAnimal = " << RES << "Destructor called" << std::endl;
-
 }
 
 

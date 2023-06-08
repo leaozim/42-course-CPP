@@ -42,13 +42,13 @@ Brain					&Brain::operator=( Brain const &rhs ) {
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-std::string			Brain::getIdeas(int index) const {
+std::string			Brain::getIdeas( int index ) const {
 	if (index >= 0 && index < MAX_IDEAS)
 		return (_ideas[index]);
 	return (NULL);
 }
 
-void				Brain::setIdeas(int index, std::string idea) {
+void				Brain::setIdeas( int index, std::string idea ) {
 	if (index >= 0 && index < MAX_IDEAS) {
         _ideas[index] = idea;
     }

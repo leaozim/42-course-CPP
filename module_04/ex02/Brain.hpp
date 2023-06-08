@@ -16,8 +16,8 @@ class Brain
 		~Brain();
 
 		Brain			&operator=( Brain const &rhs );
-		std::string		getIdeas(int index) const;
-		void			setIdeas(int index, std::string idea);
+		std::string		getIdeas( int index ) const;
+		void			setIdeas( int index, std::string idea );
 	
 	private:
 		std::string			_ideas[MAX_IDEAS];

@@ -62,7 +62,7 @@ void				Dog::makeSound( void ) const {
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-Brain				*Dog::getBrain(void) const { return this->_brain; }
+Brain				*Dog::getBrain( void ) const { return this->_brain; }
 
 
 /* ************************************************************************** */

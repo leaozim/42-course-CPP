@@ -34,7 +34,10 @@ Cat::~Cat() {
 Cat					&Cat::operator=( Cat const &rhs ) {
 	if ( this != &rhs ) {
 		this->_type = "Cat";
+		std::cout << _brain->getIdeas(1) << std::endl;
 		this->_brain = rhs._brain;
+		// std::cout << _brain << std::endl;
+
 		std::cout << ORANGE << this->_type << RES 
 				  << " = Copy assignment operator called"
 				  << std::endl;
@@ -60,7 +63,7 @@ void				Cat::makeSound( void ) const {
 ** --------------------------------- ACCESSOR ---------------------------------
 */
 
-Brain				*Cat::getBrain(void) const { return this->_brain; }
+Brain				*Cat::getBrain( void ) const { return this->_brain; }
 
 
 /* ************************************************************************** */

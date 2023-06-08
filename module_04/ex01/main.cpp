@@ -4,122 +4,85 @@
 #include  "WrongAnimal.hpp"
 #include  "WrongCat.hpp"
 
-static void print_header( std::string str )
+
+static void printHeader(std::string str)
 {
-	std::cout << std::string(70, '=') << std::endl;
-	std::cout << BLUE << str  << RES;
-	if(str.size() == 64)
-		std::cout << BLUE << " \u266B \u266C \u266B" << RES;
-	std::cout << std::endl;
-	std::cout << std::string(70, '=') << std::endl;
+    std::cout << "============================================================\n"
+              << str
+              << "\n============================================================\n";
 }
 
-void print_song( std::string str, int id)
+int main(void)
 {
-	if (id == 1)
-		std::cout << GREY << "This sound is the sound of the: "<< str << RES << std::endl;
-	else
-		std::cout << GREY << "This sound is the sound of the unknown: " << str << RES << std::endl;
-	std::cout << CYAN << std::string(70, '-') << RES << std::endl;
-}
+    const int amount = 4;
+    const int half = amount / 2;
 
-template <class T> 
-void	delete_class(T class_to_delete){
-	delete class_to_delete;
-	std::cout << CYAN << std::string(70, '-') << RES << std::endl;
-}
+    printHeader("Constructors");
+    const Animal *animals[amount];
 
-template <class T>
-const T* instantiate_class() {
-	const T* new_class = new T();
-	std::cout << CYAN << std::string(70, '-') << RES << std::endl;
-	return new_class;
-}
+    for (int i = 0; i < half; i++)
+    {
+        animals[i] = new Dog();
+        animals[i + half] = new Cat();
+    }
 
-template <class T, class U> 
-void	print_ideas(T &animal, U &animalCopy, std::string idea1, std::string idea2)
-{
-	std::cout << CYAN << std::string(70, '-') << RES << std::endl;
-	std::cout << animal->getType() << "      = "
-			  << animal 
-			  << std::endl
-			  << "Copy " << animalCopy->getType() << " = "
-			  << animalCopy << std::endl
-			  << animal->getType() << "      = "
-			  << animal->getBrain()->getIdeas(1) 
-			  << std::endl 
-			  << "Copy " << animalCopy->getType() << " = "
-			  << animalCopy->getBrain()->getIdeas(1) 
-			  << std::endl;
-	animal->getBrain()->setIdeas(1, idea1);
-	animalCopy->getBrain()->setIdeas(1, idea2);
-	std::cout << animal->getType() << "      = "
-			  << animal->getBrain()->getIdeas(1)
-			  << std::endl
-			  << "Copy " << animalCopy->getType() << " = "
-			  << animalCopy->getBrain()->getIdeas(1) 
-			  << std::endl;
-}
+    printHeader("Make sound");
+    for (int i = 0; i < half; i++)
+    {
+        animals[i]->makeSound();
+        animals[i + half]->makeSound();
+    }
 
-int main()
-{
-	print_header("CONSTRUCTORS");
-	const Animal		*meta = instantiate_class<Animal>();
-	const Animal		*j = instantiate_class<Dog>();
-	const Animal		*i = instantiate_class<Cat>();
-	const WrongAnimal	*wrongAnimal = instantiate_class<WrongAnimal>();
-	const WrongAnimal	*wrongCat = instantiate_class<WrongCat>();
+    printHeader("Get type");
+    for (int i = 0; i < half; i++)
+    {
+        std::cout << "Type: " << animals[i]->getType() << '\n';
+        std::cout << "Type: " << animals[i + half]->getType() << '\n';
+    }
 
-	const Cat			*cat;
-	const Cat			*catCopy;
-	cat = instantiate_class<Cat>();
-	catCopy = new Cat(*cat);
-	
-	const Dog			*dog;
-	const Dog			*dogCopy;
-	std::cout << CYAN << std::string(70, '-') << RES << std::endl;
-	dog = instantiate_class<Dog>();
-	dogCopy = new Dog(*dog);
+    printHeader("Get brain");
+    for (int i = 0; i < half; i++)
+    {
+        std::cout << "Dog brain: " << *dynamic_cast<Dog const *>(animals[i])->getBrain() << '\n';
+        std::cout << "Cat brain: " << *dynamic_cast<Cat const *>(animals[i + half])->getBrain() << '\n';
+    }
 
-	print_header("COPY CAT AND DOG");
-	{
-		print_ideas(
-			cat,
-			catCopy,
-			"We cats will purr as we watch the downfall of human foolishness.", 
-			"Humans are insolent worms."
-		);
-		print_ideas(
-			dog,
-			dogCopy,
-			"Squirrel!",
-			"My name is Dug. I just met you but I adore you now."
-		);
-	}
-	print_header("LITTLE BIRD, WHAT SOUND, WHAT SOUND IS THIS? WHO KNOWS ITS NAME?");
-	{
-		i->makeSound();
-		print_song(i->getType(), 1);
-		j->makeSound();
-		print_song(j->getType(), 1);
-		meta->makeSound();
-		print_song(meta->getType(), 1);
-	}
-	{
-		wrongAnimal->makeSound();
-		print_song(wrongAnimal->getType(), 2);
-		wrongCat->makeSound();
-		print_song(wrongCat->getType(), 2);
-	}
-	print_header("DESTRUCTORS");
-	delete_class(cat);
-	delete_class(catCopy);
-	delete_class(dog);
-	delete_class(dogCopy);
-	delete_class(j);
-	delete_class(i);
-	delete_class(meta);
-	delete_class (wrongCat);
-	delete_class(wrongAnimal);
-	return (0);
+    printHeader("Copy constructors");
+    const Animal *copyAnimals[amount];
+    for (int i = 0; i < half; i++)
+    {
+        copyAnimals[i] = new Dog(dynamic_cast<Dog const &>(*animals[i]));
+        copyAnimals[i + half] = new Cat(dynamic_cast<Cat const &>(*animals[i + half]));
+    }
+
+    printHeader("Copy make sound");
+    for (int i = 0; i < half; i++)
+    {
+        copyAnimals[i]->makeSound();
+        copyAnimals[i + half]->makeSound();
+    }
+
+    printHeader("Copy get type");
+
+    for (int i = 0; i < half; i++)
+    {
+        std::cout << "Copy type: " << copyAnimals[i]->getType() << '\n';
+        std::cout << "Copy type: " << copyAnimals[i + half]->getType() << '\n';
+    }
+
+    printHeader("Copy get brain");
+    for (int i = 0; i < half; i++)
+    {
+        std::cout << "Copy dog brain: " << *dynamic_cast<Dog const *>(copyAnimals[i])->getBrain() << '\n';
+        std::cout << "Copy cat brain: " << *dynamic_cast<Cat const *>(copyAnimals[i + half])->getBrain() << '\n';
+    }
+
+    printHeader("Destructors");
+    for (int i = 0; i < amount; i++)
+    {
+        delete animals[i];
+        delete copyAnimals[i];
+    }
+
+    return 0;
 }
