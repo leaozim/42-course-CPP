@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include "Form.hpp"
 
 #define MAGENTA "\033[35m"
 #define RED "\x1b[38;5;88m"
@@ -14,9 +15,10 @@
 #define LIGHT_PURPLE "\033[1;35m"
 #define CYAN "\001\e[0;36m\002"
 #define RES "\x1b[0m"
-
 #define MAX_GRADE 1
 #define MIN_GRADE 150
+
+class Form;
 
 class Bureaucrat
 {
@@ -33,6 +35,7 @@ class Bureaucrat
 		void					decrement( void );
 		int						getGrade( void ) const;
 		std::string				getName( void ) const;
+		void					signForm(Form &form);
 		void					print_description(std::string str, std::string color);
 
 		class GradeTooHighException: public std::exception {

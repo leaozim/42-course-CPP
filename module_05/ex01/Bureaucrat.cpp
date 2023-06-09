@@ -13,7 +13,6 @@ Bureaucrat::Bureaucrat( const Bureaucrat &src )
 {
 	*this = src;
 	print_description("Copy constructor called", YELLOW);
-
 }
 
 Bureaucrat::Bureaucrat( std::string name, int grade ) 
@@ -61,33 +60,54 @@ std::ostream			&operator<<( std::ostream &o, Bureaucrat const &i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-const char*	Bureaucrat::GradeTooHighException::what( void ) const throw() {
+const char*				Bureaucrat::GradeTooHighException::what( void ) const throw() 
+{
 	return ("Grade Too High Exception");
 }
 
-const char*	Bureaucrat::GradeTooLowException::what( void ) const throw() {
+const char*				Bureaucrat::GradeTooLowException::what( void ) const throw() 
+{
 	return ("Grade Too Low Exception");
 }
 
-void	Bureaucrat::increment( void ){
-
+void					Bureaucrat::increment( void )
+{
 	if (this->_grade == MIN_GRADE) { throw GradeTooLowException(); }
 	this->_grade++;
 }
 
-void	Bureaucrat::decrement( void ){
-
+void					Bureaucrat::decrement( void )
+{
 	if (this->_grade == MAX_GRADE) { throw GradeTooHighException(); }
 	this->_grade--;
 }
 
+void					Bureaucrat::signForm( Form &form )
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << getName() << " signed " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << getName() 
+				  << " couldn't sign " 
+				  << form.getName()
+				  << " because " 
+				  << e.what() 
+				  << std::endl;
+	}
+}
 
-void	Bureaucrat::print_description(std::string str, std::string color) {
+void					Bureaucrat::print_description(std::string str, std::string color) {
 	std::cout << color << "Bureaucrat" << RES 
 			  << " = " 
 			  << str
 			  << std::endl;
 }
+
+
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
 */
