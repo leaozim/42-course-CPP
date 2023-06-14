@@ -1,11 +1,11 @@
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
+#include  "Intern.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 
-
- void print_header(std::string str, char marker)
+void	print_header(std::string str, char marker)
 {
 	std::cout << std::string(80, marker) << std::endl
 			  << BLUE << str << RES
@@ -13,70 +13,70 @@
 			  << std::string(80, marker) << std::endl;
 }
 
-static void print_separator(void)
+void	print_separator(void)
 {
 	std::cout << CYAN << std::string(80, '-') << RES << std::endl;
 }
 
-int main()
+
+void	print_make_robotomy( void )
 {
 	{
-		print_header("CONSTRUCTORS PRESIDENTIAL", '=');
-		Bureaucrat	b1("Josefa", 2);
-		AForm		*Presidential;
-		
-		print_separator();
-		Presidential = new PresidentialPardonForm();
-
-		print_header("Presidential Pardon Form - OK", '~');
-		b1.signForm(*Presidential);
-		b1.executeForm(*Presidential);
-
-		print_header("Presidential Pardon Form - KO", '~');
-		b1.setGrade(6);
-		b1.signForm(*Presidential);
-		b1.executeForm(*Presidential);
-		print_header("DESTRUCTORS",  '=');
+		print_header("ROBOTOMY - MAKE FORME", '=');
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+		Bureaucrat b("Zé", 1);
+		b.signForm(*rrf);
+		b.executeForm(*rrf);
+		delete rrf;
 	}
-	print_separator();
-	std::cout << std::endl << std::endl << std::endl;
+}
+
+void print_make_shrubbert( void ) 
+{
 	{
-		print_header("CONSTRUCTORS SHRUBBERY", '=');
-		Bureaucrat	b1("Maria", 15);
-		AForm		*Shrubbery;
-	
-		print_separator();
-		Shrubbery = new ShrubberyCreationForm("file");
-		print_header("Shrubbery Creation Form - OK", '~');
-		b1.signForm(*Shrubbery);
-		b1.executeForm(*Shrubbery);
+		print_header("SHRUBBERT - MAKE FORME", '=');
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
+		Bureaucrat b("Zé", 1);
+		b.signForm(*rrf);
+		b.executeForm(*rrf);
+		delete rrf;
+	}
+}
 
-		print_header("Shrubbery Creation Form - KO", '~');
-		b1.setGrade(138);
-		b1.signForm(*Shrubbery);
-		b1.executeForm(*Shrubbery);
-		print_header("DESTRUCTORS", '=');
-	}
-	print_separator();
-	std::cout << std::endl << std::endl << std::endl;
+void	print_make_presidential( void )
+{
 	{
-		print_header("CONSTRUCTORS ROBOTOMY", '=');
-		Bureaucrat	b1("João", 45);
-		AForm		*Robotomy;
-	
-		print_separator();
-		Robotomy = new RobotomyRequestForm("Juju");
-		print_header("Robotomy Request Form - OK", '~');
-		b1.signForm(*Robotomy);
-		b1.executeForm(*Robotomy);
-		b1.executeForm(*Robotomy);
-		b1.executeForm(*Robotomy);
-		b1.executeForm(*Robotomy);
-		print_header("Robotomy Request Form - KO", '~');
-		b1.setGrade(46);
-		b1.signForm(*Robotomy);	
-		b1.executeForm(*Robotomy);
-		print_header("DESTRUCTORS", '=');
+		print_header("PRESIDENTIAL - MAKE FORME", '=');
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
+		Bureaucrat b("Zé", 1);
+		b.signForm(*rrf);
+		b.executeForm(*rrf);
+		delete rrf;
 	}
+}
+
+void	print_make_error( void )
+{
+	{
+		print_header("KO - MAKE FORME", '=');
+		Intern someRandomIntern;
+		AForm* rrf;
+		rrf = someRandomIntern.makeForm("some random name", "Bender");
+		delete rrf;
+	}
+}
+
+int main()
+{
+	print_make_robotomy();
+	print_make_shrubbert();
+	print_make_presidential();
+	print_make_error();
 	return (0);
 }

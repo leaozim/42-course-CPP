@@ -2,7 +2,7 @@ NAME	=	bureaucrat
 
 SRCS	=	$(MAIN)
 MAIN	=	main.cpp Bureaucrat.cpp AForm.cpp PresidentialPardonForm.cpp \
-			ShrubberyCreationForm.cpp RobotomyRequestForm.cpp
+			ShrubberyCreationForm.cpp RobotomyRequestForm.cpp Intern.cpp
 
 OBJ_DIR	=	obj
 OBJS	=	$(SRCS:%.cpp=$(OBJ_DIR)/%.o)
@@ -13,7 +13,8 @@ CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g
 VPATH	=	./
 
 HEADER	=	Bureaucrat.hpp AForm.hpp PresidentialPardonForm.hpp \
-			ShrubberyCreationForm.hpp RobotomyRequestForm.hpp
+			ShrubberyCreationForm.hpp RobotomyRequestForm.hpp	\
+			Intern.hpp
 
 INCLUDE	=	-I ./ -I ./includes
 
@@ -30,7 +31,7 @@ $(OBJ_DIR):
 
 clean:
 			rm -rf obj
-			rm -rf file_shrubbery
+			rm -rf Bender_shrubbery
 
 fclean:		clean
 			rm -f $(NAME)

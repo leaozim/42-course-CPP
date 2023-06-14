@@ -4,8 +4,7 @@
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 
-
- void print_header(std::string str, char marker)
+void print_header(std::string str, char marker)
 {
 	std::cout << std::string(80, marker) << std::endl
 			  << BLUE << str << RES
@@ -13,13 +12,13 @@
 			  << std::string(80, marker) << std::endl;
 }
 
-static void print_separator(void)
+void print_separator(void)
 {
 	std::cout << CYAN << std::string(80, '-') << RES << std::endl;
 }
 
-int main()
-{
+
+void	print_construtors_presidencial( void ) {
 	{
 		print_header("CONSTRUCTORS PRESIDENTIAL", '=');
 		Bureaucrat	b1("Josefa", 2);
@@ -40,6 +39,9 @@ int main()
 	}
 	print_separator();
 	std::cout << std::endl << std::endl << std::endl;
+}
+
+void	print_construtors_shrubbery( void ) {
 	{
 		print_header("CONSTRUCTORS SHRUBBERY", '=');
 		Bureaucrat	b1("Maria", 15);
@@ -59,6 +61,9 @@ int main()
 	}
 	print_separator();
 	std::cout << std::endl << std::endl << std::endl;
+}
+
+void	print_construtors_robotomy( void ) {
 	{
 		print_header("CONSTRUCTORS ROBOTOMY", '=');
 		Bureaucrat	b1("João", 45);
@@ -78,5 +83,12 @@ int main()
 		b1.executeForm(*Robotomy);
 		print_header("DESTRUCTORS", '=');
 	}
+}
+
+int main()
+{
+	print_construtors_presidencial();
+	print_construtors_shrubbery();
+	print_construtors_robotomy();
 	return (0);
 }

@@ -5,7 +5,7 @@
 */
 
 ShrubberyCreationForm::ShrubberyCreationForm() 
-	: AForm("Shrubbery Creation Form", 145, 137) , _target("Cavalinho") {
+	: AForm("Shrubbery Creation Form", 145, 137) , _target("Undefined") {
 	print_description("Default constructor called", ORANGE);
 }
 

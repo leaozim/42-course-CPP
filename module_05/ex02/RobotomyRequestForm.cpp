@@ -7,7 +7,7 @@ bool	RobotomyRequestForm::_seedHasBeenGenerated = false;
 */
 
 RobotomyRequestForm::RobotomyRequestForm() 
-	: AForm("Robotomy Request Form", 72, 45) , _target("Cavalinho") {
+	: AForm("Robotomy Request Form", 72, 45) , _target("Undefined") {
 	print_description("Default constructor called", ORANGE);
 }
 

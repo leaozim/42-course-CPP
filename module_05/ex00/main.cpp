@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-static void print_header( std::string str )
+void print_header( std::string str )
 {
 	std::cout << std::string(70, '=') << std::endl
 			  << BLUE << str  << RES
@@ -69,18 +69,17 @@ void	test_copy_constructor( void )
 void	test_increment_and_decrement_with_errpr( void )
 {
 	try	{
-		print_header("INCREMENT - Low Exception");
-		Bureaucrat	bureaucrat1("Zefa", 150);
+		print_header("INCREMENT - High Exception");
+		Bureaucrat	bureaucrat1("Zefa", 1);
 		bureaucrat1.increment();
 	}
 	catch (std::exception &e) {
 		std::cout << CYAN << std::string(70, '-') << RES << std::endl;
 		std::cout << e.what() << '\n';
 	}
-
 	try	{
 		print_header("DECREMENT - Low Exception");
-		Bureaucrat	bureaucrat1("Zefa", 1);
+		Bureaucrat	bureaucrat1("Zefa", 150);
 		bureaucrat1.decrement();
 	}
 	catch (std::exception &e) {
@@ -93,7 +92,7 @@ void	test_constructors_with_error( void )
 {
 	try	{
 		print_header("CONSTRUCTOR - High Exception");
-		Bureaucrat 	bureaucrat1("Sebastião", 0 );
+		Bureaucrat 	bureaucrat1("Sebastião", 0);
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << '\n';

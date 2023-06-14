@@ -5,7 +5,7 @@
 */
 
 PresidentialPardonForm::PresidentialPardonForm() 
-	: AForm("Presidential Pardon Form", 25, 5) , _target("Cavalinho") {
+	: AForm("Presidential Pardon Form", 25, 5) , _target("Undefined") {
 	print_description("Default constructor called", ORANGE);
 }
 

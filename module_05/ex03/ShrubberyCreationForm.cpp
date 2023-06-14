@@ -5,17 +5,16 @@
 */
 
 ShrubberyCreationForm::ShrubberyCreationForm() 
-	: AForm("Shrubbery Creation Form", 145, 137) , _target("Cavalinho") {
-	print_description("Default constructor called", ORANGE);
+	: AForm("Shrubbery Creation Form", 145, 137) , _target("Undefined") {
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm( std::string target ) 
-	: AForm("Shrubbery Creation Form", 145, 137), _target(target) {}
+	: AForm("Shrubbery Creation Form", 145, 137), _target(target) {
+}
 
 ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src ) :
 	AForm("Shrubbery Creation Form", 145, 137) {
 	*this = src;
-	print_description("Copy constructor called", ORANGE);
 }
 
 
@@ -23,9 +22,7 @@ ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src 
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-ShrubberyCreationForm::~ShrubberyCreationForm() {
-	print_description("Destructor called", ORANGE);
-}
+ShrubberyCreationForm::~ShrubberyCreationForm() { }
 
 
 /*
@@ -35,7 +32,6 @@ ShrubberyCreationForm::~ShrubberyCreationForm() {
 ShrubberyCreationForm	&ShrubberyCreationForm::operator=( ShrubberyCreationForm const &rhs )
 {
 	if (this != &rhs) {
-		print_description("Copy assignment operator called", ORANGE);
 	}
 	return *this;
 }
@@ -43,13 +39,6 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=( ShrubberyCreationForm c
 /*
 ** --------------------------------- METHODS ----------------------------------
 */
-
-void					ShrubberyCreationForm::print_description(std::string str, std::string color) {
-	std::cout << color << "Shrubbery Creation Form" << RES 
-			  << " = " 
-			  << str
-			  << std::endl;
-}	
 
 void					ShrubberyCreationForm::execute( Bureaucrat const &executor ) const {
 	std::ofstream	ofs;

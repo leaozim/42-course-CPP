@@ -16,7 +16,6 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm &	operator=( RobotomyRequestForm const & rhs );
 
 		void					execute( Bureaucrat const &executor ) const;
-		void					print_description( std::string str, std::string color );
 
 	private:
 
@@ -24,7 +23,5 @@ class RobotomyRequestForm : public AForm
 		static bool				_seedHasBeenGenerated;
 
 };
-
-std::ostream &			operator<<( std::ostream & o, RobotomyRequestForm const & i );
 
 #endif /* ********************************************* ROBOTOMYREQUESTFORM_H */

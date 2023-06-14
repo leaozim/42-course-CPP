@@ -7,17 +7,16 @@ bool	RobotomyRequestForm::_seedHasBeenGenerated = false;
 */
 
 RobotomyRequestForm::RobotomyRequestForm() 
-	: AForm("Robotomy Request Form", 72, 45) , _target("Cavalinho") {
-	print_description("Default constructor called", ORANGE);
+	: AForm("Robotomy Request Form", 72, 45) , _target("Undefined") {
 }
 
 RobotomyRequestForm::RobotomyRequestForm( std::string target ) 
-	: AForm("Robotomy Request Form", 72, 45), _target(target) {}
+	: AForm("Robotomy Request Form", 72, 45), _target(target) {
+}
 
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ) :
 	AForm("Robotomy Request Form", 72, 45) {
 	*this = src;
-	print_description("Copy constructor called", ORANGE);
 }
 
 
@@ -25,9 +24,7 @@ RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ) :
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-RobotomyRequestForm::~RobotomyRequestForm() {
-	print_description("Destructor called", ORANGE);
-}
+RobotomyRequestForm::~RobotomyRequestForm() { }
 
 
 /*
@@ -37,7 +34,6 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 RobotomyRequestForm	&RobotomyRequestForm::operator=( RobotomyRequestForm const &rhs )
 {
 	if (this != &rhs) {
-		print_description("Copy assignment operator called", ORANGE);
 	}
 	return *this;
 }
@@ -45,14 +41,7 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=( RobotomyRequestForm const &
 
 /*
 ** --------------------------------- METHODS ----------------------------------
-*/
-
-void					RobotomyRequestForm::print_description(std::string str, std::string color) {
-	std::cout << color << "Robotomy Request Form" << RES 
-			  << " = " 
-			  << str
-			  << std::endl;
-}	
+*/	
 
 void					RobotomyRequestForm::execute( Bureaucrat const &executor ) const {
 	checkExecute(executor);

@@ -63,14 +63,16 @@ const char*				Bureaucrat::GradeTooLowException::what( void ) const throw() {
 	return ("Grade Too Low Exception");
 }
 
-void					Bureaucrat::increment( void ) {
-	if (this->_grade == MIN_GRADE) { throw GradeTooLowException(); }
-	this->_grade++;
+void					Bureaucrat::increment( void ){
+
+	if (this->_grade == MAX_GRADE) { throw GradeTooHighException (); }
+	this->_grade--;
 }
 
-void					Bureaucrat::decrement( void ) {
-	if (this->_grade == MAX_GRADE) { throw GradeTooHighException(); }
-	this->_grade--;
+void					Bureaucrat::decrement( void ){
+
+	if (this->_grade == MIN_GRADE) { throw GradeTooLowException (); }
+	this->_grade++;
 }
 
 void					Bureaucrat::signForm( AForm &form ) {

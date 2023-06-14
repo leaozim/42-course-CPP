@@ -28,7 +28,7 @@ void	test_constructors( void )
 
 void	test_copy_constructor( void )
 {
-		print_header("CONSTRUCTORS");
+		print_header("CONSTRUCTORS - COPY");
 		Form       f1("Sign", 10, 20);
 		print_separator();
 		Form       f2(f1);
@@ -39,11 +39,8 @@ void	test_copy_constructor( void )
 		print_separator();
 		Bureaucrat b2("Adenia", 15);
 		print_separator();
-		Bureaucrat b3("Tereza", 25);
-		print_separator();
 		b1.signForm(f1);
 		b2.signForm(f2);
-		b3.signForm(f3);
 		print_header("DESTRUCTORS");
 }
 
@@ -51,14 +48,14 @@ void	test_constructors_with_error( void )
 {
 	print_header("CONSTRUCTORS - GradeTooHighException");
 	try {
-		Form f("Sign", MAX_GRADE - 1, 10);
+		Form f("Sign", 0, 10);
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
 	print_header("CONSTRUCTORS - GradeTooLowException");
 	try {
-		Form f("Sign", 1, 150 + 1);
+		Form f("Sign", 1, 151);
 	}
 	catch (std::exception &e) {
 		std::cout << e.what() << std::endl;

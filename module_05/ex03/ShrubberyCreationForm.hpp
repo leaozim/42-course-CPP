@@ -16,13 +16,10 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm	&operator=( ShrubberyCreationForm const & rhs );
 
 		void					execute( Bureaucrat const &executor ) const;
-		void					print_description( std::string str, std::string color );
 	
 	private:
 
 		std::string				_target;
 };
-
-// std::ostream					&operator<<( std::ostream &o, ShrubberyCreationForm const &i );
 
 #endif /* ******************************************* SHRUBBERYCREATIONFORM_H */

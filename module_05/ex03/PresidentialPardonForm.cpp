@@ -5,17 +5,16 @@
 */
 
 PresidentialPardonForm::PresidentialPardonForm() 
-	: AForm("Presidential Pardon Form", 25, 5) , _target("Cavalinho") {
-	print_description("Default constructor called", ORANGE);
+	: AForm("Presidential Pardon Form", 25, 5) , _target("Undefined") {
 }
 
 PresidentialPardonForm::PresidentialPardonForm( std::string target ) 
-	: AForm("Presidential Pardon Form", 25, 5), _target(target) {}
+	: AForm("Presidential Pardon Form", 25, 5), _target(target) {
+}
 
 PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src ) :
 	AForm("Presidential Pardon Form", 25, 5) {
 	*this = src;
-	print_description("Copy constructor called", ORANGE);
 }
 
 
@@ -23,9 +22,7 @@ PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & s
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-PresidentialPardonForm::~PresidentialPardonForm() {
-	print_description("Destructor called", ORANGE);
-}
+PresidentialPardonForm::~PresidentialPardonForm() { }
 
 
 /*
@@ -35,7 +32,6 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 PresidentialPardonForm	&PresidentialPardonForm::operator=( PresidentialPardonForm const &rhs )
 {
 	if (this != &rhs) {
-		print_description("Copy assignment operator called", ORANGE);
 	}
 	return *this;
 }
@@ -48,13 +44,6 @@ void					PresidentialPardonForm::execute( Bureaucrat const &executor ) const {
 	checkExecute(executor);
 	std::cout << MAGENTA << this->_target  << " has been pardoned by Zaphod Beeblebrox." << RES 
 				<< std::endl;
-}
-
-void					PresidentialPardonForm::print_description( std::string str, std::string color ) {
-	std::cout << color << "Presidential Pardon Form" << RES 
-			  << " = " 
-			  << str
-			  << std::endl;
 }
 
 

@@ -4,14 +4,11 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-AForm::AForm() : _name("Chico"), _isSigned(false), _gradeSign(5), _gradeExecute(5) {
-	print_description("Default constructor called", ORANGE);
-}
+AForm::AForm() : _name("Chico"), _isSigned(false), _gradeSign(5), _gradeExecute(5) { }
 
 AForm::AForm( const AForm &src ) 
 	: _name(src.getName()), _isSigned(src.getGradeSign()), _gradeSign(src.getGradeSign()), _gradeExecute(src.getGradeExecute()) {
 	*this = src;
-	print_description("Copy constructor called", ORANGE);
 }
 
 AForm::AForm(std::string name, int gradeSign, int gradeExecute) 
@@ -23,16 +20,13 @@ AForm::AForm(std::string name, int gradeSign, int gradeExecute)
 	const_cast<std::string&>(this->_name) = name;
 	const_cast<int&>(this->_gradeSign) = gradeSign;
 	const_cast<int&>(this->_gradeExecute) = gradeExecute;
-	print_description("Name and Grades constructor called", ORANGE);
 }
 
 /*
 ** -------------------------------- DESTRUCTOR --------------------------------
 */
 
-AForm::~AForm() {
-	print_description("Destructor called", ORANGE);
-}
+AForm::~AForm() { }
 
 
 /*
@@ -45,7 +39,6 @@ AForm &				AForm::operator=( AForm const &rhs ) {
 		const_cast<std::string&>(this->_name) = getName();
 		const_cast<int&>(this->_gradeSign) = getGradeSign();
 		const_cast<int&>(this->_gradeExecute) = getGradeExecute();
-		print_description("Copy assignment operator called", ORANGE);
 	}
 	return *this;
 }
@@ -90,12 +83,6 @@ void					AForm::checkExecute( Bureaucrat const &executor)  const {
 	if (!getIsSigned()) { throw NotSignedException(); }
 }
 
-void					AForm::print_description(std::string str, std::string color) {
-	std::cout << color << "AForm" << RES 
-			  << " = " 
-			  << str
-			  << std::endl;
-}	
 
 /*
 ** --------------------------------- ACCESSOR ---------------------------------
