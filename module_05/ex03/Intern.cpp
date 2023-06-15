@@ -15,7 +15,6 @@ Intern::Intern() {
 
 Intern::Intern( const Intern & src ) {
 	*this = src;
-
 }
 
 
@@ -34,14 +33,14 @@ Intern &				Intern::operator=( Intern const & rhs )
 {
 	if ( this != &rhs )
 	{
-		 for (int i = 0; i < NUM_FORMS; i++) {
-      		this->_funcions[i].name = rhs._funcions[i].name;
-      		this->_funcions[i].form = rhs._funcions[i].form;
-    }
+		for (int i = 0; i < NUM_FORMS; i++) 
+		{
+			this->_funcions[i].name = rhs._funcions[i].name;
+			this->_funcions[i].form = rhs._funcions[i].form;
+		}
 	}
 	return *this;
 }
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -64,7 +63,6 @@ AForm		*Intern::_makePresidentialPardonForm( std::string target, std::string nam
 	std::cout << "Intern creates " << name << std::endl;
 	return new PresidentialPardonForm(target);
 }
-
 
 AForm		*Intern::makeForm( std::string name, std::string target )
 {

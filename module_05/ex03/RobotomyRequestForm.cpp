@@ -50,15 +50,22 @@ void					RobotomyRequestForm::execute( Bureaucrat const &executor ) const {
 		srand(time(NULL));
 		_seedHasBeenGenerated = true;
 	}
-	std::cout << "Vrrrmmm Prrrrrrr Zzzzzzz Tchac-tchac-tchac Tink-tink-tink Krrrrrrr" << RES << std::endl;
+	std::cout << "Vrrrmmm Tchac-tchac-tchac Tink-tink-tink Krrrrrrr" 
+			  << RES 
+			  << std::endl;
 	if (rand() % 2)
 	{
-		std::cout << MAGENTA << this->_target  << " has been robotomized." << RES 
-		<< std::endl;
+		std::cout << MAGENTA 
+				  << this->_target
+				  << " has been robotomized."
+				  << RES 
+				  << std::endl;
 	}
 	else {
-		std::cout << MAGENTA << "Robotomy failed.." << RES 
-		<< std::endl;
+		std::cout << MAGENTA 
+				  << "Robotomy failed.." 
+				  << RES 
+				  << std::endl;
 	}
 }
 

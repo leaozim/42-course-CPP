@@ -71,12 +71,14 @@ void	print_construtors_robotomy( void ) {
 	
 		print_separator();
 		Robotomy = new RobotomyRequestForm("Juju");
+	
 		print_header("Robotomy Request Form - OK", '~');
 		b1.signForm(*Robotomy);
 		b1.executeForm(*Robotomy);
 		b1.executeForm(*Robotomy);
 		b1.executeForm(*Robotomy);
 		b1.executeForm(*Robotomy);
+
 		print_header("Robotomy Request Form - KO", '~');
 		b1.setGrade(46);
 		b1.signForm(*Robotomy);	

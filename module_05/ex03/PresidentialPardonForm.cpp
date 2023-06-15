@@ -33,7 +33,7 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=( PresidentialPardonFor
 {
 	if (this != &rhs) {
 	}
-	return *this;
+	return (*this);
 }
 
 /*
@@ -42,8 +42,11 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=( PresidentialPardonFor
 
 void					PresidentialPardonForm::execute( Bureaucrat const &executor ) const {
 	checkExecute(executor);
-	std::cout << MAGENTA << this->_target  << " has been pardoned by Zaphod Beeblebrox." << RES 
-				<< std::endl;
+	std::cout << MAGENTA 
+			  << this->_target 
+			  << " has been pardoned by Zaphod Beeblebrox."
+			  << RES 
+			  << std::endl;
 }
 
 

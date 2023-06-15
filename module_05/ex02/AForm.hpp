@@ -34,7 +34,7 @@ class AForm
 		int						getGradeSign (void ) const;
 		bool					getIsSigned( void ) const;
 		std::string				getName( void ) const;
-		virtual void			print_description(std::string str, std::string color);
+		virtual void			print_description( std::string str, std::string color );
 
 		class GradeTooHighException: public std::exception {
 			virtual const char	*what( void ) const throw();
@@ -55,7 +55,6 @@ class AForm
 		bool					_isSigned;
 		const int				_gradeSign;
 		const int				_gradeExecute;
-
 
 };
 

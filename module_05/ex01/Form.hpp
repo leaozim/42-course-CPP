@@ -34,7 +34,7 @@ class Form
 		int						getGradeSign (void ) const;
 		int						getGradeExecute (void ) const;
 		bool					getIsSigned( void ) const;
-		void					print_description(std::string str, std::string color);
+		void					print_description( std::string str, std::string color );
 
 		class GradeTooHighException: public std::exception {
 			virtual const char	*what( void ) const throw();

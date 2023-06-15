@@ -17,24 +17,22 @@ class Intern
 		Intern();
 		Intern( Intern const & src );
 		~Intern();
+		AForm					*makeForm( std::string name, std::string target );
 		Intern &				operator=( Intern const &rhs );
 
-		AForm					*makeForm(std::string name, std::string target);
 
 	private:
 
 		struct mappedFunction
 		{
 			std::string			name;
- 			AForm				*(Intern::*form)(std::string target, std::string);
+ 			AForm				*(Intern::*form)( std::string target, std::string );
 		};
 		mappedFunction			_funcions[NUM_FORMS];
 
 		AForm					*_makeShrubberyCreationForm( std::string target, std::string name );
 		AForm					*_makeRobotomyRequestForm( std::string target, std::string name );
 		AForm					*_makePresidentialPardonForm( std::string target, std::string name );
-
-
 };
 
 

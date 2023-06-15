@@ -54,8 +54,7 @@ class AForm
 		bool					_isSigned;
 		const int				_gradeSign;
 		const int				_gradeExecute;
-
-
+		
 };
 
 std::ostream			&operator<<( std::ostream &o, AForm const &i );

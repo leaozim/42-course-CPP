@@ -7,7 +7,8 @@
 AForm::AForm() : _name("Chico"), _isSigned(false), _gradeSign(5), _gradeExecute(5) { }
 
 AForm::AForm( const AForm &src ) 
-	: _name(src.getName()), _isSigned(src.getGradeSign()), _gradeSign(src.getGradeSign()), _gradeExecute(src.getGradeExecute()) {
+	: _name(src.getName()), _isSigned(src.getGradeSign()), _gradeSign(src.getGradeSign()), 
+	_gradeExecute(src.getGradeExecute()) {
 	*this = src;
 }
 
@@ -33,8 +34,8 @@ AForm::~AForm() { }
 ** --------------------------------- OVERLOAD ---------------------------------
 */
 
-AForm &				AForm::operator=( AForm const &rhs ) {
-	if ( this != &rhs )
+AForm &					AForm::operator=( AForm const &rhs ) {
+	if ( this != &rhs )	
 	{
 		const_cast<std::string&>(this->_name) = getName();
 		const_cast<int&>(this->_gradeSign) = getGradeSign();
@@ -43,7 +44,7 @@ AForm &				AForm::operator=( AForm const &rhs ) {
 	return *this;
 }
 
-std::ostream		&operator<<( std::ostream &o, AForm const &i ) {
+std::ostream			&operator<<( std::ostream &o, AForm const &i ) {
 	o	<< "Form name                 = " << i.getName() << std::endl
 		<< "Required Grade to Sign    = " << i.getGradeSign() << std::endl
 		<< "Required Grade to Execute = " << i.getGradeExecute() << std::endl

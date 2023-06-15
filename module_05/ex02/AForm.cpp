@@ -9,7 +9,8 @@ AForm::AForm() : _name("Chico"), _isSigned(false), _gradeSign(5), _gradeExecute(
 }
 
 AForm::AForm( const AForm &src ) 
-	: _name(src.getName()), _isSigned(src.getGradeSign()), _gradeSign(src.getGradeSign()), _gradeExecute(src.getGradeExecute()) {
+	: _name(src.getName()), _isSigned(src.getGradeSign()), _gradeSign(src.getGradeSign()), 
+	_gradeExecute(src.getGradeExecute()) {
 	*this = src;
 	print_description("Copy constructor called", ORANGE);
 }
@@ -47,7 +48,7 @@ AForm &				AForm::operator=( AForm const &rhs ) {
 		const_cast<int&>(this->_gradeExecute) = getGradeExecute();
 		print_description("Copy assignment operator called", ORANGE);
 	}
-	return *this;
+	return (*this);
 }
 
 std::ostream		&operator<<( std::ostream &o, AForm const &i ) {

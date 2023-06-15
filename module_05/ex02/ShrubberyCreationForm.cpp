@@ -37,7 +37,7 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=( ShrubberyCreationForm c
 	if (this != &rhs) {
 		print_description("Copy assignment operator called", ORANGE);
 	}
-	return *this;
+	return (*this);
 }
 
 /*
@@ -61,20 +61,17 @@ void					ShrubberyCreationForm::execute( Bureaucrat const &executor ) const {
 	if (ofs.fail())
 		return ;
 	ofs <<
-	"    oxoxoo    ooxooz\n"
-	" ooxoxo oo  oxoxooo\n"
-	" oooo xxoxoo ooo ooox\n"
-	" oxo o oxoxo  xoxxoxo\n"
-	"  oxo xooxoooo o ooo\n"
-	"    ooo\\oo\\  /o/o\n"
-	"        \\  \\/ /\n"
-	"         |   /\n"
-	"         |  |\n"
-	"         |  |\n"
-	"         |  |\n"
-	"         |  |\n"
-	"  ______/____\\____\n"
-	<< std::endl;
+			"               ,@@@@@@@,\n"
+			<< "       ,,,.   ,@@@@@@/@@,  .oo8888o.\n" 
+			<< "    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n" 
+			<< "   ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n" 
+			<< "   %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n" 
+			<< "   %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n" 
+			<< "   `&%\\ ` /%&'    |.|         | |\n" 
+			<< "       |o|        | |         | |\n" 
+			<< "       |.|        | |         | |\n" 
+			<< "//__\\\\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_\n";
+	ofs.close();
 }
 
 /* ************************************************************************** */

@@ -33,7 +33,7 @@ class Bureaucrat
 		void					decrement( void );
 		int						getGrade( void ) const;
 		std::string				getName( void ) const;
-		void					print_description(std::string str, std::string color);
+		void					print_description( std::string str, std::string color );
 
 		class GradeTooHighException: public std::exception {
 			virtual const char	*what( void ) const throw();
