@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Form::Form() : _name("Chico"), _isSigned(false), _gradeSign(0), _gradeExecute(0)
+Form::Form() : _name("Chico"), _isSigned(false), _gradeSign(2), _gradeExecute(2)
 {
 	print_description("Default constructor called", ORANGE);
 }
@@ -50,7 +50,7 @@ Form &				Form::operator=( Form const &rhs )
 		const_cast<int&>(this->_gradeExecute) = getGradeExecute();
 		print_description("Copy assignment operator called", ORANGE);
 	}
-	return *this;
+	return (*this);
 }
 
 std::ostream		&operator<<( std::ostream &o, Form const &i )
@@ -74,19 +74,24 @@ std::ostream		&operator<<( std::ostream &o, Form const &i )
 ** --------------------------------- METHODS ----------------------------------
 */
 
-const char*				Form::GradeTooHighException::what( void ) const throw() {
+const char				*Form::GradeTooHighException::what( void ) const throw() {
 	return ("Grade Too High Exception");
 }
 
-const char*				Form::GradeTooLowException::what( void ) const throw() {
+const char				*Form::GradeTooLowException::what( void ) const throw() {
 	return ("Grade Too Low Exception");
 }
 
-void					Form::beSigned( Bureaucrat &bureaucrat )
-{
+const char				*Form::AlreadySignedException::what( void ) const throw() {
+	return ("Already signed");
+}
+
+void					Form::beSigned( Bureaucrat &bureaucrat ) {
 	if (bureaucrat.getGrade() > this->_gradeSign) { throw GradeTooLowException(); }
+	if (this->_isSigned == true) { throw AlreadySignedException(); }
 	this->_isSigned = true;
 }
+
 
 void					Form::print_description(std::string str, std::string color) {
 	std::cout << color << "Form" << RES 

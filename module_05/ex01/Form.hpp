@@ -23,7 +23,7 @@ class Form
 	public:
 
 		Form();
-		Form(std::string name, int gradeSign, int gradeExecute);
+		Form( std::string name, int gradeSign, int gradeExecute );
 		Form( Form const &src );
 		~Form();
 
@@ -42,6 +42,9 @@ class Form
 		class GradeTooLowException: public std::exception {
 			virtual const char	*what( void ) const throw();
 		};
+		class AlreadySignedException: public std::exception {
+			virtual const char	*what( void ) const throw();
+		};
 
 	private:
 	
@@ -49,8 +52,6 @@ class Form
 		bool					_isSigned;
 		const int				_gradeSign;
 		const int				_gradeExecute;
-
-
 
 };
 

@@ -6,11 +6,11 @@
 
 Intern::Intern() {
 	this->_funcions[0].name = "shrubbery creation";
-	this->_funcions[0].form = &Intern::_makePresidentialPardonForm;
+	this->_funcions[0].form = &Intern::_makeShrubberyCreationForm;
 	this->_funcions[1].name = "robotomy request";
 	this->_funcions[1].form = &Intern::_makeRobotomyRequestForm;
 	this->_funcions[2].name = "presidential pardon";
-	this->_funcions[2].form = &Intern::_makeShrubberyCreationForm;
+	this->_funcions[2].form = &Intern::_makePresidentialPardonForm;
 }
 
 Intern::Intern( const Intern & src ) {
