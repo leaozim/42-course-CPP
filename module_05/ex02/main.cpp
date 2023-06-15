@@ -36,6 +36,7 @@ void	print_construtors_presidencial( void ) {
 		b1.signForm(*Presidential);
 		b1.executeForm(*Presidential);
 		print_header("DESTRUCTORS",  '=');
+		delete Presidential;
 	}
 	print_separator();
 	std::cout << std::endl << std::endl << std::endl;
@@ -58,6 +59,7 @@ void	print_construtors_shrubbery( void ) {
 		b1.signForm(*Shrubbery);
 		b1.executeForm(*Shrubbery);
 		print_header("DESTRUCTORS", '=');
+		delete Shrubbery;
 	}
 	print_separator();
 	std::cout << std::endl << std::endl << std::endl;
@@ -84,6 +86,7 @@ void	print_construtors_robotomy( void ) {
 		b1.signForm(*Robotomy);	
 		b1.executeForm(*Robotomy);
 		print_header("DESTRUCTORS", '=');
+		delete Robotomy;
 	}
 }
 
