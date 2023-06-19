@@ -7,36 +7,39 @@
 #include <cmath>
 #include <iomanip>
 #include <climits>
+#include <sstream>
 
+struct dataType 
+{
+	char		_char;
+	int			_int;
+	float		_float;
+	double		_double;
+};
 class ScalarConverter
 {
 
 	public:
-
+		static void					convert( std::string arg );
+	
+	private:
 		ScalarConverter();
 		ScalarConverter( ScalarConverter const & src );
 		~ScalarConverter();
+		ScalarConverter		&operator=( ScalarConverter const & rhs );
 
-		ScalarConverter &		operator=( ScalarConverter const & rhs );
+		static void			_convertChar( const std::string &str, dataType &type );
+		static void			_convertInt( const std::string  &str, dataType &type );
+		static void			_convertFloat( const std::string&str, dataType &type );
+		static void			_convertDouble( const std::string&str, dataType &type );
+		static void			_print( long long num, dataType &type );
+		static void			_printImpossible( void );
+		static bool			_isDoubleValid( std::string str );
+		static bool			_isFloatValid( std::string str );
+		static bool			_isNumericValid( std::string str , std::string numberMap );
 
-
-		void					convert( std::string arg );
-	
-	private:
-
-		void					_convertChar( const std::string &str );
-		void					_convertInt( const std::string  &str );
-		void					_convertFloat( const std::string&str );
-		void					_convertDouble( const std::string&str );
-
-
-		static char				_char;
-		static int				_int;
-		static float			_float;
-		static double			_double;
 
 };
 
-std::ostream &			operator<<( std::ostream & o, ScalarConverter const & i );
 
 #endif /* ************************************************* SCALARCONVERTER_H */
