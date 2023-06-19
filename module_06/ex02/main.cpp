@@ -46,7 +46,6 @@ void identify(Base &p)
 int main( void )
 {
 	std::srand(time(NULL));
-	
 	for (int i= 0; i < 6; i++)
 	{
 		std::cout << CYAN << std::string(20, '-') << RES << std::endl;
@@ -58,5 +57,4 @@ int main( void )
 		delete newBase;
 		std::cout << CYAN << std::string(20, '-') << RES << std::endl;
 	}
-	
 }
