@@ -13,21 +13,29 @@ void print_separator(void)
 	std::cout << CYAN << std::string(58, '-') << RES << std::endl;
 }
 
-void	print_array_int( Array<int> &array, int delimiter)
+void assigIntValues( Array<int> &array, int delimiter )
 {
-	std::cout <<  "Memory address = " << &array << std::endl;
 	for (int i = 0; i < SIZE_MAX; i++)
 		array[i] = i + delimiter;
+}
+
+void	printArrayInt( Array<int> &array )
+{
+	std::cout <<  "Memory address = " << &array << std::endl;
 	for (int i = 0; i < SIZE_MAX; i++)
 		std::cout << array[i] << " ";
 	std::cout << std::endl;
 }
 
-void	print_array_str( Array<std::string> &array, std::string value )
+void	assigArrayValues( Array<std::string> &array, std::string value )
 {
 	std::cout <<  "Memory address = " << &array << std::endl;
 	for (int i = 0; i < SIZE_MAX; i++)
 		array[i] = value;
+}
+
+void	printArrayStr( Array<std::string> &array )
+{
 	for (int i = 0; i < SIZE_MAX; i++)
 		std::cout << array[i] << " ";
 	std::cout << std::endl;
@@ -37,23 +45,26 @@ int main( void )
 {
 	{
 		print_header("ARRAY INT", '=');
-		Array<int> defaultArray; 
-		Array<int> 	defaultArrayVAlue(SIZE_MAX); 
-		Array<int> CopyArray(defaultArrayVAlue); 
-		defaultArray = defaultArrayVAlue;
+		Array<int>		defaultArray; 
+		Array<int>		defaultArrayValue(SIZE_MAX); 
+		Array<int>		CopyArray(defaultArrayValue); 
+		defaultArray = defaultArrayValue;
 
 		print_header("Construction with an unsigned int", '~');
-		print_array_int(defaultArrayVAlue, 1);
+		assigIntValues(defaultArrayValue, 1);
+		printArrayInt(defaultArrayValue);
 
 		print_header("Construction by copy operator", '~');
-		print_array_int(CopyArray, 2);
+		assigIntValues(CopyArray, 2);
+		printArrayInt(CopyArray);
 
 		print_header("Value passed by assignment operator", '~');
-		print_array_int(defaultArray, 3);
+		assigIntValues(defaultArray, 3);
+		printArrayInt(defaultArray);
 
 		print_header("operator [] with error", '~');
 		try {
-			std::cout << &defaultArrayVAlue[SIZE_OUT_OF_LIMITS] << std::endl;
+			std::cout << &defaultArrayValue[SIZE_OUT_OF_LIMITS] << std::endl;
 		}
 		catch(const std::exception& e) {
 			std::cerr << e.what() <<  RANGE << "Added value "  << SIZE_OUT_OF_LIMITS << '\n';
@@ -74,23 +85,26 @@ int main( void )
 	}
 	{
 		print_header("ARRAY STRING", '=');
-		Array<std::string>	defaultArray; 
-		Array<std::string>	defaultArrayVAlue(SIZE_MAX); 
-		Array<std::string>	CopyArray(defaultArrayVAlue); 
-		defaultArray = defaultArrayVAlue;
+		Array<std::string>		defaultArray; 
+		Array<std::string>		defaultArrayValue(SIZE_MAX); 
+		Array<std::string>		CopyArray(defaultArrayValue); 
+		defaultArray = defaultArrayValue;
 
 		print_header("Construction with an unsigned int", '~');
-		print_array_str(defaultArrayVAlue, "Ola");
+		assigArrayValues(defaultArrayValue, "Ola");
+		printArrayStr(defaultArrayValue);
 
 		print_header("Construction by copy operator", '~');
-		print_array_str(CopyArray, "mundo");
+		assigArrayValues(CopyArray, "mundo");
+		printArrayStr(CopyArray);
 
 		print_header("Value passed by assignment operator", '~');
-		print_array_str(defaultArray, "!");
+		assigArrayValues(defaultArray, "!");
+		printArrayStr(defaultArray);
 
 		print_header("operator [] with error", '~');
 			try {
-			std::cout << &defaultArrayVAlue[SIZE_OUT_OF_LIMITS] << std::endl;
+			std::cout << &defaultArrayValue[SIZE_OUT_OF_LIMITS] << std::endl;
 		}
 		catch(const std::exception& e) {
 			std::cerr << e.what() <<  RANGE << "Added value "  << SIZE_OUT_OF_LIMITS << '\n';

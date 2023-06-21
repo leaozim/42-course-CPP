@@ -1,11 +1,11 @@
 #include "ScalarConverter.hpp"
 
-// int main( int argc, char **argv )
-// {
-// 	if (argc != 2)
-// 		return (std::cout <<  "Invalid number of arguments!" << std::endl, 1);
-// 	ScalarConverter::convert(argv[1]);
-// }
+int main( int argc, char **argv )
+{
+	if (argc != 2)
+		return (std::cout <<  "Invalid number of arguments!" << std::endl, 1);
+	ScalarConverter::convert(argv[1]);
+}
 
 // void print_header( std::string str, char marker )
 // {
@@ -39,6 +39,7 @@
 // 	print_header("INT", '=');
 // 	for (int i = 0; int_tests[i]; i++)
 // 	{
+// 		std::cout << "[" << int_tests[i] << "]\n";
 // 		ScalarConverter::convert(int_tests[i]);
 // 		print_separator();
 // 	}

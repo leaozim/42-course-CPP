@@ -3,10 +3,10 @@
 void printHeader( std::string str, char marker )
 {
 	std::cout << std::endl << 
-			  std::string(60, marker) << std::endl
+			  std::string(70, marker) << std::endl
 			  << BLUE << str << RES
 			  << std::endl
-			  << std::string(60, marker) << std::endl;
+			  << std::string(70, marker) << std::endl;
 }
 
 Base *generate( void )
@@ -23,7 +23,6 @@ Base *generate( void )
 
 void identify(Base *p)
 {
-
 	A *a = dynamic_cast<A*>(p);
 	B *b = dynamic_cast<B*>(p);
 	C *c = dynamic_cast<C*>(p);
@@ -72,7 +71,7 @@ int main( void )
 		std::cout << YELLOW << "Identify of reference: " << RES;
 		identify(*newBase);
 		delete newBase;
-		std::cout << CYAN << std::string(60, '-') << RES << std::endl;
+		std::cout << CYAN << std::string(70, '-') << RES << std::endl;
 	}
 	printHeader("ERROR", '=');
 	{

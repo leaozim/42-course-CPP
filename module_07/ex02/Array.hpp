@@ -4,9 +4,15 @@
 # include <iostream>
 # include <string>
 
-#define MAGENTA "\033[35m"
-#define ORANGE	"\033[0;38;5;166m"
-#define RES "\x1b[0m"
+# define MAGENTA "\033[35m"
+# define RED "\x1b[38;5;88m"
+# define GREEN "\x1b[38;5;40m"
+# define BLUE "\x1b[38;5;25m"
+# define YELLOW "\x1b[38;5;220m"
+# define ORANGE	"\033[0;38;5;166m"
+# define LIGHT_PURPLE "\033[1;35m"
+# define CYAN "\001\e[0;36m\002"
+# define RES "\x1b[0m"
 #define RANGE "Valid values = 0 - 4 | "
 #define SIZE_MAX 5
 #define SIZE_OUT_OF_LIMITS 6
@@ -48,7 +54,7 @@ public:
 		print_description("Default destructor called");
 	}
 
-	Array& operator=(const Array& src) {
+	Array&	operator=(const Array& src) {
 		if (this != &src) {
 			_n = src.size();
 			delete[] _elements;
@@ -60,7 +66,7 @@ public:
 		return (*this);
 	}
 
-	T 	&operator[](size_t index)  {
+	T		&operator[](size_t index)  {
 		if (index >= _n) { throw RangeException(); }
 		return _elements[index];
 	}
