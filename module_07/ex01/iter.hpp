@@ -2,7 +2,6 @@
 # define ITER_HPP
 
 # include <iostream>
-# include <string>
 
 #define MAGENTA "\033[35m"
 #define RED "\x1b[38;5;88m"

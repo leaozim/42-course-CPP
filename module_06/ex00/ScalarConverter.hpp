@@ -2,12 +2,10 @@
 # define SCALARCONVERTER_HPP
 
 #include <iostream>
-#include <string>
 #include <cstdlib>
 #include <cmath>
 #include <iomanip>
 #include <climits>
-#include <sstream>
 
 #define MAGENTA "\033[35m"
 #define RED "\x1b[38;5;88m"

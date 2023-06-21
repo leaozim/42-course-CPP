@@ -2,7 +2,6 @@
 # define WHATEVER_HPP
 
 # include <iostream>
-# include <string>
 
 template <typename T>
 T	&min(T &value1, T &value2) 

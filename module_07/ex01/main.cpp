@@ -2,7 +2,6 @@
 
 int main( void ) 
 {
-	
 	print_header("NUMERIC DATA TYPES", '~');
 	{
 		const int	array[4] = { 1, 2, 3, 5 };

@@ -40,20 +40,20 @@ void identify(Base &p)
 		A a = dynamic_cast<A&>(p);
 		std::cout <<  "A - Reference" << std::endl;
 		return ;
-	}	catch(const std::exception& e) {}
+	}	catch(...) {}
 	try
 	{
 		B b = dynamic_cast<B&>(p);
 		std::cout <<  "B - Reference" << std::endl;
 		return ;
-	}	catch(const std::exception& e) {}
+	}	catch(...) {}
 	try
 	{
 		C c = dynamic_cast<C&>(p);
 		std::cout <<  "C - Reference" << std::endl;
 		return ;
 	}	
-	catch (std::exception& e) 
+	catch (...) 
 	{
 		std::cout << "This class is not in my list of valid classes!\n";
 	}

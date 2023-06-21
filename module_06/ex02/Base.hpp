@@ -2,7 +2,6 @@
 # define BASE_HPP
 
 # include <iostream>
-# include <string>
 # include <cstdlib> 
 
 #define MAGENTA "\033[35m"
