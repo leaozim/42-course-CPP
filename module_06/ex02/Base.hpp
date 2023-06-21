@@ -17,10 +17,8 @@
 
 class Base
 {
-
 	public:
 		virtual ~Base();
-
 };
 
 class A : public Base { public: A(){std::cout<<"Constructor A\n";}; };

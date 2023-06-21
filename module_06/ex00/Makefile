@@ -28,7 +28,6 @@ $(OBJ_DIR):
 
 clean:
 			rm -rf obj
-			rm -rf Bender_shrubbery
 
 fclean:		clean
 			rm -f $(NAME)

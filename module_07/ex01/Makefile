@@ -1,7 +1,7 @@
-NAME	=	serializer 
+NAME	=	iter 
 
 SRCS	=	$(MAIN)
-MAIN	=	main.cpp Serializer.cpp Data.cpp
+MAIN	=	main.cpp 
 
 OBJ_DIR	=	obj
 OBJS	=	$(SRCS:%.cpp=$(OBJ_DIR)/%.o)
@@ -11,7 +11,7 @@ CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g
 
 VPATH	=	./
 
-HEADER	=	Serializer.hpp Data.hpp
+HEADER	=	iter.hpp
 
 INCLUDE	=	-I ./ -I ./includes
 
