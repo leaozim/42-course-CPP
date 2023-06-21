@@ -21,8 +21,11 @@ class Base
 		virtual ~Base();
 };
 
-class A : public Base { public: A(){std::cout<<"Constructor A\n";}; };
-class B : public Base { public: B(){std::cout<<"Constructor B\n";}; };
-class C : public Base { public: C(){std::cout<<"Constructor C\n";}; };
+class A : public Base { public: A(){
+	std::cout<< ORANGE<<"Class A = "<<RES<<"Default constructor\n";}; };
+class B : public Base { public: B(){
+	std::cout<<ORANGE<<"Class B = "<<RES <<"Default constructor\n";}; };
+class C : public Base { public: C(){
+	std::cout<<ORANGE<<"Class C = "<<RES <<"Default constructor\n";}; };
 
 #endif /* ************************************************************ BASE_H */

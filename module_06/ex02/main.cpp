@@ -1,5 +1,14 @@
 #include "Base.hpp"
 
+void printHeader( std::string str, char marker )
+{
+	std::cout << std::endl << 
+			  std::string(60, marker) << std::endl
+			  << BLUE << str << RES
+			  << std::endl
+			  << std::string(60, marker) << std::endl;
+}
+
 Base *generate( void )
 {
 	int random;
@@ -20,7 +29,8 @@ void identify(Base *p)
 	C *c = dynamic_cast<C*>(p);
 	std::cout << (a ? "A - Pointer" : 
 				 (b ? "B - Pointer" : 
-				 (c ? "C - Pointer" : ""))) 
+				 (c ? "C - Pointer" : 
+				 "This class is not in my list of valid classes!\n"))) 
 			  << std::endl;
 }
 
@@ -30,31 +40,47 @@ void identify(Base &p)
 	{
 		A a = dynamic_cast<A&>(p);
 		std::cout <<  "A - Reference" << std::endl;
+		return ;
 	}	catch(const std::exception& e) {}
 	try
 	{
 		B b = dynamic_cast<B&>(p);
 		std::cout <<  "B - Reference" << std::endl;
+		return ;
 	}	catch(const std::exception& e) {}
 	try
 	{
 		C c = dynamic_cast<C&>(p);
 		std::cout <<  "C - Reference" << std::endl;
-	}	catch(const std::exception& e) {}
+		return ;
+	}	
+	catch (std::exception& e) 
+	{
+		std::cout << "This class is not in my list of valid classes!\n";
+	}
 }
 
 int main( void )
 {
 	std::srand(time(NULL));
+	printHeader("Generating a random class (A, B or C)", '=');
 	for (int i= 0; i < 6; i++)
 	{
-		std::cout << CYAN << std::string(20, '-') << RES << std::endl;
 		Base	*newBase = generate();
-		Base	&baseRef = *newBase;
-
+		std::cout << YELLOW << "Identify of pointer: " << RES;
 		identify(newBase);
-		identify(baseRef);
+		std::cout << YELLOW << "Identify of reference: " << RES;
+		identify(*newBase);
 		delete newBase;
-		std::cout << CYAN << std::string(20, '-') << RES << std::endl;
+		std::cout << CYAN << std::string(60, '-') << RES << std::endl;
 	}
+	printHeader("ERROR", '=');
+	{
+		Base newBase;
+		std::cout << YELLOW << "Identify of pointer: " << RES;
+		identify(&newBase);
+		std::cout << YELLOW << "Identify of reference: " << RES;
+		identify(newBase);
+	}
+
 }

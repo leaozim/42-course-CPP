@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-Data::Data() : _name("cavalinho andando na chuva") { }
+Data::Data() : _name("Cavalinho andando na chuva") { }
 
 Data::Data( const Data & src ) { *this = src; }
 
