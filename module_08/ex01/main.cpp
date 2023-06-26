@@ -96,7 +96,7 @@ int main()
 	printSeparator();
 	try {
 		std::multiset<int> manySp;
-		for (int i = 0; i < 10001; i++)
+		for (int i = 0; i < 1001; i++)
 			manySp.insert(i);
 
 		Span sp = Span(1000);

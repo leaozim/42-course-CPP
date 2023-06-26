@@ -23,7 +23,7 @@ int main( void )
 	catch (const std::out_of_range& e) {
 		std::cout << "Erro: " << e.what() << std::endl;
 	}
-	printHeader("TEST VECTOR",  '=');
+	printHeader("TEST LIST",  '=');
 	try	{
 		std::list<int>				lst;
 		std::list<int>::iterator	valueFind;
@@ -31,9 +31,9 @@ int main( void )
 		lst.push_back(10);
 		lst.push_back(44);
 		lst.push_back(30);
-		valueFind = ::easyFind(lst, 44 );
+		valueFind = ::easyFind(lst, 44);
 		std::cout << *valueFind << std::endl;
-		valueFind = ::easyFind(lst, 1 );
+		valueFind = ::easyFind(lst, 1);
 		std::cout << *valueFind << std::endl;
 	}
 	catch (const std::out_of_range& e) {
@@ -46,9 +46,9 @@ int main( void )
 
 		for (int i = 0; i < 5; i++)
 			deque.push_back(i + 1 * 2);
-		valueFind = ::easyFind(deque, 4 );
+		valueFind = ::easyFind(deque, 4);
 		std::cout << *valueFind << std::endl;
-		valueFind = ::easyFind(deque, 1 );
+		valueFind = ::easyFind(deque, 1);
 		std::cout << *valueFind << std::endl;
 	}
 	catch (const std::out_of_range& e) {

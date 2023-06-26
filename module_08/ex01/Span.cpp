@@ -37,7 +37,6 @@ Span &				Span::operator=( Span const & rhs )
 */
 void	Span::addNumber( int element )
 {
-
 	if (_set.size() >=_numberOfElements)
 		throw  std::out_of_range("exceeded limit");
 	_set.insert(element);

@@ -1,7 +1,6 @@
 NAME	=	mutantstack
 
-SRCS	=	$(MAIN)
-MAIN	=	main.cpp 
+SRCS	=	$(shell ls ./ | grep .cpp$)
 
 OBJ_DIR	=	obj
 OBJS	=	$(SRCS:%.cpp=$(OBJ_DIR)/%.o)
@@ -11,7 +10,7 @@ CFLAGS	=	-Wall -Wextra -Werror -std=c++98 -g
 
 VPATH	=	./
 
-HEADER	=	
+HEADER	=	$(shell ls ./ | grep .hpp$)
 
 INCLUDE	=	-I ./ -I ./includes
 
