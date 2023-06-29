@@ -2,6 +2,29 @@
 #include  <deque>
 #include  <list>
 
+void printHeader(const std::string& str, char marker, const char* color)
+{
+	int	padding = 4;
+	int	totalWidth = 60;
+	int	strWidth = str.size();
+	int	margin = (totalWidth - strWidth - 2 * padding) / 2;
+
+	std::string marginStr(margin, ' ');
+
+	std::cout << std::string(totalWidth, marker) << std::endl
+			  << marginStr 
+			  << std::string(padding, ' ') 
+			  << color << str << RES 
+			  << std::string(padding, ' ') 
+			  << marginStr << std::endl
+			  << std::string(totalWidth, marker) << std::endl;
+}
+
+void printSeparator(void)
+{
+	std::cout << CYAN << std::string(60, '-') << RES << std::endl;
+}
+
 void testIterator( void ) 
 {	
 	{

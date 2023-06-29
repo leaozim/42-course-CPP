@@ -35,8 +35,8 @@ ScalarConverter			&ScalarConverter::operator=( ScalarConverter const &rhs )
 bool		ScalarConverter::_isNumericValid( std::string str , std::string numberMap ) 
 {
 	bool	isNumeric;
-	size_t pos = str.find(".");
-	size_t count = 0;
+	size_t	pos = str.find(".");
+	size_t	count = 0;
 	
 	if (str[0] == '-' || str[0] == '+')
 		str.erase(0, 1);

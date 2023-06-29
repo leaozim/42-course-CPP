@@ -16,6 +16,9 @@
 #define CYAN "\001\e[0;36m\002"
 #define RES "\x1b[0m"
 
+/*
+** ----------------------------------- CLASS -----------------------------------
+*/
 
 template <typename T>
 class MutantStack : public std::stack<T>
@@ -48,49 +51,35 @@ class MutantStack : public std::stack<T>
 
 };
 
+
+/*
+** ---------------------------------- UTEIS ------------------------------------
+*/
+
 template <typename T>
 void printStackOrder(const T& stack)
 {
-    typename T::const_reverse_iterator it = stack.rbegin();
-    typename T::const_reverse_iterator ite = stack.rend();
+	typename T::const_reverse_iterator it = stack.rbegin();
+	typename T::const_reverse_iterator ite = stack.rend();
 
-    while (it != ite) {
+	while (it != ite) {
 		std::cout << " | "<< *it << "  "<<std::endl;
-        ++it;
-    }
+		++it;
+	}
 }
 
 template <typename T>
 void printStack(const T& stack)
 {
-    typename T::const_iterator it = stack.begin();
-    typename T::const_iterator ite = stack.end();
+	typename T::const_iterator it = stack.begin();
+	typename T::const_iterator ite = stack.end();
 
-    while (it != ite) {
+	while (it != ite) {
 		std::cout << " | "<< *it << "  "<<std::endl;
-        ++it;
-    }
+		++it;
+	}
 }
 
-void printHeader(const std::string& str, char marker, const char* color)
-{
-    int padding = 4;
-    int totalWidth = 60;
-    int strWidth = str.size();
-    int margin = (totalWidth - strWidth - 2 * padding) / 2;
 
-    std::string marginStr(margin, ' ');
-
-    std::cout << std::string(totalWidth, marker) << std::endl
-              << marginStr << std::string(padding, ' ') 
-			  << color << str << "\033[0m" << std::string(padding, ' ') 
-			  << marginStr << std::endl
-              << std::string(totalWidth, marker) << std::endl;
-}
-
-void printSeparator(void)
-{
-	std::cout << CYAN << std::string(60, '-') << RES << std::endl;
-}
 
 #endif /* ******************************************************** MUTANTSTACK_H */
