@@ -19,7 +19,7 @@
 # define LIGHT_PURPLE "\033[1;35m"
 # define CYAN "\001\e[0;36m\002"
 # define RES "\x1b[0m"
-# define BAD_IMPUT RED "Error: bad imput => " RES
+# define BAD_INPUT RED "Error: bad input => " RES
 # define OLD_DATE RED "Error: bitcoin mining emerged from 2009/03/01." RES
 # define FUTURE_DATE RED "Error: the date is in the future." RES
 # define ERROR_ARGC RED "Error: invalid number of arguments!" RES
@@ -27,8 +27,6 @@
 # define NEGATIVE_NUMBER RED "Error: not a positive number." RES
 # define LARGE_NUMBER RED "Error: too large a number." RES
 # define EMPTY_LINE RED "Error: empty line." RES
-
-
 
 class BitcoinExchange
 {
@@ -44,7 +42,7 @@ class BitcoinExchange
 		bool				check_arguments( int argc, char **file );
 		int					exchange( int argc, char **file );
 		void				getBitcoinPriceOverTime( void ) ;
-		void				getImputFile( std::string file ) ;
+		void				getInputFile( std::string file ) ;
 		void				getCurrentDate( int& day, int& month, int& year );
 		int					defineValue( const std::string& dateStr, int startPos, int length );
 		bool				checkValidDateBaseFormat( const std::string& line );
@@ -60,9 +58,9 @@ class BitcoinExchange
 
 	private:
 		std::map<std::string, float>	_dataMap;
-		float						_value;
-		std::string					_date;
-		std::string					_line;
+		float							_value;
+		std::string						_date;
+		std::string						_line;
 
 
 

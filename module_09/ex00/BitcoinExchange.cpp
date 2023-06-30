@@ -102,7 +102,7 @@ int	BitcoinExchange::defineValue( const std::string& dateStr, int startPos, int 
 bool	BitcoinExchange::isValidChar( std::string tmp, std::string c )
 {
 	if (tmp != c)
-		return (std::cout << BAD_IMPUT << _line << std::endl, false);
+		return (std::cout << BAD_INPUT << _line << std::endl, false);
 	return (true);
 }
 
@@ -114,7 +114,7 @@ bool BitcoinExchange::isValidValue( const std::string& line )
 	_value = atof(valueStr.c_str());
 	if (!isValidNumericFormat(valueStr, "+-0123456789.") 
 		|| ((valueStr[0] == '+' || valueStr[0] == '+') && valueStr.size() == 1))
-		return (std::cout << BAD_IMPUT << line << std::endl, false);
+		return (std::cout << BAD_INPUT << line << std::endl, false);
 	if (_value < 0)
 		return (std::cout << NEGATIVE_NUMBER << std::endl, false);
 	if (_value > 1000)	
@@ -135,11 +135,11 @@ bool BitcoinExchange::isValidDate( const std::string& line )
 	day = defineValue(_date, 8, 2);
 	getCurrentDate(currentDay, currentMonth, currentYear);
 	if (!isValidDateFormat(_date))
-		return (std::cout << BAD_IMPUT << line << std::endl, false);
+		return (std::cout << BAD_INPUT << line << std::endl, false);
 	if ((year == 2009) && (month == 1) && (day == 1))
 		return (std::cout << OLD_DATE << std::endl, false);
 	if (!isValidYear(year) || !isValidMonth(month) || !isValidDay(day, month, year))
-		return (std::cout << BAD_IMPUT << line << std::endl, false);
+		return (std::cout << BAD_INPUT << line << std::endl, false);
 	if (year > currentYear || (year == currentYear && month > currentMonth) 
 	|| (year == currentYear && month == currentMonth && day > currentDay))
 		return (std::cout  << FUTURE_DATE << std::endl, false);
@@ -178,7 +178,7 @@ bool	BitcoinExchange::check_arguments( int argc, char **file )
 // --------------------------------- Exchange ----------------------------------
 
 
-void	BitcoinExchange::getImputFile( std::string file ) 
+void	BitcoinExchange::getInputFile( std::string file ) 
 {
 	std::map<std::string, float>::iterator	it;
 	std::string								key;
@@ -221,7 +221,7 @@ int			BitcoinExchange::exchange( int argc, char **file )
 	if (!check_arguments(argc, file))
 		return (1);
 	getBitcoinPriceOverTime();
-	getImputFile(file[1]);
+	getInputFile(file[1]);
 	return (0);
 }
 
