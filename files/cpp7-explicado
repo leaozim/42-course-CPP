@@ -1,0 +1,78 @@
+
+ex00:
+
+FUNCOES TEMPLATES
+Funções templates em C++ são funções que podem operar com tipos genéricos de dados, permitindo que sejam escritas de forma genérica e reutilizável para diferentes tipos de dados.
+
+A principal vantagem das funções templates é a capacidade de escrever um único código que pode lidar com múltiplos tipos de dados sem precisar duplicar o código para cada tipo específico. Isso proporciona uma maior flexibilidade e reutilização de código.
+
+
+
+
+
+
+ex01: 
+	recebe um tempate array no lugar de um int
+função iter é uma função de template em C++ que permite iterar sobre um array e aplicar uma função a cada elemento. Ela recebe três parâmetros:
+
+
+
+ex03:
+
+CLASSE TEMPLETE
+A classe Array é um exemplo de uma classe template em C++. 
+Uma classe template é uma classe genérica que pode ser parametrizada com um ou mais tipos. No caso dessa classe, ela pode ser usada para criar um array de elementos de qualquer tipo.
+
+A linha template <typename T> indica que estamos definindo uma classe template com um parâmetro de tipo chamado T. O tipo T será substituído por um tipo real ao criar um objeto da classe Array. Por exemplo, ao criar um Array<int>, T será substituído por int.
+
+A classe Array possui alguns membros e métodos para gerenciar e manipular um array de elementos. Ela possui um ponteiro _elements para armazenar os elementos do array e uma variável _n para armazenar o número de elementos.
+
+
+
+
+
+/////
+
+Uma classe template em C++ é uma classe genérica que pode ser parametrizada por um ou mais tipos de dados. Ela permite escrever uma única definição de classe que pode ser usada com diferentes tipos de dados, proporcionando flexibilidade e reutilização de código.
+
+As classes templates são uma poderosa ferramenta da linguagem C++ para criar estruturas de dados genéricas, algoritmos reutilizáveis e bibliotecas flexíveis. Elas permitem escrever um código mais genérico e adaptável, capaz de lidar com diferentes tipos de dados sem a necessidade de duplicação de código.
+
+
+
+
+POLIMORIFSMO E TEMPLATE 
+Em resumo, o template em C++ permite alcançar o polimorfismo estático, fornecendo diferentes versões de funções ou classes para diferentes tipos de parâmetros, e também permite o polimorfismo paramétrico, permitindo escrever código genérico que pode ser reutilizado com diferentes tipos de dados. O uso do template pode ajudar a criar código mais flexível, genérico e reutilizável, proporcionando os benefícios do polimorfismo em C++.
+
+
+
+
+
+
+
+
+
+
+POO - A Programação Orientada a Objetos (POO) é um paradigma de programação que se baseia na ideia de estruturar o código em torno de objetos, que são representações de entidades do mundo real. Ela é baseada em quatro conceitos principais: encapsulamento, herança, polimorfismo e abstração.
+
+Vamos explicar cada um desses conceitos de forma didática:
+
+	Encapsulamento:
+
+Imagine que você está construindo uma casa. Você não precisa saber como todos os componentes da casa funcionam internamente (encanamento, fiação elétrica, estrutura, etc.) para usá-la. Tudo o que você precisa saber são as interfaces (portas, janelas, interruptores) e como usá-las.
+No encapsulamento, você agrupa dados (atributos) e comportamentos (métodos) relacionados em um único objeto, e oculta os detalhes internos desse objeto. Ou seja, você expõe apenas o necessário para utilizá-lo, mantendo o restante oculto e protegido. Isso promove o reuso de código, facilita a manutenção e melhora a modularidade.
+Herança:
+
+No mundo real, temos relacionamentos de "é um" entre objetos. Por exemplo, um carro "é um" veículo. Isso significa que o carro herda características e comportamentos do veículo.
+Na programação orientada a objetos, podemos definir classes base (ou superclasses) e classes derivadas (ou subclasses). A classe derivada herda características e comportamentos da classe base. Isso permite a reutilização de código e criação de hierarquias de classes.
+	
+	Polimorfismo:
+
+Polimorfismo significa "muitas formas". No contexto da POO, ele nos permite tratar objetos de classes diferentes de forma uniforme, desde que essas classes compartilhem uma mesma interface (métodos com o mesmo nome).
+Por exemplo, considerando as classes "Cachorro" e "Gato", ambas podem ter um método "emitirSom()". Podemos tratar um objeto de cada classe como um objeto genérico "Animal" e chamar o método "emitirSom()" de forma uniforme, sem nos preocuparmos com a implementação específica de cada classe.
+	
+	Abstração:
+
+A abstração permite modelar objetos do mundo real de forma simplificada, enfocando apenas os aspectos relevantes para o sistema em questão.
+Por exemplo, ao modelar um sistema bancário, não precisamos considerar todos os detalhes sobre como os bancos funcionam internamente. Podemos nos concentrar nas entidades principais, como contas, clientes e transações.
+Através da abstração, podemos criar classes que representam essas entidades e definir suas propriedades e comportamentos de acordo com as necessidades do sistema.
+A POO nos ajuda a organizar o código, promove a reutilização e facilita a manutenção dos programas. Ela se baseia em criar objetos que interagem entre si, representando as entidades do mundo real, e aplicar os princípios de encapsulamento, herança, polimorfismo e abstração para construir sistemas mais eficientes e flexíveis.

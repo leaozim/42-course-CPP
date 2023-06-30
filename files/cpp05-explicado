@@ -1,0 +1,48 @@
+ex00
+
+##CLASSES ANINHADAS
+Classes aninhadas, também conhecidas como classes internas ou classes aninhadas, são classes definidas dentro de outras classes. Essas classes têm acesso direto aos membros da classe externa e podem ser usadas para fornecer uma estrutura lógica e organizacional mais clara para o código.
+
+
+##EXCESSOES
+exessooes: As exceções são uma abordagem adicional para sinalizar erros ou condições inesperadas em um programa.
+As exceções são para lidar com condições de erro que você não espera que ocorram no curso normal dos eventos.
+Uma vantagem principal de usar exceções para sinalizar esses erros é que o código de tratamento de erros é completamente separado do código que causou o erro.
+
+
+##EXPLICACAO
+A classe de exceção Bureaucrat::GradeTooHighException e Bureaucrat::GradeTooLowException são subclasses da classe std::exception e servem para representar erros específicos que podem ocorrer durante a execução do programa relacionados aos limites de nota de um burocrata.
+Essas classes de exceção possuem um método virtual chamado what() que retorna uma mensagem de erro. 
+No código fornecido, esses métodos foram implementados para retornar mensagens diferentes para cada tipo de exceção.
+
+Quando ocorre uma exceção dentro de um bloco try, o programa procura um bloco catch que possa lidar com esse tipo específico de exceção. 
+No código fornecido, existem blocos catch para capturar exceções do tipo std::exception. 
+Portanto, se uma exceção do tipo GradeTooHighException ou GradeTooLowException for lançada dentro do bloco try, ela será capturada pelo bloco catch correspondente e a mensagem de erro será impressa usando o método what().
+
+
+
+
+
+
+###O QUE E O TRHOW
+
+A palavra-chave throw é usada para sinalizar a ocorrência de uma exceção no programa. No caso específico, quando essa linha é executada, está sendo lançada uma exceção do tipo GradeTooLowException.
+
+Uma exceção é uma maneira de lidar com situações excepcionais ou erros durante a execução do programa. Ao lançar uma exceção, o fluxo normal de execução é interrompido e o programa procura um bloco catch adequado para tratar essa exceção.
+
+## 
+
+Sim, quando você chama throw GradeTooLowException();, você está criando uma instância temporária da classe GradeTooLowException e lançando-a como uma exceção.
+
+O operador throw é usado para lançar uma exceção, e a expressão após o throw é a exceção que será lançada. Nesse caso, a expressão GradeTooLowException() cria um objeto temporário da classe GradeTooLowException.
+
+Ao lançar a exceção, o objeto temporário será copiado e o fluxo de execução do programa será interrompido. A exceção será propagada para cima na pilha de chamadas até que seja capturada por um bloco catch adequado.
+
+
+
+
+Classes aninhadas de exceção, também conhecidas como classes internas de exceção, são classes definidas dentro de outra classe e são usadas para representar exceções específicas relacionadas à classe externa. Essas classes aninhadas são geralmente usadas quando uma classe precisa definir várias exceções exclusivas para ela.
+Ao usar classes aninhadas de exceção, você pode organizar melhor suas exceções e torná-las mais descritivas e específicas. Isso facilita o tratamento diferenciado das exceções em blocos catch diferentes
+
+Sempre é um prazer encontrar a Fer nas avaliações! Foi uma troca muito bacana, ela fez questão de entender o que havia sido feito e fez perguntas pertinentes sobre os exercicios. 
+

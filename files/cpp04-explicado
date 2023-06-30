@@ -1,0 +1,21 @@
+modulo 4
+ex00:
+Polimorfismo de inclusão (ou polimorfismo de herança): ocorre quando uma classe derivada substitui um método da classe base e o método correto é chamado dinamicamente em tempo de execução, com base no tipo do objeto.
+O termo "polimorfismo de subtipagem" enfatiza a relação de subtipo existente entre a classe derivada e sua classe base. Isso significa que a classe derivada herda todos os membros e comportamentos da classe base e pode substituir ou estender esses membros de acordo com suas próprias necessidades.
+
+
+((Polimorfismo de sobrecarga (ou polimorfismo de interface): ocorre quando várias funções têm o mesmo nome, mas argumentos diferentes. O compilador selecionará a função apropriada com base nos argumentos fornecidos.))
+
+ex01
+
+
+ex02:
+Em C++, uma classe abstrata é uma classe que não pode ser instanciada diretamente, mas serve como uma classe base para outras classes derivadas. Uma classe abstrata geralmente contém pelo menos um método puramente virtual, também conhecido como método abstrato.
+
+As classes derivadas da classe abstrata devem implementar todos os métodos puramente virtuais da classe base. Caso contrário, as classes derivadas também serão consideradas abstratas.
+	
+Cópia Rasa (Shallow Copy):
+Na cópia rasa, os ponteiros do objeto original são simplesmente copiados para o novo objeto, resultando em dois objetos que compartilham os mesmos dados na memória. Isso significa que qualquer alteração feita em um objeto também será refletida no outro objeto. A cópia rasa é uma cópia superficial dos dados.
+
+Cópia Profunda (Deep Copy):
+Na cópia profunda, ocorre a criação de novos recursos de memória para os dados do objeto copiado. Isso significa que os dados são duplicados, resultando em dois objetos independentes que não compartilham a mesma memória. Qualquer alteração feita em um objeto não afetará o outro objeto. A cópia profunda cria cópias completas dos dados.

@@ -1,0 +1,56 @@
+Exercise 00:
+
+Escreva uma classe estática ScalarConverter que conterá um método "convert" que recebe como parâmetro uma representação em string de um literal C++ em sua forma mais comum. Este literal deve pertencer a um dos seguintes tipos escalares:
+• char
+• int
+• float
+• double
+Com exceção dos parâmetros char, apenas a notação decimal será usada.
+Exemplos de literais char: 'c', 'a', ...
+Para simplificar as coisas, observe que caracteres não exibíveis não devem ser usados como entradas. Se uma conversão para char não puder ser exibida, imprime uma mensagem informativa.
+Exemplos de literais int: 0, -42, 42...
+Exemplos de literais float: 0.0f, -4.2f, 4.2f...
+Você também precisa lidar com esses pseudo literais (você sabe, para a ciência): -inff, +inff e nanf.
+
+Exemplos de literais duplos: 0.0, -4.2, 4.2...
+Você também tem que lidar com esses pseudo literais (você sabe, por diversão): -inf, +inf e nan
+
+Escreva um programa para testar se sua classe funciona conforme o esperado.
+Você deve primeiro detectar o tipo do literal passado como parâmetro, convertê-lo de string em seu tipo real e, em seguida, convertê-lo explicitamente nos três outros tipos de dados. Por fim, exiba os resultados conforme mostrado abaixo.
+Se uma conversão não fizer sentido ou transbordar, exiba uma mensagem para informar ao usuário que a conversão de tipo é impossível. Inclua qualquer cabeçalho necessário para lidar com limites numéricos e valores especiais.
+
+ex01
+
+Implemente um Serializer de classe estática com os seguintes métodos:
+
+	uintptr_t serialize(Dados* ptr);
+Ele pega um ponteiro e o converte no tipo inteiro não assinado uintptr_t.
+	Data* desserialize(uintptr_t raw);
+
+Ele pega um parâmetro inteiro sem sinal e o converte em um ponteiro para Data.
+Escreva um programa para testar se sua classe funciona conforme o esperado.
+Você deve criar uma estrutura de dados não vazia (isso significa que tem membros de dados).
+Use serialize() no endereço do objeto Data e passe seu valor de retorno para desserialize(). 
+Em seguida, certifique-se de que o valor de retorno de desserialize() seja igual ao ponteiro original.
+Não se esqueça de entregar os arquivos de sua estrutura de dados.
+
+ex02
+
+Implemente uma classe Base que tenha apenas um destruidor virtual público. 
+Crie três classes vazias A, B e C, que herdam publicamente de Base.
+
+Essas quatro classes não precisam ser projetadas no ortodoxo Forma canônica.
+
+Implemente as seguintes funções:
+	Base * generate(void);
+Ele instancia aleatoriamente A, B ou C e retorna a instância como um ponteiro Base. Sinta-se à vontade para usar o que quiser para a implementação de escolha aleatória.
+	void identify(Base* p);
+Imprime o tipo real do objeto apontado por p: "A", "B" ou "C".
+	void identify(Base& p);
+Imprime o tipo real do objeto apontado por p: "A", "B" ou "C". Usar um ponteiro dentro desta função é proibido.
+Incluir o cabeçalho typeinfo é proibido.
+Escreva um programa para testar se tudo funciona conforme o esperado
+
+
+
+

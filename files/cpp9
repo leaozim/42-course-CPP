@@ -1,0 +1,87 @@
+É obrigatório o uso dos containers padrão para realizar cada exercício deste módulo.
+Depois que um contêiner é usado, você não pode usá-lo no restante do módulo
+
+É aconselhável ler o assunto na íntegra antes de fazer o
+exercícios.
+
+Você deve usar pelo menos um recipiente para cada exercício com o
+exceção do exercício 02 que requer o uso de dois contêineres.
+
+Você deve enviar um Makefile para cada programa que compilará seus arquivos de origem para a saída necessária com os sinalizadores -Wall, -Wextra e -Werror.
+Você deve usar c++ e seu Makefile não deve revincular.
+Seu Makefile deve conter pelo menos as regras $(NAME), all, clean, fclean e re.
+
+Ex00: Troca de Bitcoin
+
+Você tem que criar um programa que gere o valor de uma certa quantidade de bitcoin em uma determinada data.
+Este programa deve usar um banco de dados no formato csv que representará o preço do bitcoin ao longo do tempo. Este banco de dados é fornecido com este assunto.
+O programa tomará como entrada uma segunda base de dados, armazenando os diferentes preços/datas a avaliar.
+Seu programa deve respeitar estas regras:
+• O nome do programa é btc.
+• Seu programa deve receber um arquivo como argumento.
+• Cada linha neste arquivo deve usar o seguinte formato: "data | valor".
+• Uma data válida sempre terá o seguinte formato: Ano-Mês-Dia.
+• Um valor válido deve ser um float ou um inteiro positivo entre 0 e 1000.
+
+Seu programa usará o valor em seu arquivo de entrada.
+Seu programa deve exibir na saída padrão o resultado do valor multiplicado pela taxa de câmbio de acordo com a data indicada em seu banco de dados.
+
+Se a data usada na entrada não existir em seu banco de dados, você deve usar a data mais próxima contida em seu banco de dados. Tenha cuidado para usar a data inferior e não a superior.
+
+Aviso: o(s) contêiner(es) que você usar para validar este exercício não
+não poderá mais ser usado no restante deste módulo.
+
+
+
+
+Ex01: Notação polonesa reversa
+
+Você deve criar um programa com estas restrições:
+• O nome do programa é RPN.
+• Seu programa deve usar uma expressão matemática polonesa invertida como argumento.
+• Os números usados nesta operação e passados como argumentos serão sempre menores que 10. O cálculo em si, mas também o resultado, não levam em consideração esta regra.
+• Seu programa deve processar esta expressão e produzir o resultado correto na saída padrão.
+• Se ocorrer um erro durante a execução do programa, uma mensagem de erro deve ser exibida na saída padrão.
+• Seu programa deve ser capaz de lidar com operações com estes tokens: "+ - / *".
+
+Você deve usar pelo menos um contêiner em seu código para validar este exercício.
+
+Você não precisa gerenciar os colchetes ou números decimais.
+
+Aviso: O(s) recipiente(s) que você usou no exercício anterior são proibidos aqui. O(s) contêiner(es) que você usou para validar este exercício não poderão ser usados no restante deste módulo.
+
+
+
+
+
+
+
+Ex02: PmergeMe
+
+Você deve criar um programa com estas restrições:
+• O nome do programa é PmergeMe.
+• Seu programa deve ser capaz de usar uma sequência inteira positiva como argumento.
+• Seu programa deve usar o algoritmo de classificação merge-insert para classificar a sequência de número inteiro positivo.
+
+Para esclarecer, sim, você precisa usar o algoritmo Ford-Johnson.
+
+• Se ocorrer um erro durante a execução do programa, uma mensagem de erro deve ser exibida na saída padrão
+
+Você deve usar pelo menos dois contêineres diferentes em seu código para validar este exercício. Seu programa deve ser capaz de lidar com pelo menos 3.000 inteiros diferentes.
+
+É altamente recomendável implementar seu algoritmo para cada contêiner e, assim, evitar o uso de uma função genérica.
+
+Aqui estão algumas diretrizes adicionais sobre as informações que você deve exibir linha por linha na saída padrão:
+• Na primeira linha, você deve exibir um texto explícito seguido pela sequência inteira positiva não classificada.
+• Na segunda linha, você deve exibir um texto explícito seguido pela sequência de números inteiros positivos classificados.
+• Na terceira linha, você deve exibir um texto explícito indicando o tempo usado pelo seu algoritmo, especificando o primeiro contêiner usado para classificar a sequência inteira positiva.
+• Na última linha, você deve exibir um texto explícito indicando o tempo usado pelo seu algoritmo, especificando o segundo contêiner usado para classificar a sequência inteira positiva.
+
+O formato de visualização do tempo utilizado para efectuar a sua triagem é livre mas a precisão escolhida deve permitir ver claramente a diferença entre os dois recipientes utilizados.
+
+A indicação da hora é deliberadamente estranha neste exemplo.
+É claro que você deve indicar o tempo usado para realizar todas as suas operações, tanto a parte de classificação quanto a parte de gerenciamento de dados.
+
+Aviso: O(s) recipiente(s) que você usou nos exercícios anteriores são
+proibido aqui.
+O gerenciamento de erros relacionados a duplicatas fica a seu critério.

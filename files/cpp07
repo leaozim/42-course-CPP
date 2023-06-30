@@ -1,0 +1,53 @@
+ex00:
+
+implemente os seguintes modelos de função:
+	• swap: Troca os valores de dois argumentos dados. Não retorna nada.
+	• min: Compara os dois valores passados em seus argumentos e retorna o menor. Se os dois forem iguais, ele retorna o segundo.
+	• max: Compara os dois valores passados em seus argumentos e retorna o maior.
+Se os dois forem iguais, ele retorna o segundo.
+Essas funções podem ser chamadas com qualquer tipo de argumento. 
+O único requisito é que os dois argumentos sejam do mesmo tipo e suportem todas as comparações
+operadores.
+
+Implemente um iter de modelo de função que receba 3 parâmetros e não retorne nada.
+	• O primeiro parâmetro é o endereço de um array.
+	• O segundo é o comprimento do array.
+	• A terceira é uma função que será chamada em todos os elementos do array.
+Entregue um arquivo main.cpp que contém seus testes. Forneça código suficiente para gerar um
+executável de teste.
+Seu modelo de função iter deve funcionar com qualquer tipo de array. 
+O terceiro parâmetro
+pode ser um modelo de função instanciada.
+
+
+ex02:
+Desenvolva um modelo de classe Array que contenha elementos do tipo T e que implemente o seguinte comportamento e funções:
+	• Construção sem parâmetro: Cria um array vazio.
+	• Construção com um unsigned int n como parâmetro: Cria um array de n elementos inicializados por padrão.
+Dica: tente compilar int * a = new int(); em seguida, exiba *a.
+• Construção por operador de cópia e atribuição. Em ambos os casos, modificar o array original ou sua cópia após a cópia não deve afetar o outro array.
+• Você DEVE usar o operador new[] para alocar memória. A alocação preventiva (alocação de memória com antecedência) é proibida. Seu programa nunca deve acessar a memória não alocada.
+
+• Os elementos podem ser acessados por meio do operador subscrito: [ ].
+
+• Ao acessar um elemento com o operador [ ], se seu índice estiver fora dos limites, um std::exception é lançado.
+
+• Uma função de membro size() que retorna o número de elementos no array. Esta função de membro não recebe nenhum parâmetro e não deve modificar a instância atual.
+
+
+Como de costume, certifique-se de que tudo funcione conforme o esperado e entregue um arquivo main.cpp que contenha seus testes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
