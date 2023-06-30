@@ -5,7 +5,7 @@
 #include <sstream>
 #include <stack> 
 #include <cstdlib>
-
+#include <cctype>
 
 # define MAGENTA "\033[35m"
 # define RED "\x1b[38;5;88m"

@@ -64,17 +64,18 @@ bool isOperator(const std::string& str) {
 }
 
 float operation(float a, float b, char x){
-	switch(x){
-	case '+':
-		return a + b;
-	case '-':
-		return a - b;
-	case '/':
-		return a / b;
-	case '*':
-		return a * b;
-	default:
-		return 0;
+	switch(x)
+	{
+		case '+':
+			return a + b;
+		case '-':
+			return a - b;
+		case '/':
+			return a / b;
+		case '*':
+			return a * b;
+		default:
+			return 0;
 	}
 }
 
@@ -88,32 +89,33 @@ int			PmergeMe::invertedPolish( int argc, std::string input )
 	std::string			strToken;
 	int				token;
 	int				n1, n2, result;
-	int controlOperando, controlNumber;
+	int controlOperando = 0;
+	 int controlNumber = 0;
 
-	while (std::getline(iss, strToken, ' ')) {
-
-		if (isOperator(strToken) && stack.size() >= 2)
-		{
-			n1 =  stack.top();
+	while (std::getline(iss, strToken, ' '))
+	{
+		if (strToken.empty()) 
+			continue;
+		if (isOperator(strToken) && stack.size() >= 2) {
+			n1 = stack.top();
 			stack.pop();
-			n2 =  stack.top();
+			n2 = stack.top();
 			stack.pop();
 			result = operation(n2, n1, strToken[0]);
 			stack.push(result);
 			controlOperando++;
-			
-		}
-		else 
-		{
-			token =  std::atof(strToken.c_str());
-			if (token > 10 || token < 0)
+		} else {
+			token = std::atof(strToken.c_str());
+			if (token > 10 || token < 0) 
 				return (std::cout << BAD_INPUT << std::endl, 0);
 			stack.push(token);
 			controlNumber++;
 		}
 	}
-	std::cout <<  "result " << stack.top() << std::endl;
-
+	if (controlOperando == controlNumber - 1 && controlNumber >= 2 && stack.size() == 1) 
+    	std::cout << "result " << stack.top() << std::endl;
+	else 
+		std::cout << "Invalid expression" << std::endl;
 	return (0);
 }
 
