@@ -30,12 +30,6 @@ PmergeMe &				PmergeMe::operator=( PmergeMe const & rhs )
 	return *this;
 }
 
-// std::ostream &			operator<<( std::ostream & o, PmergeMe const & i )
-// {
-// 	//o << "Value = " << i.getValue();
-// 	return o;
-// }
-
 
 /*
 ** --------------------------------- METHODS ----------------------------------
@@ -48,7 +42,7 @@ bool	PmergeMe::isValidExpressionFormat( const std::string& valueStr, std::string
 	return true;
 }
 
-bool	PmergeMe::check_arguments( int argc, std::string input)
+bool	PmergeMe::checkArguments( int argc, std::string input)
 {
 	std::cout << input << std::endl;
 

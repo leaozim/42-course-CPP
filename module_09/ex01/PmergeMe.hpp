@@ -32,7 +32,7 @@ class PmergeMe
 		PmergeMe &		operator=( PmergeMe const & rhs );
 
 		int			invertedPolish( int argc, std::string input );
-		bool		check_arguments( int argc, std::string input );
+		bool		checkArguments( int argc, std::string input );
 
 		bool		isValidExpressionFormat( const std::string& valueStr, std::string numberMap );
 	private:

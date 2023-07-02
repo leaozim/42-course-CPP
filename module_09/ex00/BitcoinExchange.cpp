@@ -166,7 +166,7 @@ bool BitcoinExchange::checkValidDateBaseFormat( const std::string &line  )
 	return (true);
 }
 
-bool	BitcoinExchange::check_arguments( int argc, char **file )
+bool	BitcoinExchange::checkArguments( int argc, char **file )
 {
 	if (argc != 2)
 		return (std::cout << ERROR_ARGC << std::endl, false);

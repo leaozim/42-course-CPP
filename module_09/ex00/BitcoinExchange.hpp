@@ -39,7 +39,7 @@ class BitcoinExchange
 		~BitcoinExchange();
 		BitcoinExchange		&operator=( BitcoinExchange const & rhs );
 
-		bool				check_arguments( int argc, char **file );
+		bool				checkArguments( int argc, char **file );
 		int					exchange( int argc, char **file );
 		void				getBitcoinPriceOverTime( void ) ;
 		void				getInputFile( std::string file ) ;
