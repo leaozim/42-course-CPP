@@ -97,7 +97,7 @@ int main()
 	try {
 		std::multiset<int> manySp;
 		for (int i = 0; i < 1001; i++)
-			manySp.insert(i);
+			manySp.insert(i + 2);
 
 		Span sp = Span(1000);
 		sp.addManyNumbers(manySp.begin(), manySp.end());

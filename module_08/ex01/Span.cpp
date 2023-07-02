@@ -51,14 +51,14 @@ void	Span::addManyNumbers(std::multiset<int>::iterator first, std::multiset<int>
 
 unsigned int Span::shortestSpan( void )
 {
-	unsigned int	distance = std::numeric_limits<unsigned int>::max();
-	unsigned int	previousValue = 0;
-	unsigned int	dif;
+	 int	distance = std::numeric_limits<int>::max();
+	 int	previousValue = distance;
+	 int	dif;
 
 	if (_set.empty())
-		return 0;
+		return 1;
 	for (std::multiset<int>::iterator it = _set.begin(); it != _set.end(); ++it) {
-		dif = *it - previousValue;
+		dif = abs(*it - previousValue);
 		if (dif < distance) 
 			distance = dif;
 		previousValue = *it;
