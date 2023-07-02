@@ -4,11 +4,11 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-BitcoinExchange::BitcoinExchange() { }
+BitcoinExchange::BitcoinExchange() :  _dataMap(), _value(0.0), _date(""), _line("") { }
 
 BitcoinExchange::BitcoinExchange( const BitcoinExchange & src ) {
 	*this = src;
- }
+}
 
 
 /*
@@ -24,9 +24,7 @@ BitcoinExchange::~BitcoinExchange() { }
 
 BitcoinExchange &				BitcoinExchange::operator=( BitcoinExchange const & rhs )
 {
-	if ( this != &rhs )
-	{
-	}
+	(void)rhs;
 	return *this;
 }
 
@@ -182,7 +180,6 @@ void	BitcoinExchange::getInputFile( std::string file )
 {
 	std::map<std::string, float>::iterator	it;
 	std::string								key;
-	std::string								date;
 	float									result;
 
 	std::ifstream imputFile(file.c_str());
@@ -196,8 +193,12 @@ void	BitcoinExchange::getInputFile( std::string file )
 			it = _dataMap.upper_bound(_date);
 			it--;
 			result = _value * (*it).second;
-			_line = _line.replace(11, 1, "=>");
-			std::cout << BLUE << _line << RES << " = " << result << std::endl;
+			std::cout << BLUE << _date << RES 
+					  << " => " 
+					  << _value 
+					  << " = " 
+					  << result 
+					  << std::endl;
 		}
 	}
 
@@ -218,7 +219,7 @@ void BitcoinExchange::getBitcoinPriceOverTime( void )
 
 int			BitcoinExchange::exchange( int argc, char **file )
 {
-	if (!check_arguments(argc, file))
+	if (!checkArguments(argc, file))
 		return (1);
 	getBitcoinPriceOverTime();
 	getInputFile(file[1]);

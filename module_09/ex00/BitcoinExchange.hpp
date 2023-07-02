@@ -9,7 +9,6 @@
 #include  <stdlib.h>
 #include <ctime>
 
-
 # define MAGENTA "\033[35m"
 # define RED "\x1b[38;5;88m"
 # define GREEN "\x1b[38;5;40m"
@@ -62,10 +61,7 @@ class BitcoinExchange
 		std::string						_date;
 		std::string						_line;
 
-
-
 };
 
-std::ostream &			operator<<( std::ostream & o, BitcoinExchange const & i );
 
 #endif /* ************************************************* BITCOINEXCHANGE_H */
