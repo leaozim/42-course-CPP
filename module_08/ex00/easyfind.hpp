@@ -21,12 +21,11 @@
 template <typename T>
 typename T::iterator easyFind(T& elements, int value)
 {
-	typename T::iterator	itr = find(elements.begin(), elements.end(), value);
+    typename T::iterator    itr = find(elements.begin(), elements.end(), value);
 
-	if (*itr == value)
-		return (itr);
-	throw  std::out_of_range("Value not found");
+    if (itr == elements.end())
+        throw  std::out_of_range("Value not found");
+    return (itr);
 }
-
 
 #endif /* ******************************************************** EASYFIND_H */
