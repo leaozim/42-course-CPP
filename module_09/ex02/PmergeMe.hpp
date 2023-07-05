@@ -4,7 +4,9 @@
 # include <iostream>
 #include <cstring>
 #include <list>
+#include <deque>
 #include <cstdlib>
+#include <algorithm>
 
 # define MAGENTA "\033[35m"
 # define RED "\x1b[38;5;88m"
@@ -33,10 +35,26 @@ class PmergeMe
 		bool		checkArguments( int argc, char **input );
 		// bool		isValidExpressionFormat( const std::string& valueStr, std::string numberMap );
 		bool 		isValidInput( char** input );
+		void 		insertToMainChain();
+		// int 		binarySearch(int target, int begin, int end);
+
+		void		createMainChainAndPend(std::deque<int>& pend, const std::deque<std::deque<int> >& pairsOrder);
+		int binarySearch(std::deque<int> array, int target, int begin, int end);
+
+		// int			binarySearch(std::list<std::list<int> >& array, int target, int begin, int end);
+		void		generatPositions();
+		int			jacobsthal(int n);
+		void 		generateJacobInsertionSequence();
+		void create_pairs(const std::deque<int>& inputdeque);
+void	sortPairs(std::deque<std::deque<int> >& pairs);
 
 	private:
-	  	std::list<int> mainChain;
-        std::list<int> pend;
+		std::deque<int> inputdeque;
+	  	std::deque<int> mainChain;
+        std::deque<int> pend;
+		std::deque<int> jacobSequence;
+		std::deque<int> positions;
+		std::deque<std::deque<int> > pairs;
 
 };
 

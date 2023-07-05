@@ -26,7 +26,7 @@ $(OBJ_DIR):
 	mkdir -p $@
 
 val: all
-	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME)
+	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) 7 8 27 100 11 46 2 53 01
 
 clean:
 			rm -rf obj
