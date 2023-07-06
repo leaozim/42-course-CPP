@@ -5,6 +5,8 @@
 #include <cstring>
 #include <list>
 #include <deque>
+#include <vector>
+
 #include <cstdlib>
 #include <algorithm>
 #include <sys/time.h>
@@ -35,9 +37,14 @@ class PmergeMe
 
 		int				fjmi_sort( int argc, char **input );
 		bool			checkArguments( int argc, char **input );
+		void			printUnsorted(char **argv);
+		void			printSorted(void);
+		long int		elapsedTime(struct timeval start, struct timeval end);
+		bool 			isValidInput( char** input );
+		void			printTimeToProcess(void);
+
 		void			fillDeque( int argc, char **input );
 		void			inputSequenceIsOdd( void );
-		bool 			isValidInput( char** input );
 		void 			insertToMainChain();
 		void			createMainChainAndPend();
 		void			generatPositions();
@@ -47,30 +54,53 @@ class PmergeMe
 		void			createListOrder();
 		void			createPairs();
 		void			mergeSort(int begin, int end);
-		void			merge(std::deque<std::pair<int, int> >& pairs, int begin, int mid, int end);
-void	printTimeToProcess(void);
-long int	elapsedTime(struct timeval start, struct timeval end);
-void		sortDeque( int argc, char **input );
-void	printUnsorted(char **argv);
-void	printSorted(void);
+		void			merge( std::deque<std::pair<int, int> >& pairs, int begin, int mid, int end );
+		void			sortDeque( int argc, char **input );
+
+		void			fillVector( int argc, char **input );
+		void			inputSequenceIsOddVec( void );
+		void 			insertToMainChainVec( void );
+		void			createMainChainAndPendVec();
+		void			generatPositionsVec();
+		int				jacobsthalVec(int n);
+		void 			generateJacobInsertionSequenceVec();
+		void			sortPairsVec();
+		void			createListOrderVec();
+		void			createPairsVec();
+		void			mergeSortVec(int begin, int end);
+		void			mergeVec( std::vector<std::pair<int, int> >& pairs, int begin, int mid, int end );
+		void			sortVec( int argc, char **input );
+		void			printSortedVec(void);
 
 	
 	private:
 		std::deque<int> 					_inputSequence;
-	  	std::deque<int>						_mainChain;
-        std::deque<int> 					_pend;
+		std::deque<int>						_mainChain;
+		std::deque<int> 					_pend;
 		std::deque<int> 					_jacobSequence;
 		std::deque<int> 					_positions;
 		std::deque<std::pair<int, int> >	_pairs;
-		int 								_straggler;
+		int									_straggler;
 		bool								_hasStraggler;
+
+		std::vector<int> 					_inputSequenceVec;
+		std::vector<int>					_mainChainVec;
+		std::vector<int> 					_pendVec;
+		std::vector<int> 					_jacobSequenceVec;
+		std::vector<int> 					_positionsVec;
+		std::vector<std::pair<int, int> >	_pairsVec;
+		int									_stragglerVec;
+		bool								_hasStragglerVec;
+
 		struct timeval						_startVec;
 		struct timeval						_endVec;
 		struct timeval						_startDeq;
 		struct timeval						_endDeq;
 
-
-
+		clock_t timeVec;
+		clock_t timeDeq;
+		clock_t timeVecEnd;
+		clock_t timeDeqEnd;
 };
 
 std::ostream &			operator<<( std::ostream & o, PmergeMe const & i );
