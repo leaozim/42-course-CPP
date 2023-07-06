@@ -31,30 +31,28 @@ class PmergeMe
 
 		PmergeMe &		operator=( PmergeMe const & rhs );
 
-		int			fjmi_sort( int argc, char **input );
-		bool		checkArguments( int argc, char **input );
-		// bool		isValidExpressionFormat( const std::string& valueStr, std::string numberMap );
-		bool 		isValidInput( char** input );
-		void 		insertToMainChain();
-		// int 		binarySearch(int target, int begin, int end);
-
-		void		createMainChainAndPend(std::deque<int>& pend, const std::deque<std::deque<int> >& pairsOrder);
-		int binarySearch(std::deque<int> array, int target, int begin, int end);
-
-		// int			binarySearch(std::list<std::list<int> >& array, int target, int begin, int end);
-		void		generatPositions();
-		int			jacobsthal(int n);
-		void 		generateJacobInsertionSequence();
-		void create_pairs(const std::deque<int>& inputdeque);
-void	sortPairs(std::deque<std::deque<int> >& pairs);
-
+		int				fjmi_sort( int argc, char **input );
+		bool			checkArguments( int argc, char **input );
+		bool 			isValidInput( char** input );
+		void 			insertToMainChain();
+		void			createMainChainAndPend();
+		void			generatPositions();
+		int				jacobsthal(int n);
+		void 			generateJacobInsertionSequence();
+		void			sortPairs();
+		void			createListOrder();
+		void			createPairs();
+	
 	private:
 		std::deque<int> inputdeque;
 	  	std::deque<int> mainChain;
         std::deque<int> pend;
 		std::deque<int> jacobSequence;
 		std::deque<int> positions;
-		std::deque<std::deque<int> > pairs;
+		std::deque<std::pair<int, int> > pairs;
+		int straggler;
+		bool hasStraggler;
+
 
 };
 
