@@ -7,6 +7,8 @@
 #include <deque>
 #include <cstdlib>
 #include <algorithm>
+#include <sys/time.h>
+#include <iomanip>
 
 # define MAGENTA "\033[35m"
 # define RED "\x1b[38;5;88m"
@@ -33,6 +35,8 @@ class PmergeMe
 
 		int				fjmi_sort( int argc, char **input );
 		bool			checkArguments( int argc, char **input );
+		void			fillDeque( int argc, char **input );
+		void			inputSequenceIsOdd( void );
 		bool 			isValidInput( char** input );
 		void 			insertToMainChain();
 		void			createMainChainAndPend();
@@ -42,16 +46,29 @@ class PmergeMe
 		void			sortPairs();
 		void			createListOrder();
 		void			createPairs();
+		void			mergeSort(int begin, int end);
+		void			merge(std::deque<std::pair<int, int> >& pairs, int begin, int mid, int end);
+void	printTimeToProcess(void);
+long int	elapsedTime(struct timeval start, struct timeval end);
+void		sortDeque( int argc, char **input );
+void	printUnsorted(char **argv);
+void	printSorted(void);
+
 	
 	private:
-		std::deque<int> inputdeque;
-	  	std::deque<int> mainChain;
-        std::deque<int> pend;
-		std::deque<int> jacobSequence;
-		std::deque<int> positions;
-		std::deque<std::pair<int, int> > pairs;
-		int straggler;
-		bool hasStraggler;
+		std::deque<int> 					_inputSequence;
+	  	std::deque<int>						_mainChain;
+        std::deque<int> 					_pend;
+		std::deque<int> 					_jacobSequence;
+		std::deque<int> 					_positions;
+		std::deque<std::pair<int, int> >	_pairs;
+		int 								_straggler;
+		bool								_hasStraggler;
+		struct timeval						_startVec;
+		struct timeval						_endVec;
+		struct timeval						_startDeq;
+		struct timeval						_endDeq;
+
 
 
 };

@@ -4,7 +4,7 @@
 ** ------------------------------- CONSTRUCTOR --------------------------------
 */
 
-PmergeMe::PmergeMe()  { }
+PmergeMe::PmergeMe(): _straggler(false) { }
 
 PmergeMe::PmergeMe( const PmergeMe & src )
 {
@@ -32,29 +32,10 @@ PmergeMe &				PmergeMe::operator=( PmergeMe const & rhs )
 }
 
 /*
-** --------------------------------- METHODS ----------------------------------
+** --------------------------------- DEQUE ----------------------------------
 */
 
-
-
-
-
-void PmergeMe::generateJacobInsertionSequence()
-{
-	size_t	size;
-	size_t	jcobstalIndex;
-	int		index;
-
-	size = this->pend.size();
-	index = 3;
-	while ((jcobstalIndex = this->jacobsthal(index)) < size - 1)
-	{
-		this->jacobSequence.push_back(jcobstalIndex);
-		index++;
-	}
-}
-
-int PmergeMe::jacobsthal(int n)
+int		PmergeMe::jacobsthal(int n)
 {
 	if (n == 0)
 		return (0);
@@ -63,51 +44,91 @@ int PmergeMe::jacobsthal(int n)
 	return (jacobsthal(n - 1) + 2 * jacobsthal(n - 2));
 }
 
-void PmergeMe::generatPositions()
+void		PmergeMe::generateJacobInsertionSequence()
+{
+	size_t	size;
+	size_t	jcobstalIndex;
+	int		index;
+
+	size = this->_pend.size();
+	index = 3;
+	while ((jcobstalIndex = this->jacobsthal(index)) < size - 1)
+	{
+		this->_jacobSequence.push_back(jcobstalIndex);
+		index++;
+	}
+}
+
+void		PmergeMe::generatPositions()
 {
 	size_t val;
 	size_t pos;
 	size_t lastPos;
 
-	if (this->pend.empty())
+	if (this->_pend.empty())
 		return;
 	this->generateJacobInsertionSequence();
 	lastPos = 1;
 	val = 1;
-	std::deque<int>::iterator it = this->jacobSequence.begin();
-	while (it != this->jacobSequence.end())
+	std::deque<int>::iterator it = this->_jacobSequence.begin();
+	while (it != this->_jacobSequence.end())
 	{
 		val = *it;
-		this->positions.push_back(val);
+		this->_positions.push_back(val);
 		pos = val - 1;
 		while (pos > lastPos)
 		{
-			this->positions.push_back(pos);
+			this->_positions.push_back(pos);
 			pos--;
 		}
 		lastPos = val;
 		++it;
 	}
-	while (val++ < this->pend.size())
-		this->positions.push_back(val);
+	while (val++ < this->_pend.size())
+		this->_positions.push_back(val);
 }
 
+void		PmergeMe::createListOrder()
+{
+    std::deque<int>::iterator it;
+	std::deque<int>::iterator insertionPositionIterator;
+    int valueToInsert;
+    int insertionPosition;
+    int addedCount;
 
-void PmergeMe::createMainChainAndPend()
+    this->generatPositions();
+    addedCount = 0;
+    for (it = this->_positions.begin(); it < this->_positions.end(); it++)
+    {
+        valueToInsert = this->_pend.at(*it - 1);
+        insertionPosition = *it + addedCount;
+        insertionPositionIterator = std::lower_bound(this->_mainChain.begin(), this->_mainChain.begin() + insertionPosition, valueToInsert);
+        this->_mainChain.insert(insertionPositionIterator, valueToInsert);
+        addedCount++;
+    }
+    if (_hasStraggler)
+    {
+        insertionPositionIterator = std::lower_bound(this->_mainChain.begin(), this->_mainChain.end(), _straggler);
+        this->_mainChain.insert(insertionPositionIterator, _straggler);
+    }
+}
+
+void		PmergeMe::createMainChainAndPend()
 {
 	size_t i;
 
-	mainChain.push_back(this->pairs.at(0).second);
+	_mainChain.push_back(this->_pairs.at(0).second);
 	i = 0;
-	while (i < this->pairs.size())
+	while (i < this->_pairs.size())
 	{
-		mainChain.push_back(this->pairs.at(i).first);
-		pend.push_back(this->pairs.at(i).second);
+		_mainChain.push_back(this->_pairs.at(i).first);
+		_pend.push_back(this->_pairs.at(i).second);
 		i++;
 	}
 }
 
-void merge(std::deque<std::pair<int, int> >& pairs, int begin, int mid, int end)
+
+void		PmergeMe::merge(std::deque<std::pair<int, int> >& pairs, int begin, int mid, int end)
 {
     int leftSize = mid - begin + 1;
     int rightSize = end - mid;
@@ -147,45 +168,45 @@ void merge(std::deque<std::pair<int, int> >& pairs, int begin, int mid, int end)
 }
 
 
-void mergeSort(std::deque<std::pair<int, int> >& pairsOrder, int begin, int end)
+void	PmergeMe::mergeSort(int begin, int end)
 {
 	int mid;
 
 	if (begin >= end)
 		return;
 	mid = begin + (end - begin) / 2;
-	mergeSort(pairsOrder, begin, mid);
-	mergeSort(pairsOrder, mid + 1, end);
-	merge(pairsOrder, begin, mid, end);
+	mergeSort(begin, mid);
+	mergeSort(mid + 1, end);
+	merge(_pairs, begin, mid, end);
 }
 
 
 void	PmergeMe::sortPairs() 
 {
-	for (unsigned int i = 0; i < pairs.size(); ++i)
+	for (unsigned int i = 0; i < _pairs.size(); ++i)
     {
-        if (pairs[i].first < pairs[i].second)
+        if (_pairs[i].first < _pairs[i].second)
         {
-            int tmp = pairs[i].first;
-            pairs[i].first = pairs[i].second;
-            pairs[i].second = tmp;
+            int tmp = _pairs[i].first;
+            _pairs[i].first = _pairs[i].second;
+            _pairs[i].second = tmp;
         }
     }
 }
 
 
-void PmergeMe::createPairs()
+void		PmergeMe::createPairs()
 {
-    int size = inputdeque.size();
+    int size = _inputSequence.size();
     for (int i = 0; i < size; i += 2)
     {
-        int first = inputdeque[i];
-        int second = (i + 1 < size) ? inputdeque[i + 1] : 0;
-        pairs.push_back(std::make_pair(first, second));
+        int first = _inputSequence[i];
+        int second = (i + 1 < size) ? _inputSequence[i + 1] : 0;
+        _pairs.push_back(std::make_pair(first, second));
     }
 }
 
-bool PmergeMe::isValidInput( char** input )
+bool		PmergeMe::isValidInput( char** input )
 {
    	for (int i = 1; input[i]; i++)
 	{
@@ -208,65 +229,85 @@ bool		PmergeMe::checkArguments( int argc, char **input )
 	return (true);
 }
 
-void PmergeMe::createListOrder()
+void		PmergeMe::inputSequenceIsOdd()
 {
-    std::deque<int>::iterator it;
-	std::deque<int>::iterator insertion_point;
-    int target;
-    int endPos;
-    int addedCount;
-
-    this->generatPositions();
-    addedCount = 0;
-    for (it = this->positions.begin(); it < this->positions.end(); it++)
-    {
-        target = this->pend.at(*it - 1);
-        endPos = *it + addedCount;
-        insertion_point = std::lower_bound(this->mainChain.begin(), this->mainChain.begin() + endPos, target);
-        this->mainChain.insert(insertion_point, target);
-        addedCount++;
-    }
-    if (hasStraggler)
-    {
-        target = this->inputdeque.at(this->inputdeque.size() - 1);
-        insertion_point = std::lower_bound(this->mainChain.begin(), this->mainChain.end(), straggler);
-        this->mainChain.insert(insertion_point, straggler);
-    }
+	_hasStraggler = _inputSequence.size() % 2 != 0;
+	if (_hasStraggler) {
+		_straggler = _inputSequence[_inputSequence.size() - 1];
+		_inputSequence.pop_back();
+	} else {
+		_straggler = false;
+	}
 }
 
+void		PmergeMe::fillDeque( int argc, char **input )
+{
+	for (int i = 1; i < argc; i++) {
+		int number = std::atoi(input[i]);
+		_inputSequence.push_back(number);
+	}
+}
+
+void		PmergeMe::sortDeque( int argc, char **input )
+{
+	gettimeofday(&this->_startDeq, NULL);
+	fillDeque(argc, input);
+	inputSequenceIsOdd();
+	createPairs();
+	sortPairs();
+  	mergeSort(0, _pairs.size() - 1);
+	createMainChainAndPend();	
+	createListOrder();
+	gettimeofday(&this->_endDeq, NULL);
+}
 
 int			PmergeMe::fjmi_sort( int argc, char **input )
 {
 	if (!checkArguments(argc, input))
 		return (1);
-	for (int i = 1; i < argc; i++) {
-		int number = std::atoi(input[i]);
-		inputdeque.push_back(number);
-	}
-		hasStraggler = inputdeque.size() % 2 != 0;
-
-		if (hasStraggler) {
-			straggler = inputdeque[inputdeque.size() - 1];
-			inputdeque.pop_back();
-		} else {
-			straggler = false;
-		}
-	createPairs();
-	sortPairs();
-  	mergeSort(pairs, 0, pairs.size() - 1);
-	    for (std::deque<std::pair<int, int> >::const_iterator it = pairs.begin(); it != pairs.end(); ++it) {
-        std::cout << "Pair: " << (*it).first << " " << (*it).second << std::endl;
-    }
-	createMainChainAndPend();	
-	createListOrder();
-	for (std::deque<int>::iterator it = mainChain.begin(); it != mainChain.end(); ++it)
-	{
-		std::cout << *it << " ";
-	}
-	std::cout << std::endl;
+	sortDeque(argc, input);
+	printUnsorted(input);
+	printSorted();
+	printTimeToProcess();
 
 	return 0;
 }
 
+void	PmergeMe::printUnsorted(char **input)
+{
+	std::cout << "Before:	";
+	for (int i = 1; input[i]; i++)
+	{
+		for (int j = 0; input[i][j]; j++)
+		{
+			if (input[i][j] !=  '+')
+				std::cout << input[i][j];
+		}
+		std::cout << " ";	
+	}
+	std::cout << std::endl;
+}
 
+void	PmergeMe::printSorted(void)
+{
+	std::cout << "After:	";
+	for (std::deque<int>::iterator it = _mainChain.begin(); it != _mainChain.end(); ++it)
+		std::cout << *it << " ";
+	std::cout << std::endl;
+}
+
+long int	PmergeMe::elapsedTime(struct timeval start, struct timeval end)
+{
+	return (((end.tv_sec - start.tv_sec) + 1000000) + (end.tv_usec - start.tv_usec));
+}
+void	PmergeMe::printTimeToProcess(void)
+{
+	// std::cout << "Time to process a range of " << std::setw(3)
+	// << this->_inputSequence.size() << " elements with std::vector : "
+	// << elapsedTime(this->_startVec, this->_endVec) << " us" << std::endl;
+
+	std::cout << "Time to process a range of " << std::setw(3)
+	<< (this->_inputSequence.size() + 1)   << " elements with std::deque : "
+	<< elapsedTime(this->_startDeq, this->_endDeq) << " us" << std::endl;
+}
 /* ************************************************************************** */
