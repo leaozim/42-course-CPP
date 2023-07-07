@@ -6,7 +6,7 @@
 #include <unistd.h>
 #include <iostream>
 #include <map>
-#include  <stdlib.h>
+#include <stdlib.h>
 #include <ctime>
 
 # define MAGENTA "\033[35m"

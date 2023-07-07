@@ -303,22 +303,19 @@ void		PmergeMe::createListOrderVec()
 	std::vector<int>::iterator	it;
 	std::vector<int>::iterator	insertionPositionIterator;
 	int							valueToInsert;
-	int							insertionPosition;
-	int							addedCount;
 
 	this->generatPositionsVec();
-	addedCount = 0;
 	for (it = this->_positionsVec.begin(); it < this->_positionsVec.end(); it++)
 	{
 		valueToInsert = this->_pendVec.at(*it - 1);
-		insertionPosition = *it + addedCount;
-		insertionPositionIterator = std::lower_bound(this->_mainChainVec.begin(), this->_mainChainVec.begin() + insertionPosition, valueToInsert);
+		insertionPositionIterator = 
+		std::lower_bound(this->_mainChainVec.begin(), this->_mainChainVec.end() , valueToInsert);
 		this->_mainChainVec.insert(insertionPositionIterator, valueToInsert);
-		addedCount++;
 	}
 	if (_hasStragglerVec)
 	{
-		insertionPositionIterator = std::lower_bound(this->_mainChainVec.begin(), this->_mainChainVec.end(), _stragglerVec);
+		insertionPositionIterator = 
+		std::lower_bound(this->_mainChainVec.begin(), this->_mainChainVec.end(), _stragglerVec);
 		this->_mainChainVec.insert(insertionPositionIterator, _stragglerVec);
 	}
 }
@@ -336,7 +333,6 @@ void		PmergeMe::createMainChainAndPendVec()
 		i++;
 	}
 }
-
 
 void		PmergeMe::mergeVec(std::vector<std::pair<int, int> >& pairs, int begin, int mid, int end)
 {
@@ -520,4 +516,5 @@ void	PmergeMe::printTimeToProcess(void)
 	<< (this->_inputSequenceVec.size() + 1)   << " elements with std::vector : "
 	<< (float)timeDeq * 1000 / CLOCKS_PER_SEC << " us" << std::endl;
 }
+
 /* ************************************************************************** */

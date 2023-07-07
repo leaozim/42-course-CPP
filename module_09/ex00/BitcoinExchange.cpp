@@ -106,7 +106,7 @@ bool	BitcoinExchange::isValidChar( std::string tmp, std::string c )
 
 bool BitcoinExchange::isValidValue( const std::string& line )
 {
-	std::string valueStr;
+	std::string	valueStr;
 	
 	valueStr = line.substr(13, line.size() - _date.size());
 	_value = atof(valueStr.c_str());
@@ -201,7 +201,6 @@ void	BitcoinExchange::getInputFile( std::string file )
 					  << std::endl;
 		}
 	}
-
 }
 
 void BitcoinExchange::getBitcoinPriceOverTime( void ) 

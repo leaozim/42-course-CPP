@@ -1,6 +1,13 @@
 NAME	=	RPN
 
-SRCS	=	$(shell ls ./ | grep .cpp$)
+MAIN 	:=	main.cpp
+
+# RUN mainTest: make TEST=1
+ifdef TEST
+	MAIN := mainTest.cpp
+endif
+
+SRCS	:=	$(MAIN) RPN.cpp
 
 OBJ_DIR	=	obj
 OBJS	=	$(SRCS:%.cpp=$(OBJ_DIR)/%.o)

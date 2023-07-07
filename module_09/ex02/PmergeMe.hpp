@@ -3,11 +3,8 @@
 
 # include <iostream>
 #include <cstring>
-#include <list>
 #include <deque>
 #include <vector>
-
-#include <cstdlib>
 #include <algorithm>
 #include <sys/time.h>
 #include <iomanip>
@@ -29,30 +26,29 @@ class PmergeMe
 
 	public:
 
-		PmergeMe();
+		PmergeMe( void );
 		PmergeMe( PmergeMe const & src );
-		~PmergeMe();
+		~PmergeMe( void );
 
 		PmergeMe &		operator=( PmergeMe const & rhs );
 
 		int				fjmi_sort( int argc, char **input );
 		bool			checkArguments( int argc, char **input );
 		void			printUnsorted(char **argv);
-		void			printSorted(void);
-		long int		elapsedTime(struct timeval start, struct timeval end);
+		void			printSorted( void );
 		bool 			isValidInput( char** input );
 		void			printTimeToProcess(void);
 
 		void			fillDeque( int argc, char **input );
 		void			inputSequenceIsOdd( void );
-		void 			insertToMainChain();
-		void			createMainChainAndPend();
-		void			generatPositions();
+		void 			insertToMainChain( void );
+		void			createMainChainAndPend( void );
+		void			generatPositions( void );
 		int				jacobsthal(int n);
-		void 			generateJacobInsertionSequence();
-		void			sortPairs();
-		void			createListOrder();
-		void			createPairs();
+		void 			generateJacobInsertionSequence( void );
+		void			sortPairs( void );
+		void			createListOrder( void );
+		void			createPairs( void );
 		void			mergeSort(int begin, int end);
 		void			merge( std::deque<std::pair<int, int> >& pairs, int begin, int mid, int end );
 		void			sortDeque( int argc, char **input );
@@ -60,17 +56,16 @@ class PmergeMe
 		void			fillVector( int argc, char **input );
 		void			inputSequenceIsOddVec( void );
 		void 			insertToMainChainVec( void );
-		void			createMainChainAndPendVec();
-		void			generatPositionsVec();
+		void			createMainChainAndPendVec( void );
+		void			generatPositionsVec( void );
 		int				jacobsthalVec(int n);
-		void 			generateJacobInsertionSequenceVec();
-		void			sortPairsVec();
-		void			createListOrderVec();
-		void			createPairsVec();
+		void 			generateJacobInsertionSequenceVec( void );
+		void			sortPairsVec( void );
+		void			createListOrderVec( void );
+		void			createPairsVec( void );
 		void			mergeSortVec(int begin, int end);
 		void			mergeVec( std::vector<std::pair<int, int> >& pairs, int begin, int mid, int end );
 		void			sortVec( int argc, char **input );
-		void			printSortedVec(void);
 
 	
 	private:

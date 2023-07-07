@@ -28,6 +28,12 @@ $(OBJ_DIR):
 val: all
 	valgrind --leak-check=full --show-leak-kinds=all ./$(NAME) 7 8 27 100 11 46 2 53 01
 
+test: all
+	./$(NAME) 7 8 27 100 11 46 2 53 01
+
+test2: all
+	./$(NAME) `shuf -i 1-100000 -n 3000 | tr "\n" " "`
+
 clean:
 			rm -rf obj
 
