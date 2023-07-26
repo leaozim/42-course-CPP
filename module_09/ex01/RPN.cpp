@@ -70,7 +70,7 @@ bool			RPN::addTokenToStack( std::string strToken )
 	int	token;
 
 	token = std::atof(strToken.c_str());
-	if (token > 10 || token < 0) 
+	if (token > 9 || token < 0) 
 		return (false);
 	_stack.push(token);
 	return (true);
@@ -143,10 +143,6 @@ int			RPN::invertedPolish( int argc, char **input )
 		return (1);
 	return (0);
 }
-
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
 
 
 /* ************************************************************************** */

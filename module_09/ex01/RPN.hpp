@@ -17,7 +17,7 @@
 # define CYAN "\001\e[0;36m\002"
 # define RES "\x1b[0m"
 # define ERROR_ARGC RED "Error: invalid number of arguments!" RES
-# define BAD_INPUT RED "Error" RES
+# define BAD_INPUT RED "Error: they are not number arguments or there is no space between them!" RES
 
 
 class RPN
